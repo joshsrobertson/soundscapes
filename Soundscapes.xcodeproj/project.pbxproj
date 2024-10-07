@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		8290F1DE2CB44C6700EAA520 /* Calm Chime.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8290F1DD2CB44C6700EAA520 /* Calm Chime.mp3 */; };
-		8290F1E02CB45DAA00EAA520 /* Nature.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8290F1DF2CB45DAA00EAA520 /* Nature.jpg */; };
-		8290F20B2CB45F5D00EAA520 /* Nature.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8290F20A2CB45F5D00EAA520 /* Nature.jpg */; };
 		8290F20F2CB46DB400EAA520 /* Xochimilco.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8290F20E2CB46DB400EAA520 /* Xochimilco.mp3 */; };
 		8290F2112CB46E5900EAA520 /* Xochimilco.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8290F2102CB46E5900EAA520 /* Xochimilco.jpg */; };
 		8290F2132CB4729200EAA520 /* Electronic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8290F2122CB4729100EAA520 /* Electronic.jpg */; };
 		8290F2152CB475D700EAA520 /* SoundscapeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290F2142CB475D700EAA520 /* SoundscapeSelectionView.swift */; };
 		8290F2172CB47EBA00EAA520 /* TimerSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290F2162CB47EBA00EAA520 /* TimerSelectionView.swift */; };
 		8290F2192CB47F1400EAA520 /* BreathingPatterSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290F2182CB47F1400EAA520 /* BreathingPatterSelectionView.swift */; };
+		8290F21F2CB4B15C00EAA520 /* OceanWaves.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8290F21E2CB4B15B00EAA520 /* OceanWaves.mp3 */; };
+		8290F2232CB4B31B00EAA520 /* OceanWaves.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8290F2222CB4B31B00EAA520 /* OceanWaves.jpg */; };
 		82FB42592CB076C60042CE98 /* SoundscapesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42582CB076C60042CE98 /* SoundscapesApp.swift */; };
 		82FB425B2CB076C60042CE98 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB425A2CB076C60042CE98 /* HomeView.swift */; };
 		82FB425D2CB076C80042CE98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82FB425C2CB076C80042CE98 /* Assets.xcassets */; };
@@ -55,14 +55,14 @@
 
 /* Begin PBXFileReference section */
 		8290F1DD2CB44C6700EAA520 /* Calm Chime.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Calm Chime.mp3"; sourceTree = "<group>"; };
-		8290F1DF2CB45DAA00EAA520 /* Nature.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Nature.jpg; sourceTree = "<group>"; };
-		8290F20A2CB45F5D00EAA520 /* Nature.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Nature.jpg; sourceTree = "<group>"; };
 		8290F20E2CB46DB400EAA520 /* Xochimilco.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Xochimilco.mp3; sourceTree = "<group>"; };
 		8290F2102CB46E5900EAA520 /* Xochimilco.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Xochimilco.jpg; sourceTree = "<group>"; };
 		8290F2122CB4729100EAA520 /* Electronic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Electronic.jpg; sourceTree = "<group>"; };
 		8290F2142CB475D700EAA520 /* SoundscapeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapeSelectionView.swift; sourceTree = "<group>"; };
 		8290F2162CB47EBA00EAA520 /* TimerSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSelectionView.swift; sourceTree = "<group>"; };
 		8290F2182CB47F1400EAA520 /* BreathingPatterSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingPatterSelectionView.swift; sourceTree = "<group>"; };
+		8290F21E2CB4B15B00EAA520 /* OceanWaves.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = OceanWaves.mp3; sourceTree = "<group>"; };
+		8290F2222CB4B31B00EAA520 /* OceanWaves.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = OceanWaves.jpg; sourceTree = "<group>"; };
 		82FB42552CB076C60042CE98 /* Soundscapes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soundscapes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FB42582CB076C60042CE98 /* SoundscapesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapesApp.swift; sourceTree = "<group>"; };
 		82FB425A2CB076C60042CE98 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -139,9 +139,9 @@
 				82FB425A2CB076C60042CE98 /* HomeView.swift */,
 				8290F2142CB475D700EAA520 /* SoundscapeSelectionView.swift */,
 				8290F1DD2CB44C6700EAA520 /* Calm Chime.mp3 */,
+				8290F21E2CB4B15B00EAA520 /* OceanWaves.mp3 */,
 				82FB428C2CB080B40042CE98 /* Nature.wav */,
-				8290F1DF2CB45DAA00EAA520 /* Nature.jpg */,
-				8290F20A2CB45F5D00EAA520 /* Nature.jpg */,
+				8290F2222CB4B31B00EAA520 /* OceanWaves.jpg */,
 				8290F2102CB46E5900EAA520 /* Xochimilco.jpg */,
 				8290F2122CB4729100EAA520 /* Electronic.jpg */,
 				82FB42942CB081450042CE98 /* Electronic.wav */,
@@ -314,16 +314,16 @@
 				8290F20F2CB46DB400EAA520 /* Xochimilco.mp3 in Resources */,
 				82FB428F2CB080B40042CE98 /* FF_SH_environment_binaural_stereo_crickets.wav in Resources */,
 				82FB42972CB081450042CE98 /* FF_SH_synth_chord_drone_432_hz_noisey_evolving_lfo_flutter_Eb.wav in Resources */,
-				8290F20B2CB45F5D00EAA520 /* Nature.jpg in Resources */,
 				82FB42962CB081450042CE98 /* Electronic.wav in Resources */,
 				82FB42922CB080B40042CE98 /* TRFDC_Raw_Nature_02_Babbling_Brook.wav in Resources */,
+				8290F21F2CB4B15C00EAA520 /* OceanWaves.mp3 in Resources */,
 				8290F1DE2CB44C6700EAA520 /* Calm Chime.mp3 in Resources */,
 				82FB429A2CB091D00042CE98 /* IntroVideo.mov in Resources */,
 				82FB42912CB080B40042CE98 /* FF_SH_environment_binaural_forested_activity.wav in Resources */,
 				82FB425D2CB076C80042CE98 /* Assets.xcassets in Resources */,
+				8290F2232CB4B31B00EAA520 /* OceanWaves.jpg in Resources */,
 				8290F2132CB4729200EAA520 /* Electronic.jpg in Resources */,
 				8290F2112CB46E5900EAA520 /* Xochimilco.jpg in Resources */,
-				8290F1E02CB45DAA00EAA520 /* Nature.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
