@@ -1,0 +1,681 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		82FB42592CB076C60042CE98 /* SoundscapesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42582CB076C60042CE98 /* SoundscapesApp.swift */; };
+		82FB425B2CB076C60042CE98 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB425A2CB076C60042CE98 /* HomeView.swift */; };
+		82FB425D2CB076C80042CE98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82FB425C2CB076C80042CE98 /* Assets.xcassets */; };
+		82FB42612CB076C80042CE98 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82FB42602CB076C80042CE98 /* Preview Assets.xcassets */; };
+		82FB426B2CB076C80042CE98 /* SoundscapesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB426A2CB076C80042CE98 /* SoundscapesTests.swift */; };
+		82FB42752CB076C80042CE98 /* SoundscapesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42742CB076C80042CE98 /* SoundscapesUITests.swift */; };
+		82FB42772CB076C80042CE98 /* SoundscapesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42762CB076C80042CE98 /* SoundscapesUITestsLaunchTests.swift */; };
+		82FB42842CB079500042CE98 /* SoundscapeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42832CB079500042CE98 /* SoundscapeSelectionView.swift */; };
+		82FB42862CB079970042CE98 /* SoundscapeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42852CB079970042CE98 /* SoundscapeDetailView.swift */; };
+		82FB42882CB079CB0042CE98 /* BreathingPatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42872CB079CB0042CE98 /* BreathingPatternView.swift */; };
+		82FB428A2CB07A040042CE98 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42892CB07A040042CE98 /* TimerViewModel.swift */; };
+		82FB428F2CB080B40042CE98 /* FF_SH_environment_binaural_stereo_crickets.wav in Resources */ = {isa = PBXBuildFile; fileRef = 82FB428B2CB080B40042CE98 /* FF_SH_environment_binaural_stereo_crickets.wav */; };
+		82FB42902CB080B40042CE98 /* Nature.wav in Resources */ = {isa = PBXBuildFile; fileRef = 82FB428C2CB080B40042CE98 /* Nature.wav */; };
+		82FB42912CB080B40042CE98 /* FF_SH_environment_binaural_forested_activity.wav in Resources */ = {isa = PBXBuildFile; fileRef = 82FB428D2CB080B40042CE98 /* FF_SH_environment_binaural_forested_activity.wav */; };
+		82FB42922CB080B40042CE98 /* TRFDC_Raw_Nature_02_Babbling_Brook.wav in Resources */ = {isa = PBXBuildFile; fileRef = 82FB428E2CB080B40042CE98 /* TRFDC_Raw_Nature_02_Babbling_Brook.wav */; };
+		82FB42962CB081450042CE98 /* Electronic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 82FB42942CB081450042CE98 /* Electronic.wav */; };
+		82FB42972CB081450042CE98 /* FF_SH_synth_chord_drone_432_hz_noisey_evolving_lfo_flutter_Eb.wav in Resources */ = {isa = PBXBuildFile; fileRef = 82FB42952CB081450042CE98 /* FF_SH_synth_chord_drone_432_hz_noisey_evolving_lfo_flutter_Eb.wav */; };
+		82FB429A2CB091D00042CE98 /* Flight.mov in Resources */ = {isa = PBXBuildFile; fileRef = 82FB42992CB091D00042CE98 /* Flight.mov */; };
+		82FB429C2CB093D10042CE98 /* LoopingVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB429B2CB093D10042CE98 /* LoopingVideoPlayer.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		82FB42672CB076C80042CE98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 82FB424D2CB076C60042CE98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 82FB42542CB076C60042CE98;
+			remoteInfo = Soundscapes;
+		};
+		82FB42712CB076C80042CE98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 82FB424D2CB076C60042CE98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 82FB42542CB076C60042CE98;
+			remoteInfo = Soundscapes;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		82FB42552CB076C60042CE98 /* Soundscapes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soundscapes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		82FB42582CB076C60042CE98 /* SoundscapesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapesApp.swift; sourceTree = "<group>"; };
+		82FB425A2CB076C60042CE98 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		82FB425C2CB076C80042CE98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		82FB425E2CB076C80042CE98 /* Soundscapes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Soundscapes.entitlements; sourceTree = "<group>"; };
+		82FB42602CB076C80042CE98 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		82FB42662CB076C80042CE98 /* SoundscapesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundscapesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		82FB426A2CB076C80042CE98 /* SoundscapesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapesTests.swift; sourceTree = "<group>"; };
+		82FB42702CB076C80042CE98 /* SoundscapesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundscapesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		82FB42742CB076C80042CE98 /* SoundscapesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapesUITests.swift; sourceTree = "<group>"; };
+		82FB42762CB076C80042CE98 /* SoundscapesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		82FB42832CB079500042CE98 /* SoundscapeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapeSelectionView.swift; sourceTree = "<group>"; };
+		82FB42852CB079970042CE98 /* SoundscapeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapeDetailView.swift; sourceTree = "<group>"; };
+		82FB42872CB079CB0042CE98 /* BreathingPatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingPatternView.swift; sourceTree = "<group>"; };
+		82FB42892CB07A040042CE98 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
+		82FB428B2CB080B40042CE98 /* FF_SH_environment_binaural_stereo_crickets.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = FF_SH_environment_binaural_stereo_crickets.wav; sourceTree = "<group>"; };
+		82FB428C2CB080B40042CE98 /* Nature.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Nature.wav; sourceTree = "<group>"; };
+		82FB428D2CB080B40042CE98 /* FF_SH_environment_binaural_forested_activity.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = FF_SH_environment_binaural_forested_activity.wav; sourceTree = "<group>"; };
+		82FB428E2CB080B40042CE98 /* TRFDC_Raw_Nature_02_Babbling_Brook.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TRFDC_Raw_Nature_02_Babbling_Brook.wav; sourceTree = "<group>"; };
+		82FB42942CB081450042CE98 /* Electronic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Electronic.wav; sourceTree = "<group>"; };
+		82FB42952CB081450042CE98 /* FF_SH_synth_chord_drone_432_hz_noisey_evolving_lfo_flutter_Eb.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = FF_SH_synth_chord_drone_432_hz_noisey_evolving_lfo_flutter_Eb.wav; sourceTree = "<group>"; };
+		82FB42992CB091D00042CE98 /* Flight.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Flight.mov; sourceTree = "<group>"; };
+		82FB429B2CB093D10042CE98 /* LoopingVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopingVideoPlayer.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		82FB42522CB076C60042CE98 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82FB42632CB076C80042CE98 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82FB426D2CB076C80042CE98 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		82FB424C2CB076C60042CE98 = {
+			isa = PBXGroup;
+			children = (
+				82FB42572CB076C60042CE98 /* Soundscapes */,
+				82FB42692CB076C80042CE98 /* SoundscapesTests */,
+				82FB42732CB076C80042CE98 /* SoundscapesUITests */,
+				82FB42562CB076C60042CE98 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		82FB42562CB076C60042CE98 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				82FB42552CB076C60042CE98 /* Soundscapes.app */,
+				82FB42662CB076C80042CE98 /* SoundscapesTests.xctest */,
+				82FB42702CB076C80042CE98 /* SoundscapesUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		82FB42572CB076C60042CE98 /* Soundscapes */ = {
+			isa = PBXGroup;
+			children = (
+				82FB42582CB076C60042CE98 /* SoundscapesApp.swift */,
+				82FB425A2CB076C60042CE98 /* HomeView.swift */,
+				82FB428C2CB080B40042CE98 /* Nature.wav */,
+				82FB42942CB081450042CE98 /* Electronic.wav */,
+				82FB42992CB091D00042CE98 /* Flight.mov */,
+				82FB42932CB080C50042CE98 /* Nature */,
+				82FB425C2CB076C80042CE98 /* Assets.xcassets */,
+				82FB42982CB0814D0042CE98 /* Electronic */,
+				82FB425E2CB076C80042CE98 /* Soundscapes.entitlements */,
+				82FB425F2CB076C80042CE98 /* Preview Content */,
+				82FB42832CB079500042CE98 /* SoundscapeSelectionView.swift */,
+				82FB42852CB079970042CE98 /* SoundscapeDetailView.swift */,
+				82FB429B2CB093D10042CE98 /* LoopingVideoPlayer.swift */,
+				82FB42872CB079CB0042CE98 /* BreathingPatternView.swift */,
+				82FB42892CB07A040042CE98 /* TimerViewModel.swift */,
+			);
+			path = Soundscapes;
+			sourceTree = "<group>";
+		};
+		82FB425F2CB076C80042CE98 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				82FB42602CB076C80042CE98 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		82FB42692CB076C80042CE98 /* SoundscapesTests */ = {
+			isa = PBXGroup;
+			children = (
+				82FB426A2CB076C80042CE98 /* SoundscapesTests.swift */,
+			);
+			path = SoundscapesTests;
+			sourceTree = "<group>";
+		};
+		82FB42732CB076C80042CE98 /* SoundscapesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				82FB42742CB076C80042CE98 /* SoundscapesUITests.swift */,
+				82FB42762CB076C80042CE98 /* SoundscapesUITestsLaunchTests.swift */,
+			);
+			path = SoundscapesUITests;
+			sourceTree = "<group>";
+		};
+		82FB42932CB080C50042CE98 /* Nature */ = {
+			isa = PBXGroup;
+			children = (
+				82FB428D2CB080B40042CE98 /* FF_SH_environment_binaural_forested_activity.wav */,
+				82FB428B2CB080B40042CE98 /* FF_SH_environment_binaural_stereo_crickets.wav */,
+				82FB428E2CB080B40042CE98 /* TRFDC_Raw_Nature_02_Babbling_Brook.wav */,
+			);
+			path = Nature;
+			sourceTree = "<group>";
+		};
+		82FB42982CB0814D0042CE98 /* Electronic */ = {
+			isa = PBXGroup;
+			children = (
+				82FB42952CB081450042CE98 /* FF_SH_synth_chord_drone_432_hz_noisey_evolving_lfo_flutter_Eb.wav */,
+			);
+			path = Electronic;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		82FB42542CB076C60042CE98 /* Soundscapes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 82FB427A2CB076C80042CE98 /* Build configuration list for PBXNativeTarget "Soundscapes" */;
+			buildPhases = (
+				82FB42512CB076C60042CE98 /* Sources */,
+				82FB42522CB076C60042CE98 /* Frameworks */,
+				82FB42532CB076C60042CE98 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Soundscapes;
+			productName = Soundscapes;
+			productReference = 82FB42552CB076C60042CE98 /* Soundscapes.app */;
+			productType = "com.apple.product-type.application";
+		};
+		82FB42652CB076C80042CE98 /* SoundscapesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 82FB427D2CB076C80042CE98 /* Build configuration list for PBXNativeTarget "SoundscapesTests" */;
+			buildPhases = (
+				82FB42622CB076C80042CE98 /* Sources */,
+				82FB42632CB076C80042CE98 /* Frameworks */,
+				82FB42642CB076C80042CE98 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				82FB42682CB076C80042CE98 /* PBXTargetDependency */,
+			);
+			name = SoundscapesTests;
+			productName = SoundscapesTests;
+			productReference = 82FB42662CB076C80042CE98 /* SoundscapesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		82FB426F2CB076C80042CE98 /* SoundscapesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 82FB42802CB076C80042CE98 /* Build configuration list for PBXNativeTarget "SoundscapesUITests" */;
+			buildPhases = (
+				82FB426C2CB076C80042CE98 /* Sources */,
+				82FB426D2CB076C80042CE98 /* Frameworks */,
+				82FB426E2CB076C80042CE98 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				82FB42722CB076C80042CE98 /* PBXTargetDependency */,
+			);
+			name = SoundscapesUITests;
+			productName = SoundscapesUITests;
+			productReference = 82FB42702CB076C80042CE98 /* SoundscapesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		82FB424D2CB076C60042CE98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					82FB42542CB076C60042CE98 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					82FB42652CB076C80042CE98 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 82FB42542CB076C60042CE98;
+					};
+					82FB426F2CB076C80042CE98 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 82FB42542CB076C60042CE98;
+					};
+				};
+			};
+			buildConfigurationList = 82FB42502CB076C60042CE98 /* Build configuration list for PBXProject "Soundscapes" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 82FB424C2CB076C60042CE98;
+			productRefGroup = 82FB42562CB076C60042CE98 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				82FB42542CB076C60042CE98 /* Soundscapes */,
+				82FB42652CB076C80042CE98 /* SoundscapesTests */,
+				82FB426F2CB076C80042CE98 /* SoundscapesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		82FB42532CB076C60042CE98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82FB42612CB076C80042CE98 /* Preview Assets.xcassets in Resources */,
+				82FB42902CB080B40042CE98 /* Nature.wav in Resources */,
+				82FB428F2CB080B40042CE98 /* FF_SH_environment_binaural_stereo_crickets.wav in Resources */,
+				82FB42972CB081450042CE98 /* FF_SH_synth_chord_drone_432_hz_noisey_evolving_lfo_flutter_Eb.wav in Resources */,
+				82FB42962CB081450042CE98 /* Electronic.wav in Resources */,
+				82FB42922CB080B40042CE98 /* TRFDC_Raw_Nature_02_Babbling_Brook.wav in Resources */,
+				82FB429A2CB091D00042CE98 /* Flight.mov in Resources */,
+				82FB42912CB080B40042CE98 /* FF_SH_environment_binaural_forested_activity.wav in Resources */,
+				82FB425D2CB076C80042CE98 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82FB42642CB076C80042CE98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82FB426E2CB076C80042CE98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		82FB42512CB076C60042CE98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82FB42862CB079970042CE98 /* SoundscapeDetailView.swift in Sources */,
+				82FB425B2CB076C60042CE98 /* HomeView.swift in Sources */,
+				82FB42842CB079500042CE98 /* SoundscapeSelectionView.swift in Sources */,
+				82FB42592CB076C60042CE98 /* SoundscapesApp.swift in Sources */,
+				82FB428A2CB07A040042CE98 /* TimerViewModel.swift in Sources */,
+				82FB429C2CB093D10042CE98 /* LoopingVideoPlayer.swift in Sources */,
+				82FB42882CB079CB0042CE98 /* BreathingPatternView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82FB42622CB076C80042CE98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82FB426B2CB076C80042CE98 /* SoundscapesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82FB426C2CB076C80042CE98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82FB42752CB076C80042CE98 /* SoundscapesUITests.swift in Sources */,
+				82FB42772CB076C80042CE98 /* SoundscapesUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		82FB42682CB076C80042CE98 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 82FB42542CB076C60042CE98 /* Soundscapes */;
+			targetProxy = 82FB42672CB076C80042CE98 /* PBXContainerItemProxy */;
+		};
+		82FB42722CB076C80042CE98 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 82FB42542CB076C60042CE98 /* Soundscapes */;
+			targetProxy = 82FB42712CB076C80042CE98 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		82FB42782CB076C80042CE98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		82FB42792CB076C80042CE98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		82FB427B2CB076C80042CE98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Soundscapes/Soundscapes.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Soundscapes/Preview Content\"";
+				DEVELOPMENT_TEAM = 824KXL2FBD;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Rosco.Soundscapes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		82FB427C2CB076C80042CE98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Soundscapes/Soundscapes.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Soundscapes/Preview Content\"";
+				DEVELOPMENT_TEAM = 824KXL2FBD;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Rosco.Soundscapes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		82FB427E2CB076C80042CE98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 824KXL2FBD;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Rosco.SoundscapesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Soundscapes.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Soundscapes";
+			};
+			name = Debug;
+		};
+		82FB427F2CB076C80042CE98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 824KXL2FBD;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Rosco.SoundscapesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Soundscapes.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Soundscapes";
+			};
+			name = Release;
+		};
+		82FB42812CB076C80042CE98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 824KXL2FBD;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Rosco.SoundscapesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Soundscapes;
+			};
+			name = Debug;
+		};
+		82FB42822CB076C80042CE98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 824KXL2FBD;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Rosco.SoundscapesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Soundscapes;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		82FB42502CB076C60042CE98 /* Build configuration list for PBXProject "Soundscapes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82FB42782CB076C80042CE98 /* Debug */,
+				82FB42792CB076C80042CE98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		82FB427A2CB076C80042CE98 /* Build configuration list for PBXNativeTarget "Soundscapes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82FB427B2CB076C80042CE98 /* Debug */,
+				82FB427C2CB076C80042CE98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		82FB427D2CB076C80042CE98 /* Build configuration list for PBXNativeTarget "SoundscapesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82FB427E2CB076C80042CE98 /* Debug */,
+				82FB427F2CB076C80042CE98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		82FB42802CB076C80042CE98 /* Build configuration list for PBXNativeTarget "SoundscapesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82FB42812CB076C80042CE98 /* Debug */,
+				82FB42822CB076C80042CE98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 82FB424D2CB076C60042CE98 /* Project object */;
+}
