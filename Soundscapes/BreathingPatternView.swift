@@ -6,15 +6,12 @@ struct BreathingPatternView: View {
     @Binding var remainingTime: Int // This binds to the timer in SoundscapeDetailView
     @State private var breathingPhase: String = "Inhale"
     @State private var circleScale: CGFloat = 0.8 // Set to smaller size initially for Inhale
-    @State private var firstCycleComplete: Bool = false // Track whether the first cycle is complete
-    
-    var onPhaseChange: ((String) -> Void)? // Callback for phase change
+    @State private var cycleStartTime: Int = 0 // Track when the current cycle starts
     
     var body: some View {
         VStack {
-            Text(firstCycleComplete ? "Phase: \(breathingPhase)" : "Follow the circle and sound with your breath and let yourself relax")
-                .font(firstCycleComplete ? .title : .body) // Smaller text for first cycle
-                .multilineTextAlignment(.center)
+            Text("\(breathingPhase)")
+                .font(.title)
                 .padding()
             
             // Breathing circle that grows and shrinks based on phase
@@ -27,51 +24,50 @@ struct BreathingPatternView: View {
             Spacer()
         }
         .onChange(of: remainingTime, perform: { _ in
+            if cycleStartTime == 0 {
+                cycleStartTime = remainingTime // Record the initial time when the breathing starts
+            }
             updateBreathingPhase()
         })
         .onAppear {
-            // Ensure the starting phase is Inhale with the circle in the smaller state
             breathingPhase = "Inhale"
             circleScale = 0.8 // Circle starts small on Inhale
-            onPhaseChange?(breathingPhase) // Trigger overlay playback for initial phase
+            cycleStartTime = remainingTime // Set the start time on view appearance
         }
     }
     
     func updateBreathingPhase() {
-        // Change breathing phase depending on time left and pattern
+        // Adjust the breathing pattern depending on the phase and time elapsed
+        let timeElapsed = cycleStartTime - remainingTime
+        
         switch pattern {
         case "Box Breathing":
             let cycleLength = 16
-            let cyclePosition = remainingTime % cycleLength
+            let phaseTime = timeElapsed % cycleLength
             
-            if cyclePosition == 0 {
-                firstCycleComplete = true // First cycle is complete after one full cycle
-            }
-            
-            if cyclePosition < 4 {
+            if phaseTime < 4 {
                 breathingPhase = "Inhale"
                 circleScale = 1.2 // Circle grows on Inhale
-            } else if cyclePosition < 8 {
+            } else if phaseTime < 8 {
                 breathingPhase = "Hold"
-            } else if cyclePosition < 12 {
+                circleScale = 1.2 // Circle stays the same size during Hold
+            } else if phaseTime < 12 {
                 breathingPhase = "Exhale"
                 circleScale = 0.8 // Circle shrinks on Exhale
             } else {
                 breathingPhase = "Hold"
+                circleScale = 0.8 // Circle stays small during Hold
             }
         case "4-7-8 Breathing":
             let cycleLength = 19
-            let cyclePosition = remainingTime % cycleLength
+            let phaseTime = timeElapsed % cycleLength
             
-            if cyclePosition == 0 {
-                firstCycleComplete = true // First cycle is complete after one full cycle
-            }
-            
-            if cyclePosition < 4 {
+            if phaseTime < 4 {
                 breathingPhase = "Inhale"
                 circleScale = 1.2 // Circle grows on Inhale
-            } else if cyclePosition < 11 {
+            } else if phaseTime < 11 {
                 breathingPhase = "Hold"
+                circleScale = 1.2 // Circle stays the same size during Hold
             } else {
                 breathingPhase = "Exhale"
                 circleScale = 0.8 // Circle shrinks on Exhale
@@ -80,8 +76,5 @@ struct BreathingPatternView: View {
             breathingPhase = "Inhale"
             circleScale = 1.2 // Default size for Inhale
         }
-        
-        // Notify the parent view of phase change
-        onPhaseChange?(breathingPhase)
     }
 }
