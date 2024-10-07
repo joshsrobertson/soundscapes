@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		8290F1DE2CB44C6700EAA520 /* Calm Chime.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8290F1DD2CB44C6700EAA520 /* Calm Chime.mp3 */; };
+		8290F1E02CB45DAA00EAA520 /* Nature.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8290F1DF2CB45DAA00EAA520 /* Nature.jpg */; };
+		8290F20B2CB45F5D00EAA520 /* Nature.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8290F20A2CB45F5D00EAA520 /* Nature.jpg */; };
+		8290F20F2CB46DB400EAA520 /* Xochimilco.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8290F20E2CB46DB400EAA520 /* Xochimilco.mp3 */; };
+		8290F2112CB46E5900EAA520 /* Xochimilco.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8290F2102CB46E5900EAA520 /* Xochimilco.jpg */; };
+		8290F2132CB4729200EAA520 /* Electronic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8290F2122CB4729100EAA520 /* Electronic.jpg */; };
+		8290F2152CB475D700EAA520 /* SoundscapeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290F2142CB475D700EAA520 /* SoundscapeSelectionView.swift */; };
+		8290F2172CB47EBA00EAA520 /* TimerSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290F2162CB47EBA00EAA520 /* TimerSelectionView.swift */; };
+		8290F2192CB47F1400EAA520 /* BreathingPatterSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290F2182CB47F1400EAA520 /* BreathingPatterSelectionView.swift */; };
 		82FB42592CB076C60042CE98 /* SoundscapesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42582CB076C60042CE98 /* SoundscapesApp.swift */; };
 		82FB425B2CB076C60042CE98 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB425A2CB076C60042CE98 /* HomeView.swift */; };
 		82FB425D2CB076C80042CE98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82FB425C2CB076C80042CE98 /* Assets.xcassets */; };
@@ -15,7 +23,6 @@
 		82FB426B2CB076C80042CE98 /* SoundscapesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB426A2CB076C80042CE98 /* SoundscapesTests.swift */; };
 		82FB42752CB076C80042CE98 /* SoundscapesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42742CB076C80042CE98 /* SoundscapesUITests.swift */; };
 		82FB42772CB076C80042CE98 /* SoundscapesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42762CB076C80042CE98 /* SoundscapesUITestsLaunchTests.swift */; };
-		82FB42842CB079500042CE98 /* SoundscapeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42832CB079500042CE98 /* SoundscapeSelectionView.swift */; };
 		82FB42862CB079970042CE98 /* SoundscapeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42852CB079970042CE98 /* SoundscapeDetailView.swift */; };
 		82FB42882CB079CB0042CE98 /* BreathingPatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42872CB079CB0042CE98 /* BreathingPatternView.swift */; };
 		82FB428A2CB07A040042CE98 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42892CB07A040042CE98 /* TimerViewModel.swift */; };
@@ -25,7 +32,7 @@
 		82FB42922CB080B40042CE98 /* TRFDC_Raw_Nature_02_Babbling_Brook.wav in Resources */ = {isa = PBXBuildFile; fileRef = 82FB428E2CB080B40042CE98 /* TRFDC_Raw_Nature_02_Babbling_Brook.wav */; };
 		82FB42962CB081450042CE98 /* Electronic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 82FB42942CB081450042CE98 /* Electronic.wav */; };
 		82FB42972CB081450042CE98 /* FF_SH_synth_chord_drone_432_hz_noisey_evolving_lfo_flutter_Eb.wav in Resources */ = {isa = PBXBuildFile; fileRef = 82FB42952CB081450042CE98 /* FF_SH_synth_chord_drone_432_hz_noisey_evolving_lfo_flutter_Eb.wav */; };
-		82FB429A2CB091D00042CE98 /* Flight.mov in Resources */ = {isa = PBXBuildFile; fileRef = 82FB42992CB091D00042CE98 /* Flight.mov */; };
+		82FB429A2CB091D00042CE98 /* IntroVideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = 82FB42992CB091D00042CE98 /* IntroVideo.mov */; };
 		82FB429C2CB093D10042CE98 /* LoopingVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB429B2CB093D10042CE98 /* LoopingVideoPlayer.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +55,14 @@
 
 /* Begin PBXFileReference section */
 		8290F1DD2CB44C6700EAA520 /* Calm Chime.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Calm Chime.mp3"; sourceTree = "<group>"; };
+		8290F1DF2CB45DAA00EAA520 /* Nature.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Nature.jpg; sourceTree = "<group>"; };
+		8290F20A2CB45F5D00EAA520 /* Nature.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Nature.jpg; sourceTree = "<group>"; };
+		8290F20E2CB46DB400EAA520 /* Xochimilco.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Xochimilco.mp3; sourceTree = "<group>"; };
+		8290F2102CB46E5900EAA520 /* Xochimilco.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Xochimilco.jpg; sourceTree = "<group>"; };
+		8290F2122CB4729100EAA520 /* Electronic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Electronic.jpg; sourceTree = "<group>"; };
+		8290F2142CB475D700EAA520 /* SoundscapeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapeSelectionView.swift; sourceTree = "<group>"; };
+		8290F2162CB47EBA00EAA520 /* TimerSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSelectionView.swift; sourceTree = "<group>"; };
+		8290F2182CB47F1400EAA520 /* BreathingPatterSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingPatterSelectionView.swift; sourceTree = "<group>"; };
 		82FB42552CB076C60042CE98 /* Soundscapes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soundscapes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FB42582CB076C60042CE98 /* SoundscapesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapesApp.swift; sourceTree = "<group>"; };
 		82FB425A2CB076C60042CE98 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -59,7 +74,6 @@
 		82FB42702CB076C80042CE98 /* SoundscapesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundscapesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FB42742CB076C80042CE98 /* SoundscapesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapesUITests.swift; sourceTree = "<group>"; };
 		82FB42762CB076C80042CE98 /* SoundscapesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapesUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		82FB42832CB079500042CE98 /* SoundscapeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapeSelectionView.swift; sourceTree = "<group>"; };
 		82FB42852CB079970042CE98 /* SoundscapeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapeDetailView.swift; sourceTree = "<group>"; };
 		82FB42872CB079CB0042CE98 /* BreathingPatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingPatternView.swift; sourceTree = "<group>"; };
 		82FB42892CB07A040042CE98 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
@@ -69,7 +83,7 @@
 		82FB428E2CB080B40042CE98 /* TRFDC_Raw_Nature_02_Babbling_Brook.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TRFDC_Raw_Nature_02_Babbling_Brook.wav; sourceTree = "<group>"; };
 		82FB42942CB081450042CE98 /* Electronic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Electronic.wav; sourceTree = "<group>"; };
 		82FB42952CB081450042CE98 /* FF_SH_synth_chord_drone_432_hz_noisey_evolving_lfo_flutter_Eb.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = FF_SH_synth_chord_drone_432_hz_noisey_evolving_lfo_flutter_Eb.wav; sourceTree = "<group>"; };
-		82FB42992CB091D00042CE98 /* Flight.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Flight.mov; sourceTree = "<group>"; };
+		82FB42992CB091D00042CE98 /* IntroVideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = IntroVideo.mov; sourceTree = "<group>"; };
 		82FB429B2CB093D10042CE98 /* LoopingVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopingVideoPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,17 +137,24 @@
 			children = (
 				82FB42582CB076C60042CE98 /* SoundscapesApp.swift */,
 				82FB425A2CB076C60042CE98 /* HomeView.swift */,
+				8290F2142CB475D700EAA520 /* SoundscapeSelectionView.swift */,
 				8290F1DD2CB44C6700EAA520 /* Calm Chime.mp3 */,
 				82FB428C2CB080B40042CE98 /* Nature.wav */,
+				8290F1DF2CB45DAA00EAA520 /* Nature.jpg */,
+				8290F20A2CB45F5D00EAA520 /* Nature.jpg */,
+				8290F2102CB46E5900EAA520 /* Xochimilco.jpg */,
+				8290F2122CB4729100EAA520 /* Electronic.jpg */,
 				82FB42942CB081450042CE98 /* Electronic.wav */,
-				82FB42992CB091D00042CE98 /* Flight.mov */,
+				8290F20E2CB46DB400EAA520 /* Xochimilco.mp3 */,
+				82FB42992CB091D00042CE98 /* IntroVideo.mov */,
 				82FB42932CB080C50042CE98 /* Nature */,
 				82FB425C2CB076C80042CE98 /* Assets.xcassets */,
 				82FB42982CB0814D0042CE98 /* Electronic */,
 				82FB425E2CB076C80042CE98 /* Soundscapes.entitlements */,
 				82FB425F2CB076C80042CE98 /* Preview Content */,
-				82FB42832CB079500042CE98 /* SoundscapeSelectionView.swift */,
 				82FB42852CB079970042CE98 /* SoundscapeDetailView.swift */,
+				8290F2162CB47EBA00EAA520 /* TimerSelectionView.swift */,
+				8290F2182CB47F1400EAA520 /* BreathingPatterSelectionView.swift */,
 				82FB429B2CB093D10042CE98 /* LoopingVideoPlayer.swift */,
 				82FB42872CB079CB0042CE98 /* BreathingPatternView.swift */,
 				82FB42892CB07A040042CE98 /* TimerViewModel.swift */,
@@ -290,14 +311,19 @@
 			files = (
 				82FB42612CB076C80042CE98 /* Preview Assets.xcassets in Resources */,
 				82FB42902CB080B40042CE98 /* Nature.wav in Resources */,
+				8290F20F2CB46DB400EAA520 /* Xochimilco.mp3 in Resources */,
 				82FB428F2CB080B40042CE98 /* FF_SH_environment_binaural_stereo_crickets.wav in Resources */,
 				82FB42972CB081450042CE98 /* FF_SH_synth_chord_drone_432_hz_noisey_evolving_lfo_flutter_Eb.wav in Resources */,
+				8290F20B2CB45F5D00EAA520 /* Nature.jpg in Resources */,
 				82FB42962CB081450042CE98 /* Electronic.wav in Resources */,
 				82FB42922CB080B40042CE98 /* TRFDC_Raw_Nature_02_Babbling_Brook.wav in Resources */,
 				8290F1DE2CB44C6700EAA520 /* Calm Chime.mp3 in Resources */,
-				82FB429A2CB091D00042CE98 /* Flight.mov in Resources */,
+				82FB429A2CB091D00042CE98 /* IntroVideo.mov in Resources */,
 				82FB42912CB080B40042CE98 /* FF_SH_environment_binaural_forested_activity.wav in Resources */,
 				82FB425D2CB076C80042CE98 /* Assets.xcassets in Resources */,
+				8290F2132CB4729200EAA520 /* Electronic.jpg in Resources */,
+				8290F2112CB46E5900EAA520 /* Xochimilco.jpg in Resources */,
+				8290F1E02CB45DAA00EAA520 /* Nature.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,11 +348,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8290F2192CB47F1400EAA520 /* BreathingPatterSelectionView.swift in Sources */,
 				82FB42862CB079970042CE98 /* SoundscapeDetailView.swift in Sources */,
 				82FB425B2CB076C60042CE98 /* HomeView.swift in Sources */,
-				82FB42842CB079500042CE98 /* SoundscapeSelectionView.swift in Sources */,
 				82FB42592CB076C60042CE98 /* SoundscapesApp.swift in Sources */,
+				8290F2152CB475D700EAA520 /* SoundscapeSelectionView.swift in Sources */,
 				82FB428A2CB07A040042CE98 /* TimerViewModel.swift in Sources */,
+				8290F2172CB47EBA00EAA520 /* TimerSelectionView.swift in Sources */,
 				82FB429C2CB093D10042CE98 /* LoopingVideoPlayer.swift in Sources */,
 				82FB42882CB079CB0042CE98 /* BreathingPatternView.swift in Sources */,
 			);
