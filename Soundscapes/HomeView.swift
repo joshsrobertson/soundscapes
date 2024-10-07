@@ -2,8 +2,9 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var selectedSoundscape: String = "Nature"
-    @State private var selectedBreathingOverlay: String? = "None"
-
+    @State private var selectedBreathingPattern: String = "None" // Default to no breathing pattern
+    @State private var selectedBreathingOverlay: String = "None" // Default to no breathing sound overlay
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
@@ -23,15 +24,28 @@ struct HomeView: View {
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
 
-                // Breathing Overlay Selection
-                Text("Select Breathing Overlay:")
+                // Breathing Pattern Selection
+                Text("Select a Breathing Pattern:")
                     .font(.headline)
                     .padding(.top)
-
-                Picker("Breathing Overlay", selection: $selectedBreathingOverlay) {
+                
+                Picker("Breathing Pattern", selection: $selectedBreathingPattern) {
                     Text("None").tag("None")
-                    Text("Calm Chime").tag("CalmChime") // Ensure you have CalmChime.mp3
-                    Text("Ocean Waves").tag("OceanWaves") // Ensure you have OceanWaves.mp3
+                    Text("Box Breathing").tag("Box Breathing")
+                    Text("4-7-8 Breathing").tag("4-7-8 Breathing")
+                }
+                .pickerStyle(MenuPickerStyle())
+                .padding()
+
+                // Breathing Sound (Overlay) Selection
+                Text("Select a Breathing Sound:")
+                    .font(.headline)
+                    .padding(.top)
+                
+                Picker("Breathing Sound", selection: $selectedBreathingOverlay) {
+                    Text("None").tag("None")
+                    Text("Calm Chime").tag("Calm Chime") // Ensure you have CalmChime.mp3
+                    Text("Ocean Waves").tag("Ocean Waves") // Ensure you have OceanWaves.mp3
                 }
                 .pickerStyle(MenuPickerStyle())
                 .padding()
@@ -39,6 +53,7 @@ struct HomeView: View {
                 // Navigate to Soundscape Detail View
                 NavigationLink(destination: SoundscapeDetailView(
                                 selectedSoundscape: selectedSoundscape,
+                                selectedBreathingPattern: selectedBreathingPattern, // Use breathing pattern here
                                 selectedBreathingOverlay: selectedBreathingOverlay)) {
                     Text("Play Soundscape")
                         .font(.title2)

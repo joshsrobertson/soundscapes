@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8290F1DE2CB44C6700EAA520 /* Calm Chime.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8290F1DD2CB44C6700EAA520 /* Calm Chime.mp3 */; };
 		82FB42592CB076C60042CE98 /* SoundscapesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42582CB076C60042CE98 /* SoundscapesApp.swift */; };
 		82FB425B2CB076C60042CE98 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB425A2CB076C60042CE98 /* HomeView.swift */; };
 		82FB425D2CB076C80042CE98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82FB425C2CB076C80042CE98 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8290F1DD2CB44C6700EAA520 /* Calm Chime.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Calm Chime.mp3"; sourceTree = "<group>"; };
 		82FB42552CB076C60042CE98 /* Soundscapes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soundscapes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FB42582CB076C60042CE98 /* SoundscapesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapesApp.swift; sourceTree = "<group>"; };
 		82FB425A2CB076C60042CE98 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			children = (
 				82FB42582CB076C60042CE98 /* SoundscapesApp.swift */,
 				82FB425A2CB076C60042CE98 /* HomeView.swift */,
+				8290F1DD2CB44C6700EAA520 /* Calm Chime.mp3 */,
 				82FB428C2CB080B40042CE98 /* Nature.wav */,
 				82FB42942CB081450042CE98 /* Electronic.wav */,
 				82FB42992CB091D00042CE98 /* Flight.mov */,
@@ -291,6 +294,7 @@
 				82FB42972CB081450042CE98 /* FF_SH_synth_chord_drone_432_hz_noisey_evolving_lfo_flutter_Eb.wav in Resources */,
 				82FB42962CB081450042CE98 /* Electronic.wav in Resources */,
 				82FB42922CB080B40042CE98 /* TRFDC_Raw_Nature_02_Babbling_Brook.wav in Resources */,
+				8290F1DE2CB44C6700EAA520 /* Calm Chime.mp3 in Resources */,
 				82FB429A2CB091D00042CE98 /* Flight.mov in Resources */,
 				82FB42912CB080B40042CE98 /* FF_SH_environment_binaural_forested_activity.wav in Resources */,
 				82FB425D2CB076C80042CE98 /* Assets.xcassets in Resources */,

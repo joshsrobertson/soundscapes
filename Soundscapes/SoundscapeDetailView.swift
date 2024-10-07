@@ -1,54 +1,49 @@
 import SwiftUI
 import AVFoundation
-import AVKit
+import Combine
 
 struct SoundscapeDetailView: View {
     // Audio Engine and Player Nodes
     @State private var audioEngine = AVAudioEngine()
     @State private var soundscapePlayer = AVAudioPlayerNode()
-    @State private var breathingPlayer = AVAudioPlayerNode()
+    @State private var breathingOverlayPlayer = AVAudioPlayerNode() // For the breathing overlay
     
     // Timer Variables
     @State private var timer: Timer?
     @State private var remainingTime: Int = 60 // Default to 60 seconds
     @State private var isPlaying: Bool = false
-    @State private var selectedTime: Double = 1 // User-selected time in minutes (default to 1 minute)
     
-    // Selected Soundscape and Breathing Overlay
+    // Selected Timer Duration (in minutes)
+    @State private var selectedTime: Int = 1 // Default to 1 minute
+    let timerOptions = [1, 5, 10, 20, 60] // Options for timer in minutes
+    
+    // Selected Soundscape, Breathing Pattern, and Overlay
     var selectedSoundscape: String
+    var selectedBreathingPattern: String
     var selectedBreathingOverlay: String?
+    
+    // Breathing pattern support
+    @State private var showBreathingPattern = false // Toggle to show breathing pattern
     
     var body: some View {
         ZStack {
-            // Looping Video in the Background
-            LoopingVideoPlayer(videoName: "Flight", videoType: "mov")
-                .edgesIgnoringSafeArea(.all)
-                .opacity(0.2) // Reduced opacity for clearer video. Adjust as needed (0.0 to 1.0)
-            
-            // Semi-transparent overlay to enhance text readability without obscuring the video
-            Color.black.opacity(0.3)
-                .edgesIgnoringSafeArea(.all)
-            
-            VStack(spacing: 30) {
-                Text("Playing: \(selectedSoundscape)")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white) // Ensure text is readable over the video
-                    .padding()
-                
-                // Timer Slider
+            // Soundscape and Timer UI
+            VStack(spacing: 20) {
+                // Timer Selection (Dropdown Menu)
                 VStack {
-                    Text("Set Timer Duration: \(Int(selectedTime)) minutes")
+                    Text("Set Timer Duration")
                         .font(.headline)
-                        .foregroundColor(.white)
                     
-                    Slider(value: $selectedTime, in: 1...120, step: 1) // 1 to 120 minutes
-                        .accentColor(.blue)
-                        .padding()
+                    Picker("Timer Duration", selection: $selectedTime) {
+                        ForEach(timerOptions, id: \.self) { time in
+                            Text("\(time) minutes").tag(time)
+                        }
+                    }
+                    .pickerStyle(MenuPickerStyle()) // Drop-down menu style for now
+                    .padding()
                     
                     Text("Remaining Time: \(formattedTime(remainingTime))")
                         .font(.headline)
-                        .foregroundColor(.white)
                         .padding()
                 }
                 .padding()
@@ -56,38 +51,42 @@ struct SoundscapeDetailView: View {
                 // Control Buttons
                 HStack(spacing: 40) {
                     Button(action: {
-                        startSoundscapeAndTimer()
+                        if isPlaying {
+                            stopTimer()
+                            stopAudio()
+                        } else {
+                            startSoundscapeAndTimer()
+                        }
                     }) {
-                        Text("Start Soundscape")
+                        Text(isPlaying ? "Stop" : "Start Soundscape")
                             .font(.title2)
                             .padding()
-                            .frame(width: 150)
-                            .background(isPlaying ? Color.gray : Color.blue)
+                            .frame(width: 200)
+                            .background(isPlaying ? Color.red : Color.blue)
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }
                     .padding()
-                    .disabled(isPlaying) // Disable button when playing
-                    
-                    Button(action: {
-                        stopTimer()
-                        stopAudio()
-                    }) {
-                        Text("Stop")
-                            .font(.title2)
-                            .padding()
-                            .frame(width: 150)
-                            .background(isPlaying ? Color.red : Color.gray)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                    }
-                    .padding()
-                    .disabled(!isPlaying) // Disable button when not playing
                 }
+
+                // "Playing: Nature" or "Playing: Electronic" text
+                Text("Playing: \(selectedSoundscape)")
+                    .font(.headline)
+                    .fontWeight(.bold)
+                    .padding(.top)
+                
+                // Show breathing pattern if selected
+                if selectedBreathingPattern != "None" && isPlaying {
+                    BreathingPatternView(pattern: selectedBreathingPattern, remainingTime: $remainingTime, onPhaseChange: playOverlayOnPhaseChange)
+                        .padding(.top)
+                }
+
+                Spacer()
             }
         }
         .onAppear {
             setupAudioEngine()
+            showBreathingPattern = selectedBreathingPattern != "None"
         }
         .onDisappear {
             stopAudio()
@@ -103,38 +102,39 @@ struct SoundscapeDetailView: View {
     
     // Setup Audio Engine and Attach Nodes
     func setupAudioEngine() {
-        // Attach players
         audioEngine.attach(soundscapePlayer)
-        audioEngine.attach(breathingPlayer)
-        
-        // Connect players to the main mixer
+        audioEngine.attach(breathingOverlayPlayer) // Attach overlay player
         audioEngine.connect(soundscapePlayer, to: audioEngine.mainMixerNode, format: nil)
-        audioEngine.connect(breathingPlayer, to: audioEngine.mainMixerNode, format: nil)
+        audioEngine.connect(breathingOverlayPlayer, to: audioEngine.mainMixerNode, format: nil) // Connect overlay player
         
         do {
-            // Configure the audio session
             let audioSession = AVAudioSession.sharedInstance()
             try audioSession.setCategory(.playback, mode: .default, options: [])
             try audioSession.setActive(true)
-            
-            // Start the audio engine
             try audioEngine.start()
         } catch {
             print("Error setting up audio engine: \(error.localizedDescription)")
         }
     }
-
-    // Start Soundscape and Timer
+    
     func startSoundscapeAndTimer() {
         guard !isPlaying else { return }
-        // Start the timer with the user-selected remaining time in seconds
-        remainingTime = Int(selectedTime * 60) // Convert minutes to seconds
+        
+        if !audioEngine.isRunning {
+            do {
+                try audioEngine.start()
+            } catch {
+                print("Error starting audio engine: \(error.localizedDescription)")
+                return
+            }
+        }
+
+        // Set the remaining time based on the selected timer duration
+        remainingTime = selectedTime * 60
         isPlaying = true
         
-        // Play soundscape
         playSoundscape(soundscape: selectedSoundscape, breathingOverlay: selectedBreathingOverlay)
         
-        // Start the timer
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
             if self.remainingTime > 0 {
                 self.remainingTime -= 1
@@ -143,11 +143,13 @@ struct SoundscapeDetailView: View {
                 self.stopTimer()
             }
         }
+        
+        if selectedBreathingPattern != "None" {
+            showBreathingPattern = true
+        }
     }
     
-    // Play Soundscape and Breathing Overlay
     func playSoundscape(soundscape: String, breathingOverlay: String?) {
-        // Determine the correct sound file for the selected soundscape
         let soundscapeFileName: String
         switch soundscape {
         case "Nature":
@@ -158,52 +160,66 @@ struct SoundscapeDetailView: View {
             soundscapeFileName = "Nature"
         }
         
-        // Load the soundscape audio file
         guard let soundscapeURL = Bundle.main.url(forResource: soundscapeFileName, withExtension: "wav") else {
-            print("Soundscape file not found: \(soundscapeFileName).wav")
+            print("Error: Soundscape file not found: \(soundscapeFileName).wav")
             return
         }
         
         do {
             let soundscapeFile = try AVAudioFile(forReading: soundscapeURL)
-            
-            // Schedule the soundscape file for looping playback
             soundscapePlayer.scheduleFile(soundscapeFile, at: nil, completionHandler: {
-                // Loop the soundscape by scheduling it again
-                self.soundscapePlayer.scheduleFile(soundscapeFile, at: nil, completionHandler: nil)
+                self.scheduleSoundscapeLoop(soundscapeFile: soundscapeFile)
             })
             soundscapePlayer.play()
             
-            // Handle breathing overlay
+            // Play breathing overlay if selected
             if let breathingOverlay = breathingOverlay, breathingOverlay != "None" {
-                guard let breathingURL = Bundle.main.url(forResource: breathingOverlay, withExtension: "mp3") else {
-                    print("Breathing overlay file not found: \(breathingOverlay).mp3")
-                    return
-                }
-                let breathingFile = try AVAudioFile(forReading: breathingURL)
-                breathingPlayer.scheduleFile(breathingFile, at: nil, completionHandler: nil)
-                breathingPlayer.play()
+                playBreathingOverlay(overlayName: breathingOverlay)
             }
         } catch {
             print("Error scheduling soundscape: \(error.localizedDescription)")
         }
     }
     
-    // Stop Timer
+    func playBreathingOverlay(overlayName: String) {
+        guard let overlayURL = Bundle.main.url(forResource: overlayName, withExtension: "mp3") else {
+            print("Error: Breathing overlay file not found: \(overlayName).mp3")
+            return
+        }
+        
+        do {
+            let overlayFile = try AVAudioFile(forReading: overlayURL)
+            breathingOverlayPlayer.scheduleFile(overlayFile, at: nil, completionHandler: nil)
+            breathingOverlayPlayer.play()
+        } catch {
+            print("Error scheduling breathing overlay: \(error.localizedDescription)")
+        }
+    }
+    
+    func playOverlayOnPhaseChange(_ phase: String) {
+        // Play the overlay sound at the beginning of each breathing phase
+        if let overlay = selectedBreathingOverlay, overlay != "None" {
+            playBreathingOverlay(overlayName: overlay)
+        }
+    }
+    
+    func scheduleSoundscapeLoop(soundscapeFile: AVAudioFile) {
+        soundscapePlayer.scheduleFile(soundscapeFile, at: nil, completionHandler: {
+            self.scheduleSoundscapeLoop(soundscapeFile: soundscapeFile)
+        })
+    }
+    
     func stopTimer() {
-        // Invalidate the timer if it's running
         timer?.invalidate()
         timer = nil
         isPlaying = false
+        showBreathingPattern = false
     }
     
-    // Stop Audio Playback
     func stopAudio() {
-        // Stop audio playback and reset nodes
         soundscapePlayer.stop()
-        breathingPlayer.stop()
+        breathingOverlayPlayer.stop() // Stop overlay
         audioEngine.stop()
         isPlaying = false
-        print("Audio stopped")
     }
 }
