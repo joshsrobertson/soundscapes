@@ -61,7 +61,7 @@
 		82AB4A8D2CB5216F00DC43BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		82AB4A8E2CB5A0BD00DC43BE /* Electronic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Electronic.mp3; sourceTree = "<group>"; };
 		82AB4A902CB5A11500DC43BE /* Electronic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Electronic.jpg; sourceTree = "<group>"; };
-		82FB42552CB076C60042CE98 /* Sound.scapes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sound.scapes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		82FB42552CB076C60042CE98 /* Soundscapes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soundscapes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FB42582CB076C60042CE98 /* SoundscapesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapesApp.swift; sourceTree = "<group>"; };
 		82FB425A2CB076C60042CE98 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		82FB425C2CB076C80042CE98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 		82FB42562CB076C60042CE98 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				82FB42552CB076C60042CE98 /* Sound.scapes.app */,
+				82FB42552CB076C60042CE98 /* Soundscapes.app */,
 				82FB42662CB076C80042CE98 /* SoundscapesTests.xctest */,
 				82FB42702CB076C80042CE98 /* SoundscapesUITests.xctest */,
 			);
@@ -182,9 +182,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		82FB42542CB076C60042CE98 /* Sound.scapes */ = {
+		82FB42542CB076C60042CE98 /* Soundscapes */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 82FB427A2CB076C80042CE98 /* Build configuration list for PBXNativeTarget "Sound.scapes" */;
+			buildConfigurationList = 82FB427A2CB076C80042CE98 /* Build configuration list for PBXNativeTarget "Soundscapes" */;
 			buildPhases = (
 				82FB42512CB076C60042CE98 /* Sources */,
 				82FB42522CB076C60042CE98 /* Frameworks */,
@@ -194,9 +194,9 @@
 			);
 			dependencies = (
 			);
-			name = Sound.scapes;
+			name = Soundscapes;
 			productName = Soundscapes;
-			productReference = 82FB42552CB076C60042CE98 /* Sound.scapes.app */;
+			productReference = 82FB42552CB076C60042CE98 /* Soundscapes.app */;
 			productType = "com.apple.product-type.application";
 		};
 		82FB42652CB076C80042CE98 /* SoundscapesTests */ = {
@@ -271,7 +271,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				82FB42542CB076C60042CE98 /* Sound.scapes */,
+				82FB42542CB076C60042CE98 /* Soundscapes */,
 				82FB42652CB076C80042CE98 /* SoundscapesTests */,
 				82FB426F2CB076C80042CE98 /* SoundscapesUITests */,
 			);
@@ -352,12 +352,12 @@
 /* Begin PBXTargetDependency section */
 		82FB42682CB076C80042CE98 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 82FB42542CB076C60042CE98 /* Sound.scapes */;
+			target = 82FB42542CB076C60042CE98 /* Soundscapes */;
 			targetProxy = 82FB42672CB076C80042CE98 /* PBXContainerItemProxy */;
 		};
 		82FB42722CB076C80042CE98 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 82FB42542CB076C60042CE98 /* Sound.scapes */;
+			target = 82FB42542CB076C60042CE98 /* Soundscapes */;
 			targetProxy = 82FB42712CB076C80042CE98 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -487,6 +487,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Soundscapes/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Sound.Scapes;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -528,6 +530,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Soundscapes/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Sound.Scapes;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -656,7 +660,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		82FB427A2CB076C80042CE98 /* Build configuration list for PBXNativeTarget "Sound.scapes" */ = {
+		82FB427A2CB076C80042CE98 /* Build configuration list for PBXNativeTarget "Soundscapes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				82FB427B2CB076C80042CE98 /* Debug */,
