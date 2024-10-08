@@ -10,11 +10,12 @@ struct SoundscapeSelectionView: View {
     ]
     
     @State private var selectedSoundscape: Soundscape?
+    @Environment(\.presentationMode) var presentationMode // To go back to HomeView
 
     var body: some View {
         ZStack {
             TabView {
-                ForEach(soundscapes, id: \.id) { soundscape in
+                ForEach(Array(soundscapes.enumerated()), id: \.element.id) { index, soundscape in
                     ZStack {
                         // Full-bleed background image
                         Image(soundscape.imageName)
@@ -44,13 +45,12 @@ struct SoundscapeSelectionView: View {
 
                             Spacer()
 
-                            // Navigation Link based on selected mode
+                            // Select Soundscape Button
                             if isBreathingMode {
-                                // If Breath mode, navigate to BreathingPatternSelectionView
                                 NavigationLink(destination: BreathingPatternSelectionView(
                                     selectedSoundscape: soundscape.id,
                                     backgroundImage: soundscape.imageName)) {
-                                    Text("Select \(soundscape.name)")
+                                    Text("Select Soundscape")
                                         .font(.custom("Avenir", size: 22))
                                         .fontWeight(.semibold)
                                         .padding()
@@ -60,12 +60,11 @@ struct SoundscapeSelectionView: View {
                                         .cornerRadius(10)
                                 }
                             } else {
-                                // If Relax|Sleep mode, skip breathing selection and go to TimerSelectionView
                                 NavigationLink(destination: TimerSelectionView(
                                     selectedSoundscape: soundscape.id,
                                     selectedBreathingPattern: BreathingPattern(id: "None", name: "No Breathing Pattern", description: "", cadence: ""),
                                     backgroundImage: soundscape.imageName)) {
-                                    Text("Select \(soundscape.name)")
+                                    Text("Select Soundscape")
                                         .font(.custom("Avenir", size: 22))
                                         .fontWeight(.semibold)
                                         .padding()
@@ -76,6 +75,14 @@ struct SoundscapeSelectionView: View {
                                 }
                             }
 
+                            // Help text only on the first soundscape
+                            if index == 0 {
+                                Text("Swipe to Explore More")
+                                    .font(.custom("Avenir", size: 16))
+                                    .foregroundColor(.white)
+                                    .padding(.top, 10)
+                            }
+
                             Spacer()
                         }
                         .padding()
@@ -83,6 +90,28 @@ struct SoundscapeSelectionView: View {
                 }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic)) // Swipeable TabView
+
+            // Custom Back button
+            VStack {
+                HStack {
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss() // Navigate back to HomeView
+                    }) {
+                        HStack {
+                            Image(systemName: "arrow.left")
+                                .font(.title2)
+                                .foregroundColor(.white)
+                            Text("Home")
+                                .font(.custom("Avenir", size: 18))
+                                .foregroundColor(.white)
+                        }
+                        .padding()
+                    }
+                    Spacer()
+                }
+                Spacer()
+            }
+            .padding()
         }
         .navigationBarHidden(true) // Remove the navigation bar to make the image bleed
     }
