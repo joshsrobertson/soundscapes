@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct SoundscapeSelectionView: View {
+    let isBreathingMode: Bool // Passed from HomeView to determine the flow
+
     let soundscapes = [
         Soundscape(id: "Xochimilco", name: "Xochimilco, Mexico", description: "Xochimilco is a wetlands area in Mexico City that contains the last remnants of an Ancient Aztec canal system. The area is home to diverse wildlife including the regenerative axolotl, and is critical to the Mexico City ecosystem.", imageName: "Xochimilco"),
         Soundscape(id: "Ocean Waves", name: "Ocean Waves", description: "Relaxing sounds of the ocean.", imageName: "OceanWaves"),
@@ -42,17 +44,38 @@ struct SoundscapeSelectionView: View {
 
                             Spacer()
 
-                            // Select Button - Navigate to BreathingPatternSelectionView
-                            NavigationLink(destination: BreathingPatternSelectionView(selectedSoundscape: soundscape.id, backgroundImage: soundscape.imageName)) {
-                                Text("Select \(soundscape.name)")
-                                    .font(.custom("Avenir", size: 22))
-                                    .fontWeight(.semibold)
-                                    .padding()
-                                    .frame(width: 200)
-                                    .background(Color.white.opacity(0.8))
-                                    .foregroundColor(.black)
-                                    .cornerRadius(10)
+                            // Navigation Link based on selected mode
+                            if isBreathingMode {
+                                // If Breath mode, navigate to BreathingPatternSelectionView
+                                NavigationLink(destination: BreathingPatternSelectionView(
+                                    selectedSoundscape: soundscape.id,
+                                    backgroundImage: soundscape.imageName)) {
+                                    Text("Select \(soundscape.name)")
+                                        .font(.custom("Avenir", size: 22))
+                                        .fontWeight(.semibold)
+                                        .padding()
+                                        .frame(width: 200)
+                                        .background(Color.white.opacity(0.8))
+                                        .foregroundColor(.black)
+                                        .cornerRadius(10)
+                                }
+                            } else {
+                                // If Relax|Sleep mode, skip breathing selection and go to TimerSelectionView
+                                NavigationLink(destination: TimerSelectionView(
+                                    selectedSoundscape: soundscape.id,
+                                    selectedBreathingPattern: BreathingPattern(id: "None", name: "No Breathing Pattern", description: "", cadence: ""),
+                                    backgroundImage: soundscape.imageName)) {
+                                    Text("Select \(soundscape.name)")
+                                        .font(.custom("Avenir", size: 22))
+                                        .fontWeight(.semibold)
+                                        .padding()
+                                        .frame(width: 200)
+                                        .background(Color.white.opacity(0.8))
+                                        .foregroundColor(.black)
+                                        .cornerRadius(10)
+                                }
                             }
+
                             Spacer()
                         }
                         .padding()
