@@ -37,10 +37,12 @@ struct BreathingPatternSelectionView: View {
                             Text(pattern.description)
                                 .font(.custom("Avenir", size: 18))
                                 .foregroundColor(.white)
-                                .background(Color.black.opacity(0.5))
+                                .background(Color.black.opacity(0.4))
+                                .cornerRadius(10)
                                 .multilineTextAlignment(.center)
                                 .padding(.horizontal, 30)
                                 .frame(width: 300)
+                                
 
                             Spacer()
 

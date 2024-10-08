@@ -12,11 +12,11 @@ struct HomeView: View {
                     .edgesIgnoringSafeArea(.all)
                     .opacity(1.0) // Full opacity for the video background
 
-                VStack(spacing: 20) {
+                VStack(spacing: 15) {
                     Spacer() // Push content down for better centering
 
                     // App Title
-                    Text("Welcome to Soundscapes")
+                    Text("Sound.Scapes")
                         .font(.custom("Avenir", size: 40)) // Avenir font for a sleek look
                         .fontWeight(.bold)
                         .foregroundColor(.white)
@@ -29,34 +29,40 @@ struct HomeView: View {
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 30)
+                        .fontWeight(.bold)
+                    Text("Choose your journey.")
+                        .font(.custom("Avenir", size: 18)) // Avenir for the description as well
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 30)
 
                     // Relax|Sleep and Breath options
                     VStack(spacing: 20) {
-                        NavigationLink(destination: SoundscapeSelectionView(isBreathingMode: false)) {
-                            Text("Relax|Sleep")
-                                .font(.custom("Avenir", size: 22)) // Avenir for button text
-                                .fontWeight(.semibold)
-                                .padding()
-                                .frame(maxWidth: .infinity)
-                                .background(Color.gray.opacity(0.8))
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
-                        }
-                        .padding(.horizontal, 40)
-
                         NavigationLink(destination: SoundscapeSelectionView(isBreathingMode: true)) {
-                            Text("Breath")
-                                .font(.custom("Avenir", size: 22)) // Avenir for button text
+                            Text("Breathe")
+                                .font(.custom("Avenir", size: 18)) // Avenir for button text
                                 .fontWeight(.semibold)
                                 .padding()
                                 .frame(maxWidth: .infinity)
-                                .background(Color.gray.opacity(0.8))
+                                .background(Color.green.opacity(0.8))
                                 .foregroundColor(.white)
                                 .cornerRadius(10)
                         }
                         .padding(.horizontal, 40)
                     }
+                        NavigationLink(destination: SoundscapeSelectionView(isBreathingMode: false)) {
+                            Text("Relax | Sleep")
+                                .font(.custom("Avenir", size: 18)) // Avenir for button text
+                                .fontWeight(.semibold)
+                                .padding()
+                                .frame(maxWidth: .infinity)
+                                .background(Color.blue.opacity(0.8))
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                        }
+                        .padding(.horizontal, 40)
 
+                      
                     Spacer() // Push content up for better centering
                 }
             }

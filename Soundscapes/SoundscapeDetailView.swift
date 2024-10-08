@@ -53,7 +53,7 @@ struct SoundscapeDetailView: View {
     // Helper function to get background image name based on selected soundscape
     private func backgroundImageName(for soundscape: String) -> String {
         switch soundscape {
-        case "Ocean Waves":
+        case "OceanWaves":
             return "OceanWaves"
         case "Electronic":
             return "Electronic"

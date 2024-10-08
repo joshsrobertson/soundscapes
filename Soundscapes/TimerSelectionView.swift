@@ -14,10 +14,11 @@ struct TimerSelectionView: View {
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
 
-            VStack(spacing: 20) {
-                Text("Journey Duration")
+            VStack(spacing: 40) {
+                Text("Choose Your Journey Length")
                     .font(.custom("Avenir", size: 28))
                     .foregroundColor(.white)
+                    .frame(width: 300)
 
                 // Timer Buttons
                 VStack(spacing: 15) {
@@ -49,6 +50,14 @@ struct TimerSelectionView: View {
                         Text("20 Minutes")
                             .frame(width: 200, height: 50)
                             .background(selectedDuration == 20 ? Color.blue : Color.gray)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
+                    
+                    Button(action: { selectedDuration = 60 }) {
+                        Text("1 Hour")
+                            .frame(width: 200, height: 50)
+                            .background(selectedDuration == 60 ? Color.blue : Color.gray)
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }
