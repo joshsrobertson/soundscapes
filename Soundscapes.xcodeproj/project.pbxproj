@@ -26,10 +26,7 @@
 		82FB42862CB079970042CE98 /* SoundscapeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42852CB079970042CE98 /* SoundscapeDetailView.swift */; };
 		82FB42882CB079CB0042CE98 /* BreathingPatternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42872CB079CB0042CE98 /* BreathingPatternView.swift */; };
 		82FB428A2CB07A040042CE98 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42892CB07A040042CE98 /* TimerViewModel.swift */; };
-		82FB428F2CB080B40042CE98 /* FF_SH_environment_binaural_stereo_crickets.wav in Resources */ = {isa = PBXBuildFile; fileRef = 82FB428B2CB080B40042CE98 /* FF_SH_environment_binaural_stereo_crickets.wav */; };
 		82FB42902CB080B40042CE98 /* Nature.wav in Resources */ = {isa = PBXBuildFile; fileRef = 82FB428C2CB080B40042CE98 /* Nature.wav */; };
-		82FB42912CB080B40042CE98 /* FF_SH_environment_binaural_forested_activity.wav in Resources */ = {isa = PBXBuildFile; fileRef = 82FB428D2CB080B40042CE98 /* FF_SH_environment_binaural_forested_activity.wav */; };
-		82FB42922CB080B40042CE98 /* TRFDC_Raw_Nature_02_Babbling_Brook.wav in Resources */ = {isa = PBXBuildFile; fileRef = 82FB428E2CB080B40042CE98 /* TRFDC_Raw_Nature_02_Babbling_Brook.wav */; };
 		82FB42962CB081450042CE98 /* Electronic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 82FB42942CB081450042CE98 /* Electronic.wav */; };
 		82FB42972CB081450042CE98 /* FF_SH_synth_chord_drone_432_hz_noisey_evolving_lfo_flutter_Eb.wav in Resources */ = {isa = PBXBuildFile; fileRef = 82FB42952CB081450042CE98 /* FF_SH_synth_chord_drone_432_hz_noisey_evolving_lfo_flutter_Eb.wav */; };
 		82FB429A2CB091D00042CE98 /* IntroVideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = 82FB42992CB091D00042CE98 /* IntroVideo.mov */; };
@@ -77,10 +74,7 @@
 		82FB42852CB079970042CE98 /* SoundscapeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapeDetailView.swift; sourceTree = "<group>"; };
 		82FB42872CB079CB0042CE98 /* BreathingPatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingPatternView.swift; sourceTree = "<group>"; };
 		82FB42892CB07A040042CE98 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
-		82FB428B2CB080B40042CE98 /* FF_SH_environment_binaural_stereo_crickets.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = FF_SH_environment_binaural_stereo_crickets.wav; sourceTree = "<group>"; };
 		82FB428C2CB080B40042CE98 /* Nature.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Nature.wav; sourceTree = "<group>"; };
-		82FB428D2CB080B40042CE98 /* FF_SH_environment_binaural_forested_activity.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = FF_SH_environment_binaural_forested_activity.wav; sourceTree = "<group>"; };
-		82FB428E2CB080B40042CE98 /* TRFDC_Raw_Nature_02_Babbling_Brook.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TRFDC_Raw_Nature_02_Babbling_Brook.wav; sourceTree = "<group>"; };
 		82FB42942CB081450042CE98 /* Electronic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Electronic.wav; sourceTree = "<group>"; };
 		82FB42952CB081450042CE98 /* FF_SH_synth_chord_drone_432_hz_noisey_evolving_lfo_flutter_Eb.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = FF_SH_synth_chord_drone_432_hz_noisey_evolving_lfo_flutter_Eb.wav; sourceTree = "<group>"; };
 		82FB42992CB091D00042CE98 /* IntroVideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = IntroVideo.mov; sourceTree = "<group>"; };
@@ -142,12 +136,12 @@
 				8290F21E2CB4B15B00EAA520 /* OceanWaves.mp3 */,
 				82FB428C2CB080B40042CE98 /* Nature.wav */,
 				8290F2222CB4B31B00EAA520 /* OceanWaves.jpg */,
-				8290F2102CB46E5900EAA520 /* Xochimilco.jpg */,
 				8290F2122CB4729100EAA520 /* Electronic.jpg */,
+				8290F2102CB46E5900EAA520 /* Xochimilco.jpg */,
 				82FB42942CB081450042CE98 /* Electronic.wav */,
 				8290F20E2CB46DB400EAA520 /* Xochimilco.mp3 */,
 				82FB42992CB091D00042CE98 /* IntroVideo.mov */,
-				82FB42932CB080C50042CE98 /* Nature */,
+				82FB42932CB080C50042CE98 /* Audio */,
 				82FB425C2CB076C80042CE98 /* Assets.xcassets */,
 				82FB42982CB0814D0042CE98 /* Electronic */,
 				82FB425E2CB076C80042CE98 /* Soundscapes.entitlements */,
@@ -187,14 +181,11 @@
 			path = SoundscapesUITests;
 			sourceTree = "<group>";
 		};
-		82FB42932CB080C50042CE98 /* Nature */ = {
+		82FB42932CB080C50042CE98 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				82FB428D2CB080B40042CE98 /* FF_SH_environment_binaural_forested_activity.wav */,
-				82FB428B2CB080B40042CE98 /* FF_SH_environment_binaural_stereo_crickets.wav */,
-				82FB428E2CB080B40042CE98 /* TRFDC_Raw_Nature_02_Babbling_Brook.wav */,
 			);
-			path = Nature;
+			path = Audio;
 			sourceTree = "<group>";
 		};
 		82FB42982CB0814D0042CE98 /* Electronic */ = {
@@ -312,14 +303,11 @@
 				82FB42612CB076C80042CE98 /* Preview Assets.xcassets in Resources */,
 				82FB42902CB080B40042CE98 /* Nature.wav in Resources */,
 				8290F20F2CB46DB400EAA520 /* Xochimilco.mp3 in Resources */,
-				82FB428F2CB080B40042CE98 /* FF_SH_environment_binaural_stereo_crickets.wav in Resources */,
 				82FB42972CB081450042CE98 /* FF_SH_synth_chord_drone_432_hz_noisey_evolving_lfo_flutter_Eb.wav in Resources */,
 				82FB42962CB081450042CE98 /* Electronic.wav in Resources */,
-				82FB42922CB080B40042CE98 /* TRFDC_Raw_Nature_02_Babbling_Brook.wav in Resources */,
 				8290F21F2CB4B15C00EAA520 /* OceanWaves.mp3 in Resources */,
 				8290F1DE2CB44C6700EAA520 /* Calm Chime.mp3 in Resources */,
 				82FB429A2CB091D00042CE98 /* IntroVideo.mov in Resources */,
-				82FB42912CB080B40042CE98 /* FF_SH_environment_binaural_forested_activity.wav in Resources */,
 				82FB425D2CB076C80042CE98 /* Assets.xcassets in Resources */,
 				8290F2232CB4B31B00EAA520 /* OceanWaves.jpg in Resources */,
 				8290F2132CB4729200EAA520 /* Electronic.jpg in Resources */,
@@ -508,6 +496,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Soundscapes/Soundscapes.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Soundscapes/Preview Content\"";
@@ -532,6 +521,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Rosco.Soundscapes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -546,6 +536,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Soundscapes/Soundscapes.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Soundscapes/Preview Content\"";
@@ -570,6 +561,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Rosco.Soundscapes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
