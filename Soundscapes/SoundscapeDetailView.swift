@@ -17,6 +17,31 @@ struct SoundscapeDetailView: View {
     var selectedBreathingPattern: String
     var selectedTime: Int // Time selected in HomeView
 
+    // Inspirational quotes list
+    let quotes = [
+        "The wound is the place where the Light enters you. - Rumi",
+        "Life is like riding a bicycle. To keep your balance, you must keep moving. - Albert Einstein",
+        "What lies behind us and what lies before us are tiny matters compared to what lies within us. - Ralph Waldo Emerson",
+        "Be the change that you wish to see in the world. - Mahatma Gandhi",
+        "The journey of a thousand miles begins with one step. - Lao Tzu",
+        "Go confidently in the direction of your dreams. Live the life you have imagined. - Henry David Thoreau",
+        "Everything you can imagine is real. - Pablo Picasso",
+        "In the midst of movement and chaos, keep stillness inside of you. - Deepak Chopra",
+        "It always seems impossible until it’s done. - Nelson Mandela",
+        "You have power over your mind—not outside events. Realize this, and you will find strength. - Marcus Aurelius",
+        "Change the way you look at things and the things you look at change. - Wayne Dyer",
+        "Realize deeply that the present moment is all you have. - Eckhart Tolle",
+        "Smile, breathe, and go slowly. - Thich Nhat Hanh",
+        "Faith is taking the first step even when you don't see the whole staircase. - Martin Luther King Jr.",
+        "What we think, we become. - Buddha",
+        "The unexamined life is not worth living. - Socrates",
+        "It does not matter how slowly you go as long as you do not stop. - Confucius",
+        "Keep your face always toward the sunshine—and shadows will fall behind you. - Walt Whitman",
+       "Your living is determined not so much by what life brings to you as by the attitude you bring to life. - Khalil Gibran",
+    ]
+
+    @State private var selectedQuote: String = ""
+
     // Breathing pattern support
     @State private var showBreathingPattern = false // Toggle to show breathing pattern
     @State private var breathingPhase: String = "Inhale"
@@ -38,6 +63,11 @@ struct SoundscapeDetailView: View {
             return "DefaultBackground"
         }
     }
+
+    // Helper function to select a random quote
+    func getRandomQuote() {
+        selectedQuote = quotes.randomElement() ?? "Relax, breathe, and take life one step at a time."
+    }
     
     var body: some View {
         ZStack {
@@ -56,9 +86,20 @@ struct SoundscapeDetailView: View {
                     .foregroundColor(.white) // Ensure the text is readable on the image
 
                 Spacer() // To help center the circle vertically
-                
-                // Breathing Pattern Section
-                if selectedBreathingPattern != "None" && isPlaying {
+
+                // If no breathing pattern, display the inspirational quote
+                if selectedBreathingPattern == "None" {
+                    Text(selectedQuote)
+                        .font(.system(size: 19, weight: .medium, design: .rounded))
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 30)
+                        .shadow(radius: 10)
+                        .background(Color.gray.opacity(0.5))
+                        .frame(maxWidth: 300, maxHeight: .infinity, alignment: .center)
+                    
+                } else {
+                    // Breathing Pattern Section (if applicable)
                     ZStack {
                         // Breathing circle that grows and shrinks based on phase
                         Circle()
@@ -112,6 +153,11 @@ struct SoundscapeDetailView: View {
         .onAppear {
             setupAudioEngine()
             startSoundscapeAndTimer() // Automatically start soundscape on appear
+
+            // Show an inspirational quote if no breathing pattern is selected
+            if selectedBreathingPattern == "None" {
+                getRandomQuote()
+            }
         }
         .onChange(of: remainingTime) { _ in
             if cycleStartTime == nil {
@@ -123,7 +169,7 @@ struct SoundscapeDetailView: View {
             stopAudio()
         }
     }
-    
+
     // Setup Audio Engine and Attach Nodes
     func setupAudioEngine() {
         audioEngine.attach(soundscapePlayer)
@@ -131,6 +177,7 @@ struct SoundscapeDetailView: View {
         
         do {
             let audioSession = AVAudioSession.sharedInstance()
+            // Set the category to .playback to allow background audio
             try audioSession.setCategory(.playback, mode: .default, options: [])
             try audioSession.setActive(true)
             try audioEngine.start()

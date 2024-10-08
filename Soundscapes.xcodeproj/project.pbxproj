@@ -60,6 +60,7 @@
 		8290F2182CB47F1400EAA520 /* BreathingPatterSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingPatterSelectionView.swift; sourceTree = "<group>"; };
 		8290F21E2CB4B15B00EAA520 /* OceanWaves.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = OceanWaves.mp3; sourceTree = "<group>"; };
 		8290F2222CB4B31B00EAA520 /* OceanWaves.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = OceanWaves.jpg; sourceTree = "<group>"; };
+		82AB4A8D2CB5216F00DC43BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		82FB42552CB076C60042CE98 /* Soundscapes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soundscapes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FB42582CB076C60042CE98 /* SoundscapesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapesApp.swift; sourceTree = "<group>"; };
 		82FB425A2CB076C60042CE98 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -129,6 +130,7 @@
 		82FB42572CB076C60042CE98 /* Soundscapes */ = {
 			isa = PBXGroup;
 			children = (
+				82AB4A8D2CB5216F00DC43BE /* Info.plist */,
 				82FB42582CB076C60042CE98 /* SoundscapesApp.swift */,
 				82FB425A2CB076C60042CE98 /* HomeView.swift */,
 				8290F2142CB475D700EAA520 /* SoundscapeSelectionView.swift */,
@@ -504,6 +506,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Soundscapes/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -544,6 +547,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Soundscapes/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
