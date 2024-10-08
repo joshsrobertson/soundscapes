@@ -4,9 +4,9 @@ struct SoundscapeSelectionView: View {
     let isBreathingMode: Bool // Passed from HomeView to determine the flow
 
     let soundscapes = [
-        Soundscape(id: "Xochimilco", name: "Xochimilco Sunrise", description: "The soothing morning sounds of a protected wetlands area in Mexico City home to diverse wildlife including the regenerative axolotl.", imageName: "Xochimilco"),
         Soundscape(id: "OceanWaves", name: "Big Sur Ocean Waves", description: "Enjoy the relaxing sounds of waves crashing in Big Sur, California", imageName: "OceanWaves"),
-        Soundscape(id: "Electronic", name: "Outer Space Frequenices", description: "An intriguing soundscape created from source sounds provided by NASA from the processed frequencies of outerspace", imageName: "Electronic")
+        Soundscape(id: "Xochimilco", name: "Xochimilco Sunrise", description: "The soothing morning sounds of a protected wetlands area in Mexico City home to diverse wildlife including the regenerative axolotl.", imageName: "Xochimilco"),
+        Soundscape(id: "Electronic", name: "Outer Space Frequencies", description: "An intriguing soundscape created from source sounds provided by NASA from the processed frequencies of outerspace", imageName: "Electronic")
     ]
     
     @State private var selectedSoundscape: Soundscape?
@@ -36,10 +36,10 @@ struct SoundscapeSelectionView: View {
 
                             // Soundscape Description
                             Text(soundscape.description)
-                                .font(.custom("Avenir", size: 16))
+                                .font(.custom("Avenir", size: 18))
                                 .foregroundColor(.white)
+                                .padding(10)
                                 .multilineTextAlignment(.center)
-                                .padding(.horizontal, 30)
                                 .background(Color.black.opacity(0.3))
                                 .cornerRadius(10)
                                 .frame(width: 300)
@@ -51,14 +51,14 @@ struct SoundscapeSelectionView: View {
                                 NavigationLink(destination: BreathingPatternSelectionView(
                                     selectedSoundscape: soundscape.id,
                                     backgroundImage: soundscape.imageName)) {
-                                    Text("Choose This Soundscape")
-                                        .font(.custom("Avenir", size: 18))
-                                        .fontWeight(.semibold)
-                                        .padding()
-                                        .frame(width: 200)
-                                        .background(Color.white.opacity(0.8))
-                                        .foregroundColor(.black)
-                                        .cornerRadius(10)
+                                    Text("Choose Soundscape")
+                                            .font(.custom("Avenir", size: 22))
+                                            .fontWeight(.semibold)
+                                            .padding()
+                                            .frame(width: 200)
+                                            .background(Color.white.opacity(0.8))
+                                            .foregroundColor(.black)
+                                            .cornerRadius(10)
                                 }
                             } else {
                                 NavigationLink(destination: TimerSelectionView(
@@ -66,19 +66,19 @@ struct SoundscapeSelectionView: View {
                                     selectedBreathingPattern: BreathingPattern(id: "None", name: "No Breathing Pattern", description: "", cadence: ""),
                                     backgroundImage: soundscape.imageName)) {
                                     Text("Select Soundscape")
-                                        .font(.custom("Avenir", size: 22))
-                                        .fontWeight(.semibold)
-                                        .padding()
-                                        .frame(width: 200)
-                                        .background(Color.white.opacity(0.8))
-                                        .foregroundColor(.black)
-                                        .cornerRadius(10)
+                                            .font(.custom("Avenir", size: 22))
+                                            .fontWeight(.semibold)
+                                            .padding()
+                                            .frame(width: 200)
+                                            .background(Color.white.opacity(0.8))
+                                            .foregroundColor(.black)
+                                            .cornerRadius(10)
                                 }
                             }
 
                             // Help text only on the first soundscape
                             if index == 0 {
-                                Text("Swipe to Explore More")
+                                Text("Swipe for More")
                                     .font(.custom("Avenir", size: 16))
                                     .foregroundColor(.white)
                                     .padding(.top, 10)

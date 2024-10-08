@@ -69,6 +69,13 @@ struct SoundscapeDetailView: View {
         selectedQuote = quotes.randomElement() ?? "Relax, breathe, and take life one step at a time."
     }
     
+    // Helper function to format remaining time
+    func formatTime(seconds: Int) -> String {
+        let minutes = seconds / 60
+        let seconds = seconds % 60
+        return String(format: "%02d:%02d", minutes, seconds)
+    }
+    
     var body: some View {
         ZStack {
             // Background Image
@@ -78,15 +85,8 @@ struct SoundscapeDetailView: View {
                 .edgesIgnoringSafeArea(.all) // Ensure background image fills entire screen
 
             VStack(spacing: 40) {
-                // "Playing: Ocean Waves" or "Playing: Electronic" text
-                Text("Playing: \(selectedSoundscape)")
-                    .font(.headline)
-                    .fontWeight(.bold)
-                    .padding(.top)
-                    .foregroundColor(.white) // Ensure the text is readable on the image
-
                 Spacer() // To help center the circle vertically
-
+                    .frame(height:100)
                 // If no breathing pattern, display the inspirational quote
                 if selectedBreathingPattern == "None" {
                     Text(selectedQuote)
@@ -131,7 +131,7 @@ struct SoundscapeDetailView: View {
 
                     Spacer()
                 }
-
+                
                 // Control Buttons
                 Button(action: {
                     stopAudio()
@@ -147,6 +147,12 @@ struct SoundscapeDetailView: View {
                 }
                 .padding()
 
+                // Remaining Time Display
+                   Text("Remaining Time: \(formatTime(seconds: remainingTime))")
+                       .font(.system(size: 18))
+                       .foregroundColor(.white)
+                       .padding(.bottom, 20)
+                
                 Spacer() // Additional spacer for bottom padding
             }
         }
