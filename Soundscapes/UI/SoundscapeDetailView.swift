@@ -43,18 +43,18 @@ struct SoundscapeDetailView: View {
                     }
                 }
                 if selectedBreathingPattern.id == "None" {
-                                    Text(currentQuote)
-                                        .font(.system(size: 19, weight: .medium, design: .rounded))
-                                        .foregroundColor(.white)
-                                        .multilineTextAlignment(.center)
-                                        .padding(.horizontal, 30)
-                                        .padding(.vertical, 10)
-                                        .background(Color.gray.opacity(0.2))
-                                        .cornerRadius(10)
-                                        .shadow(radius: 10)
-                                        .frame(maxWidth: 300, maxHeight: .infinity, alignment: .center)
-                                        .opacity(isQuoteVisible ? 1 : 0)
-                                        .animation(.easeInOut(duration: 1), value: isQuoteVisible)
+                                   Text(currentQuote)
+                                       .font(.system(size: 19, weight: .medium, design: .rounded))
+                                       .foregroundColor(.white)
+                                       .multilineTextAlignment(.center)
+                                       .padding(.horizontal, 30)
+                                       .padding(.vertical, 10)
+                                       .background(Color.gray.opacity(0.2))
+                                       .cornerRadius(10)
+                                       .shadow(radius: 10)
+                                       .frame(maxWidth: 300, maxHeight: .infinity, alignment: .center)
+                                       //.opacity(isQuoteVisible ? 1 : 0) // Apply fade-in animation
+                                       //.animation(.easeInOut(duration: 1), value: isQuoteVisible)
                 } else {
                     ZStack {
                         Circle()
@@ -114,7 +114,7 @@ struct SoundscapeDetailView: View {
                     timerModel.startTimer(duration: selectedTime) {
                         showPostSoundscapeView = true
                     }
-                    currentQuote = getRandomQuote()
+                    currentQuote = getRandomQuote(for: selectedSoundscape)
                     isQuoteVisible = true
                 }
                 .onChange(of: timerModel.remainingTime) { _ in
@@ -130,16 +130,17 @@ struct SoundscapeDetailView: View {
                     // Let the sound manager handle the fade-out
                     soundscapeAudioManager.checkForFadeOut(remainingTime: timerModel.remainingTime)
 
-                    // Quote change logic
-                    if lastQuoteChangeTime == nil {
-                        lastQuoteChangeTime = timerModel.remainingTime
-                    } else if let lastChange = lastQuoteChangeTime,
-                              (lastChange - timerModel.remainingTime) >= 20 {
-                        isQuoteVisible = false
-                        DispatchQueue.main.asyncAfter(deadline: .now() ) {
-                            currentQuote = getRandomQuote()
-                            lastQuoteChangeTime = timerModel.remainingTime
-                            isQuoteVisible = true
+                    // Update the quote every 20 seconds
+                                if lastQuoteChangeTime == nil {
+                                    lastQuoteChangeTime = timerModel.remainingTime
+                                } else if let lastChange = lastQuoteChangeTime,
+                                          (lastChange - timerModel.remainingTime) >= 20 {
+                                    // Change the quote every 20 seconds
+                                    isQuoteVisible = false // Fade out the current quote first
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
+                                        currentQuote = getRandomQuote(for: selectedSoundscape)
+                                        lastQuoteChangeTime = timerModel.remainingTime
+                                        isQuoteVisible = true // Fade-in the new quote
                         }
                     }
                 }
