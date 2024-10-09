@@ -19,6 +19,7 @@
 		82AB4A912CB5A11500DC43BE /* Electronic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82AB4A902CB5A11500DC43BE /* Electronic.jpg */; };
 		82AB4A972CB5D19300DC43BE /* exhaleSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AB4A962CB5D19200DC43BE /* exhaleSound.mp3 */; };
 		82AB4A992CB5D1A300DC43BE /* inhaleSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AB4A982CB5D1A300DC43BE /* inhaleSound.mp3 */; };
+		82AB4A9D2CB6350600DC43BE /* PostSoundscapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AB4A9C2CB6350200DC43BE /* PostSoundscapeView.swift */; };
 		82FB42592CB076C60042CE98 /* SoundscapesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42582CB076C60042CE98 /* SoundscapesApp.swift */; };
 		82FB425B2CB076C60042CE98 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB425A2CB076C60042CE98 /* HomeView.swift */; };
 		82FB425D2CB076C80042CE98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82FB425C2CB076C80042CE98 /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 		82AB4A902CB5A11500DC43BE /* Electronic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Electronic.jpg; sourceTree = "<group>"; };
 		82AB4A962CB5D19200DC43BE /* exhaleSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = exhaleSound.mp3; sourceTree = "<group>"; };
 		82AB4A982CB5D1A300DC43BE /* inhaleSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = inhaleSound.mp3; sourceTree = "<group>"; };
+		82AB4A9C2CB6350200DC43BE /* PostSoundscapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSoundscapeView.swift; sourceTree = "<group>"; };
 		82FB42552CB076C60042CE98 /* Soundscapes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soundscapes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FB42582CB076C60042CE98 /* SoundscapesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapesApp.swift; sourceTree = "<group>"; };
 		82FB425A2CB076C60042CE98 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				8290F2142CB475D700EAA520 /* SoundscapeSelectionView.swift */,
 				8290F2182CB47F1400EAA520 /* BreathingPatterSelectionView.swift */,
 				82FB42852CB079970042CE98 /* SoundscapeDetailView.swift */,
+				82AB4A9C2CB6350200DC43BE /* PostSoundscapeView.swift */,
 				82AB4A962CB5D19200DC43BE /* exhaleSound.mp3 */,
 				82AB4A982CB5D1A300DC43BE /* inhaleSound.mp3 */,
 				8290F2162CB47EBA00EAA520 /* TimerSelectionView.swift */,
@@ -331,6 +334,7 @@
 				82FB425B2CB076C60042CE98 /* HomeView.swift in Sources */,
 				82FB42592CB076C60042CE98 /* SoundscapesApp.swift in Sources */,
 				8290F2152CB475D700EAA520 /* SoundscapeSelectionView.swift in Sources */,
+				82AB4A9D2CB6350600DC43BE /* PostSoundscapeView.swift in Sources */,
 				82FB428A2CB07A040042CE98 /* TimerViewModel.swift in Sources */,
 				8290F2172CB47EBA00EAA520 /* TimerSelectionView.swift in Sources */,
 				82FB429C2CB093D10042CE98 /* LoopingVideoPlayer.swift in Sources */,

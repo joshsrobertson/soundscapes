@@ -42,8 +42,11 @@ struct SoundscapeDetailView: View {
     ]
 
     @State private var selectedQuote: String = ""
-
-        // Breathing pattern support
+    
+    // Handle navigation to PostSoundscapeView
+    @State private var showPostSoundscapeView = false
+    
+    // Breathing pattern support
         @State private var showBreathingPattern = false // Toggle to show breathing pattern
         @State private var breathingPhase: String = "Inhale"
         @State private var circleScale: CGFloat = 0.8 // Set to smaller size initially for Inhale
@@ -87,9 +90,6 @@ struct SoundscapeDetailView: View {
 
                 VStack(spacing: 40) {
                   
-                   
-                    
-                    
                     // If no breathing pattern, display the inspirational quote
                     if selectedBreathingPattern == "None" {
                         Text(selectedQuote)
@@ -97,8 +97,10 @@ struct SoundscapeDetailView: View {
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
                             .padding(.horizontal, 30)
+                            .padding(.vertical, 10)
                             .shadow(radius: 10)
-                            .background(Color.gray.opacity(0.5))
+                            .background(Color.gray.opacity(0.2))
+                            .cornerRadius(10)
                             .frame(maxWidth: 300, maxHeight: .infinity, alignment: .center)
                     } else {
                         HStack(spacing: 0) {
@@ -190,9 +192,13 @@ struct SoundscapeDetailView: View {
                 }
                 updateBreathingPhase() // Update breathing phase on each timer change
             }
+            
             .onDisappear {
                 stopAudio()
             }
+            NavigationLink(destination: PostSoundscapeView(), isActive: $showPostSoundscapeView) {
+                           EmptyView() // NavigationLink triggers when showPostSoundscapeView is true
+                       }
         }
 
         // Setup Audio Engine and Attach Nodes
@@ -234,8 +240,8 @@ struct SoundscapeDetailView: View {
                 } else {
                     self.stopAudio()
                     self.stopTimer()
-                    self.presentationMode.wrappedValue.dismiss() // Navigate back to HomeView when the timer expires
-                }
+                    self.showPostSoundscapeView = true // Navigate to PostSoundscapeView when timer ends
+                                }
             }
             
             if selectedBreathingPattern != "None" {
