@@ -63,9 +63,13 @@ struct BreathingPatternSelectionView: View {
                             // Help text: "Swipe for More"
                             if pattern.id == breathingPatterns.first?.id {
                                 Text("Swipe for More")
-                                    .font(.custom("Avenir", size: 16))
+                                    .font(.custom("Avenir", size: 20))
                                     .foregroundColor(.white)
                                     .padding(.top, 10)
+                                    .fontWeight(.bold)
+                                Image(systemName: "arrow.right")
+                                    .font(.title2)
+                                    .foregroundColor(.white)
                             }
 
                             Spacer()

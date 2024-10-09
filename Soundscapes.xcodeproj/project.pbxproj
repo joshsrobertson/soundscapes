@@ -17,8 +17,8 @@
 		8290F2232CB4B31B00EAA520 /* OceanWaves.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8290F2222CB4B31B00EAA520 /* OceanWaves.jpg */; };
 		82AB4A8F2CB5A0BD00DC43BE /* Electronic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AB4A8E2CB5A0BD00DC43BE /* Electronic.mp3 */; };
 		82AB4A912CB5A11500DC43BE /* Electronic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82AB4A902CB5A11500DC43BE /* Electronic.jpg */; };
-		82AB4A972CB5D19300DC43BE /* inhaleSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AB4A962CB5D19200DC43BE /* inhaleSound.mp3 */; };
-		82AB4A992CB5D1A300DC43BE /* exhaleSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AB4A982CB5D1A300DC43BE /* exhaleSound.mp3 */; };
+		82AB4A972CB5D19300DC43BE /* exhaleSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AB4A962CB5D19200DC43BE /* exhaleSound.mp3 */; };
+		82AB4A992CB5D1A300DC43BE /* inhaleSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AB4A982CB5D1A300DC43BE /* inhaleSound.mp3 */; };
 		82FB42592CB076C60042CE98 /* SoundscapesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42582CB076C60042CE98 /* SoundscapesApp.swift */; };
 		82FB425B2CB076C60042CE98 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB425A2CB076C60042CE98 /* HomeView.swift */; };
 		82FB425D2CB076C80042CE98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82FB425C2CB076C80042CE98 /* Assets.xcassets */; };
@@ -63,8 +63,8 @@
 		82AB4A8D2CB5216F00DC43BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		82AB4A8E2CB5A0BD00DC43BE /* Electronic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Electronic.mp3; sourceTree = "<group>"; };
 		82AB4A902CB5A11500DC43BE /* Electronic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Electronic.jpg; sourceTree = "<group>"; };
-		82AB4A962CB5D19200DC43BE /* inhaleSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = inhaleSound.mp3; sourceTree = "<group>"; };
-		82AB4A982CB5D1A300DC43BE /* exhaleSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = exhaleSound.mp3; sourceTree = "<group>"; };
+		82AB4A962CB5D19200DC43BE /* exhaleSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = exhaleSound.mp3; sourceTree = "<group>"; };
+		82AB4A982CB5D1A300DC43BE /* inhaleSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = inhaleSound.mp3; sourceTree = "<group>"; };
 		82FB42552CB076C60042CE98 /* Soundscapes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soundscapes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FB42582CB076C60042CE98 /* SoundscapesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapesApp.swift; sourceTree = "<group>"; };
 		82FB425A2CB076C60042CE98 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -138,8 +138,8 @@
 				8290F2142CB475D700EAA520 /* SoundscapeSelectionView.swift */,
 				8290F2182CB47F1400EAA520 /* BreathingPatterSelectionView.swift */,
 				82FB42852CB079970042CE98 /* SoundscapeDetailView.swift */,
-				82AB4A962CB5D19200DC43BE /* inhaleSound.mp3 */,
-				82AB4A982CB5D1A300DC43BE /* exhaleSound.mp3 */,
+				82AB4A962CB5D19200DC43BE /* exhaleSound.mp3 */,
+				82AB4A982CB5D1A300DC43BE /* inhaleSound.mp3 */,
 				8290F2162CB47EBA00EAA520 /* TimerSelectionView.swift */,
 				82FB425C2CB076C80042CE98 /* Assets.xcassets */,
 				8290F1DD2CB44C6700EAA520 /* Calm Chime.mp3 */,
@@ -292,9 +292,9 @@
 				82FB42612CB076C80042CE98 /* Preview Assets.xcassets in Resources */,
 				82FB42902CB080B40042CE98 /* Nature.wav in Resources */,
 				8290F20F2CB46DB400EAA520 /* Xochimilco.mp3 in Resources */,
-				82AB4A992CB5D1A300DC43BE /* exhaleSound.mp3 in Resources */,
+				82AB4A992CB5D1A300DC43BE /* inhaleSound.mp3 in Resources */,
 				82AB4A8F2CB5A0BD00DC43BE /* Electronic.mp3 in Resources */,
-				82AB4A972CB5D19300DC43BE /* inhaleSound.mp3 in Resources */,
+				82AB4A972CB5D19300DC43BE /* exhaleSound.mp3 in Resources */,
 				8290F21F2CB4B15C00EAA520 /* OceanWaves.mp3 in Resources */,
 				8290F1DE2CB44C6700EAA520 /* Calm Chime.mp3 in Resources */,
 				82FB429A2CB091D00042CE98 /* IntroVideo.mov in Resources */,

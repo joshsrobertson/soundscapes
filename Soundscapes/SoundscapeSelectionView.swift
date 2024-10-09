@@ -4,8 +4,8 @@ struct SoundscapeSelectionView: View {
     let isBreathingMode: Bool // Passed from HomeView to determine the flow
 
     let soundscapes = [
+        Soundscape(id: "Xochimilco", name: "Xochimilco Piano Sunrise", description: "The soothing morning nature sounds of a protected wetland area in Mexico City with gentle piano.", imageName: "Xochimilco"),
         Soundscape(id: "OceanWaves", name: "Big Sur Ocean Waves", description: "Enjoy the relaxing sounds of waves crashing in Big Sur, California", imageName: "OceanWaves"),
-        Soundscape(id: "Xochimilco", name: "Xochimilco Sunrise", description: "The soothing morning sounds of a protected wetlands area in Mexico City home to diverse wildlife including the regenerative axolotl.", imageName: "Xochimilco"),
         Soundscape(id: "Electronic", name: "Outer Space Frequencies", description: "An intriguing soundscape created from source sounds provided by NASA from the processed frequencies of outerspace", imageName: "Electronic")
     ]
     
@@ -79,9 +79,13 @@ struct SoundscapeSelectionView: View {
                             // Help text only on the first soundscape
                             if index == 0 {
                                 Text("Swipe for More")
-                                    .font(.custom("Avenir", size: 16))
+                                    .font(.custom("Avenir", size: 20))
                                     .foregroundColor(.white)
                                     .padding(.top, 10)
+                                    .fontWeight(.bold)
+                                Image(systemName: "arrow.right")
+                                    .font(.title2)
+                                    .foregroundColor(.white)
                             }
 
                             Spacer()

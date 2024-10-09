@@ -6,6 +6,8 @@ struct SoundscapeDetailView: View {
     // Audio Engine and Player Nodes
     @State private var audioEngine = AVAudioEngine()
     @State private var soundscapePlayer = AVAudioPlayerNode()
+    @State private var soundManager = BreathingSoundManager() // Manage breathing sounds
+    @State private var muteBreathing: Bool = false // Toggle for muting breathing sounds
     
     // Timer Variables
     @State private var timer: Timer?
@@ -16,7 +18,6 @@ struct SoundscapeDetailView: View {
     var selectedSoundscape: String
     var selectedBreathingPattern: String
     var selectedTime: Int // Time selected in HomeView
-
     // Inspirational quotes list
     let quotes = [
         "The wound is the place where the Light enters you. - Rumi",
@@ -42,301 +43,395 @@ struct SoundscapeDetailView: View {
 
     @State private var selectedQuote: String = ""
 
-    // Breathing pattern support
-    @State private var showBreathingPattern = false // Toggle to show breathing pattern
-    @State private var breathingPhase: String = "Inhale"
-    @State private var circleScale: CGFloat = 0.8 // Set to smaller size initially for Inhale
-    @State private var cycleStartTime: Int? = nil // Track when the current cycle starts
-    
-    @Environment(\.presentationMode) var presentationMode // For navigating back to HomeView
-    
-    // Helper function to get background image name based on selected soundscape
-    private func backgroundImageName(for soundscape: String) -> String {
-        switch soundscape {
-        case "OceanWaves":
-            return "OceanWaves"
-        case "Electronic":
-            return "Electronic"
-        case "Xochimilco":
-            return "Xochimilco"
-        default:
-            return "DefaultBackground"
-        }
-    }
-
-    // Helper function to select a random quote
-    func getRandomQuote() {
-        selectedQuote = quotes.randomElement() ?? "Relax, breathe, and take life one step at a time."
-    }
-    
-    // Helper function to format remaining time
-    func formatTime(seconds: Int) -> String {
-        let minutes = seconds / 60
-        let seconds = seconds % 60
-        return String(format: "%02d:%02d", minutes, seconds)
-    }
-    
-    var body: some View {
-        ZStack {
-            // Background Image
-            Image(backgroundImageName(for: selectedSoundscape))
-                .resizable()
-                .scaledToFill()
-                .edgesIgnoringSafeArea(.all) // Ensure background image fills entire screen
-
-            VStack(spacing: 40) {
-                Spacer() // To help center the circle vertically
-                    .frame(height:100)
-                // If no breathing pattern, display the inspirational quote
-                if selectedBreathingPattern == "None" {
-                    Text(selectedQuote)
-                        .font(.system(size: 19, weight: .medium, design: .rounded))
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 30)
-                        .shadow(radius: 10)
-                        .background(Color.gray.opacity(0.5))
-                        .frame(maxWidth: 300, maxHeight: .infinity, alignment: .center)
-                    
-                } else {
-                    // Breathing Pattern Section (if applicable)
-                    ZStack {
-                        // Breathing circle that grows and shrinks based on phase
-                        Circle()
-                            .stroke(
-                                LinearGradient(
-                                    gradient: Gradient(colors: [Color.white.opacity(0.8), Color.white.opacity(0.5)]),
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                ),
-                                lineWidth: 10
-                            )
-                            .frame(width: 250, height: 250)
-                            .scaleEffect(circleScale)
-                            .animation(.easeInOut(duration: 4), value: circleScale)
-                        
-                        // Inner Circle
-                        Circle()
-                            .fill(Color.white.opacity(0.2))
-                            .frame(width: 150, height: 150)
-                            .scaleEffect(circleScale)
-                            .animation(.easeInOut(duration: 4), value: circleScale)
-
-                        // Breathing Phase Text (e.g., Inhale, Exhale)
-                        Text(breathingPhase)
-                            .font(.system(size: 24, weight: .medium, design: .rounded)) // Smaller text
-                            .foregroundColor(Color.white)
-                    }
-                    .shadow(color: Color.white.opacity(0.2), radius: 10, x: 0, y: 0)
-
-                    Spacer()
-                }
-                
-                // Control Buttons
-                Button(action: {
-                    stopAudio()
-                    presentationMode.wrappedValue.dismiss() // Navigate back to HomeView
-                }) {
-                    Text("Stop")
-                        .font(.body) // Smaller text
-                        .padding()
-                        .frame(width: 150) // Smaller button
-                        .background(Color.gray.opacity(0.8)) // Gray background with 80% opacity
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
-                .padding()
-
-                // Remaining Time Display
-                   Text("Remaining Time: \(formatTime(seconds: remainingTime))")
-                       .font(.system(size: 18))
-                       .foregroundColor(.white)
-                       .padding(.bottom, 20)
-                
-                Spacer() // Additional spacer for bottom padding
-            }
-        }
-        .onAppear {
-            setupAudioEngine()
-            startSoundscapeAndTimer() // Automatically start soundscape on appear
-
-            // Show an inspirational quote if no breathing pattern is selected
-            if selectedBreathingPattern == "None" {
-                getRandomQuote()
-            }
-        }
-        .onChange(of: remainingTime) { _ in
-            if cycleStartTime == nil {
-                cycleStartTime = remainingTime // Record the initial time when the breathing starts
-            }
-            updateBreathingPhase() // Update breathing phase on each timer change
-        }
-        .onDisappear {
-            stopAudio()
-        }
-    }
-
-    // Setup Audio Engine and Attach Nodes
-    func setupAudioEngine() {
-        audioEngine.attach(soundscapePlayer)
-        audioEngine.connect(soundscapePlayer, to: audioEngine.mainMixerNode, format: nil)
+        // Breathing pattern support
+        @State private var showBreathingPattern = false // Toggle to show breathing pattern
+        @State private var breathingPhase: String = "Inhale"
+        @State private var circleScale: CGFloat = 0.8 // Set to smaller size initially for Inhale
+        @State private var cycleStartTime: Int? = nil // Track when the current cycle starts
         
-        do {
-            let audioSession = AVAudioSession.sharedInstance()
-            // Set the category to .playback to allow background audio
-            try audioSession.setCategory(.playback, mode: .default, options: [])
-            try audioSession.setActive(true)
-            try audioEngine.start()
-        } catch {
-            print("Error setting up audio engine: \(error.localizedDescription)")
+        @Environment(\.presentationMode) var presentationMode // For navigating back to HomeView
+        
+        // Helper function to get background image name based on selected soundscape
+        private func backgroundImageName(for soundscape: String) -> String {
+            switch soundscape {
+            case "OceanWaves":
+                return "OceanWaves"
+            case "Electronic":
+                return "Electronic"
+            case "Xochimilco":
+                return "Xochimilco"
+            default:
+                return "DefaultBackground"
+            }
         }
-    }
 
-    // Start Soundscape and Timer
-    func startSoundscapeAndTimer() {
-        guard !isPlaying else { return }
+        // Helper function to select a random quote
+        func getRandomQuote() {
+            selectedQuote = quotes.randomElement() ?? "Relax, breathe, and take life one step at a time."
+        }
+        
+        // Helper function to format remaining time
+        func formatTime(seconds: Int) -> String {
+            let minutes = seconds / 60
+            let seconds = seconds % 60
+            return String(format: "%02d:%02d", minutes, seconds)
+        }
 
-        if !audioEngine.isRunning {
+        var body: some View {
+            ZStack {
+                        // Background Image
+                        Image(backgroundImageName(for: selectedSoundscape))
+                            .resizable()
+                            .scaledToFill()
+                            .edgesIgnoringSafeArea(.all)
+
+                VStack(spacing: 40) {
+                  
+                   
+                    
+                    
+                    // If no breathing pattern, display the inspirational quote
+                    if selectedBreathingPattern == "None" {
+                        Text(selectedQuote)
+                            .font(.system(size: 19, weight: .medium, design: .rounded))
+                            .foregroundColor(.white)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal, 30)
+                            .shadow(radius: 10)
+                            .background(Color.gray.opacity(0.5))
+                            .frame(maxWidth: 300, maxHeight: .infinity, alignment: .center)
+                    } else {
+                        HStack(spacing: 0) {
+                                Button(action: {
+                                    muteBreathing.toggle()
+                                    soundManager.toggleMute()
+                                }) {
+                                    Image(systemName: muteBreathing ? "speaker.3.fill" : "speaker.slash.fill")
+                                        .font(.system(size: 24))
+                                        .foregroundColor(.white)
+                                }
+                                Text("Breath Metronome")
+                                    .font(.system(size: 14)) // Same size as Remaining Time
+                                    .foregroundColor(.white)
+                                    .padding(.vertical,50)
+                            }
+                        // Breathing Pattern Section (if applicable)
+                        ZStack {
+                            
+                            // Breathing circle that grows and shrinks based on phase
+                            Circle()
+                                .stroke(
+                                    LinearGradient(
+                                        gradient: Gradient(colors: [Color.white.opacity(0.8), Color.white.opacity(0.5)]),
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    ),
+                                    lineWidth: 10
+                                )
+                                .frame(width: 250, height: 250)
+                                .scaleEffect(circleScale)
+                                .animation(.easeInOut(duration: 4), value: circleScale)
+
+                            // Inner Circle
+                            Circle()
+                                .fill(Color.white.opacity(0.2))
+                                .frame(width: 150, height: 150)
+                                .scaleEffect(circleScale)
+                                .animation(.easeInOut(duration: 4), value: circleScale)
+
+                            // Breathing Phase Text (e.g., Inhale, Exhale)
+                            Text(breathingPhase)
+                                .font(.system(size: 24, weight: .medium, design: .rounded))
+                                .foregroundColor(Color.white)
+                        }
+                        .shadow(color: Color.white.opacity(0.2), radius: 10, x: 0, y: 0)
+
+                        Spacer()
+                    }
+
+                   
+
+                    // Control Buttons
+                    Button(action: {
+                        stopAudio()
+                        presentationMode.wrappedValue.dismiss() // Navigate back to HomeView
+                    }) {
+                        Text("Stop")
+                            .font(.body) // Smaller text
+                            .padding()
+                            .frame(width: 150) // Smaller button
+                            .background(Color.gray.opacity(0.8)) // Gray background with 80% opacity
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
+                    .padding()
+                    
+
+                            // Remaining Time Display
+                               Text("Remaining Time: \(formatTime(seconds: remainingTime))")
+                                   .font(.system(size: 18))
+                                   .foregroundColor(.white)
+                                   .padding(.bottom, 20)
+                            
+                        }
+                    }
+            .onAppear {
+                setupAudioEngine()
+                startSoundscapeAndTimer() // Automatically start soundscape on appear
+
+                // Show an inspirational quote if no breathing pattern is selected
+                if selectedBreathingPattern == "None" {
+                    getRandomQuote()
+                }
+            }
+            .onChange(of: remainingTime) { _ in
+                if cycleStartTime == nil {
+                    cycleStartTime = remainingTime // Record the initial time when the breathing starts
+                }
+                updateBreathingPhase() // Update breathing phase on each timer change
+            }
+            .onDisappear {
+                stopAudio()
+            }
+        }
+
+        // Setup Audio Engine and Attach Nodes
+        func setupAudioEngine() {
+            audioEngine.attach(soundscapePlayer)
+            audioEngine.connect(soundscapePlayer, to: audioEngine.mainMixerNode, format: nil)
+            
             do {
+                let audioSession = AVAudioSession.sharedInstance()
+                try audioSession.setCategory(.playback, mode: .default, options: [])
+                try audioSession.setActive(true)
                 try audioEngine.start()
             } catch {
-                print("Error starting audio engine: \(error.localizedDescription)")
+                print("Error setting up audio engine: \(error.localizedDescription)")
+            }
+        }
+
+        // Start Soundscape and Timer
+        func startSoundscapeAndTimer() {
+            guard !isPlaying else { return }
+
+            if !audioEngine.isRunning {
+                do {
+                    try audioEngine.start()
+                } catch {
+                    print("Error starting audio engine: \(error.localizedDescription)")
+                    return
+                }
+            }
+
+            remainingTime = selectedTime * 60 // Convert minutes to seconds
+            isPlaying = true
+            
+            playSoundscape(soundscape: selectedSoundscape)
+            
+            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+                if self.remainingTime > 0 {
+                    self.remainingTime -= 1
+                } else {
+                    self.stopAudio()
+                    self.stopTimer()
+                    self.presentationMode.wrappedValue.dismiss() // Navigate back to HomeView when the timer expires
+                }
+            }
+            
+            if selectedBreathingPattern != "None" {
+                showBreathingPattern = true
+            }
+        }
+
+        // Play soundscape and loop it
+        func playSoundscape(soundscape: String) {
+            let soundscapeFileName: String
+            switch soundscape {
+            case "Ocean Waves":
+                soundscapeFileName = "OceanWaves"
+            case "Electronic":
+                soundscapeFileName = "Electronic"
+            case "Xochimilco":
+                soundscapeFileName = "Xochimilco"
+            default:
+                soundscapeFileName = "OceanWaves"
+            }
+
+            guard let soundscapeURL = Bundle.main.url(forResource: soundscapeFileName, withExtension: "mp3") else {
+                print("Error: Soundscape file not found: \(soundscapeFileName).mp3")
                 return
             }
-        }
 
-        // Set the remaining time based on the selected timer duration
-        remainingTime = selectedTime * 60 // Convert minutes to seconds
-        isPlaying = true
-        
-        playSoundscape(soundscape: selectedSoundscape)
-        
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            if self.remainingTime > 0 {
-                self.remainingTime -= 1
-            } else {
-                self.stopAudio()
-                self.stopTimer()
-                self.presentationMode.wrappedValue.dismiss() // Navigate back to HomeView when the timer expires
+            do {
+                let soundscapeFile = try AVAudioFile(forReading: soundscapeURL)
+                soundscapePlayer.scheduleFile(soundscapeFile, at: nil, completionHandler: {
+                    self.scheduleSoundscapeLoop(soundscapeFile: soundscapeFile)
+                })
+                soundscapePlayer.play()
+            } catch {
+                print("Error scheduling soundscape: \(error.localizedDescription)")
             }
         }
-        
-        if selectedBreathingPattern != "None" {
-            showBreathingPattern = true
-        }
-    }
 
-    // Play soundscape and loop it
-    func playSoundscape(soundscape: String) {
-        let soundscapeFileName: String
-        switch soundscape {
-        case "Ocean Waves":
-            soundscapeFileName = "OceanWaves"
-        case "Electronic":
-            soundscapeFileName = "Electronic"
-        case "Xochimilco":
-            soundscapeFileName = "Xochimilco"
-        default:
-            soundscapeFileName = "OceanWaves"
-        }
-
-        guard let soundscapeURL = Bundle.main.url(forResource: soundscapeFileName, withExtension: "mp3") else {
-            print("Error: Soundscape file not found: \(soundscapeFileName).mp3")
-            return
-        }
-
-        do {
-            let soundscapeFile = try AVAudioFile(forReading: soundscapeURL)
+        func scheduleSoundscapeLoop(soundscapeFile: AVAudioFile) {
             soundscapePlayer.scheduleFile(soundscapeFile, at: nil, completionHandler: {
                 self.scheduleSoundscapeLoop(soundscapeFile: soundscapeFile)
             })
-            soundscapePlayer.play()
-        } catch {
-            print("Error scheduling soundscape: \(error.localizedDescription)")
         }
-    }
 
-    func scheduleSoundscapeLoop(soundscapeFile: AVAudioFile) {
-        soundscapePlayer.scheduleFile(soundscapeFile, at: nil, completionHandler: {
-            self.scheduleSoundscapeLoop(soundscapeFile: soundscapeFile)
-        })
-    }
+        func stopTimer() {
+            timer?.invalidate()
+            timer = nil
+            isPlaying = false
+            showBreathingPattern = false
+        }
 
-    func stopTimer() {
-        timer?.invalidate()
-        timer = nil
-        isPlaying = false
-        showBreathingPattern = false
-    }
-
-    func stopAudio() {
-        soundscapePlayer.stop()
-        audioEngine.stop()
-        isPlaying = false
-    }
+        func stopAudio() {
+            soundscapePlayer.stop()
+            audioEngine.stop()
+            isPlaying = false
+        }
 
     // Update breathing phase based on the breathing pattern and timer
-    func updateBreathingPhase() {
-        guard let cycleStartTime = cycleStartTime else { return }
-        let timeElapsed = cycleStartTime - remainingTime
-        
-        switch selectedBreathingPattern {
-        case "Box Breathing":
-            let cycleLength = 16
-            let phaseTime = timeElapsed % cycleLength
+       func updateBreathingPhase() {
+           guard let cycleStartTime = cycleStartTime else { return }
+           let timeElapsed = cycleStartTime - remainingTime
+           
+           switch selectedBreathingPattern {
+           case "Box Breathing":
+               let cycleLength = 16
+               let phaseTime = timeElapsed % cycleLength
+               
+               if phaseTime < 4 {
+                   breathingPhase = "Inhale"
+                   circleScale = 1.2
+                   soundManager.playInhaleSound()
+               } else if phaseTime < 8 {
+                   breathingPhase = "Hold"
+                   circleScale = 1.2
+                   soundManager.fadeOutInhale()
+               } else if phaseTime < 12 {
+                   breathingPhase = "Exhale"
+                   circleScale = 0.8
+                   soundManager.playExhaleSound()
+               } else {
+                   breathingPhase = "Hold"
+                   circleScale = 0.8
+                   soundManager.fadeOutExhale()
+               }
+           case "In and Out":
+               let cycleLength = 8
+               let phaseTime = timeElapsed % cycleLength
+               
+               if phaseTime < 4 {
+                   breathingPhase = "Inhale"
+                   circleScale = 1.2
+                   soundManager.playInhaleSound()
+               } else {
+                   breathingPhase = "Exhale"
+                   circleScale = 0.8
+                   soundManager.playExhaleSound()
+               }
             
-            if phaseTime < 4 {
-                breathingPhase = "Inhale"
-                circleScale = 1.2 // Circle grows on Inhale
-            } else if phaseTime < 8 {
-                breathingPhase = "Hold"
-                circleScale = 1.2 // Circle stays the same size during Hold
-            } else if phaseTime < 12 {
-                breathingPhase = "Exhale"
-                circleScale = 0.8 // Circle shrinks on Exhale
-            } else {
-                breathingPhase = "Hold"
-                circleScale = 0.8 // Circle stays small during Hold
-            }
-        case "4-7-8 Breathing":
-            let cycleLength = 19
-            let phaseTime = timeElapsed % cycleLength
-            
-            if phaseTime < 4 {
-                breathingPhase = "Inhale"
-                circleScale = 1.2 // Circle grows on Inhale
-            } else if phaseTime < 11 {
-                breathingPhase = "Hold"
-                circleScale = 1.2 // Circle stays the same size during Hold
-            } else {
-                breathingPhase = "Exhale"
-                circleScale = 0.8 // Circle shrinks on Exhale
-            }
-        case "In and Out":
-            let cycleLength = 8
-            let phaseTime = timeElapsed % cycleLength
-            
-            if phaseTime < 4 {
-                breathingPhase = "Inhale"
-                circleScale = 1.2 // Circle grows on Inhale
-            } else {
-                breathingPhase = "Exhale"
-                circleScale = 0.8 // Circle shrinks on Exhale
-            }
-        case "Pursed Lip Breathing":
-            let cycleLength = 6
-            let phaseTime = timeElapsed % cycleLength
-            
-            if phaseTime < 2 {
-                breathingPhase = "Inhale"
-                circleScale = 1.2 // Circle grows on Inhale
-            } else {
-                breathingPhase = "Exhale"
-                circleScale = 0.8 // Circle shrinks on Exhale
-            }
-        default:
-            breathingPhase = "Inhale"
-            circleScale = 1.2 // Default size for Inhale
+           case "4-7-8 Breathing":
+               let cycleLength = 19
+               let phaseTime = timeElapsed % cycleLength
+               
+               if phaseTime < 4 {
+                   breathingPhase = "Inhale"
+                   circleScale = 1.2 // Circle grows on Inhale
+                   soundManager.playInhaleSound()
+               } else if phaseTime < 11 {
+                   breathingPhase = "Hold"
+                   circleScale = 1.2 // Circle stays the same size during Hold
+               } else {
+                   breathingPhase = "Exhale"
+                   circleScale = 0.8 // Circle shrinks on Exhale
+                   soundManager.playExhaleSound()
+               }
+               
+           case "Pursed Lip Breathing":
+               let cycleLength = 6
+               let phaseTime = timeElapsed % cycleLength
+               
+               if phaseTime < 2 {
+                   breathingPhase = "Inhale"
+                   circleScale = 1.2 // Circle grows on Inhale
+                   soundManager.playInhaleSound()
+               } else {
+                   breathingPhase = "Exhale"
+                   circleScale = 0.8 // Circle shrinks on Exhale
+                   soundManager.playExhaleSound()
+               }
+               
+           // Implement other breathing patterns similarly
+           default:
+               breathingPhase = "Inhale"
+               circleScale = 1.2
+           }
+       }
+   }
+
+class BreathingSoundManager {
+    var inhalePlayer: AVAudioPlayer?
+    var exhalePlayer: AVAudioPlayer?
+    var isMuted: Bool = true
+
+    init() {
+        // Load inhale and exhale sounds
+        if let inhaleURL = Bundle.main.url(forResource: "inhaleSound", withExtension: "mp3") {
+            inhalePlayer = try? AVAudioPlayer(contentsOf: inhaleURL)
+            inhalePlayer?.prepareToPlay()
         }
+        
+        if let exhaleURL = Bundle.main.url(forResource: "exhaleSound", withExtension: "mp3") {
+            exhalePlayer = try? AVAudioPlayer(contentsOf: exhaleURL)
+            exhalePlayer?.prepareToPlay()
+        }
+    }
+
+    func playInhaleSound() {
+        guard !isMuted else { return }
+        inhalePlayer?.currentTime = 0
+        inhalePlayer?.volume = 1.0
+        inhalePlayer?.play()
+    }
+
+    func playExhaleSound() {
+        guard !isMuted else { return }
+        exhalePlayer?.currentTime = 0
+        exhalePlayer?.volume = 1.0
+        exhalePlayer?.play()
+    }
+
+    func fadeOutInhale() {
+        fadeOut(player: inhalePlayer)
+    }
+
+    func fadeOutExhale() {
+        fadeOut(player: exhalePlayer)
+    }
+
+    private func fadeOut(player: AVAudioPlayer?) {
+        guard let player = player, !isMuted else { return }
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+            if player.volume > 0.1 {
+                player.volume -= 0.1
+            } else {
+                player.stop()
+                timer.invalidate()
+            }
+        }
+    }
+
+    func stopAllSounds() {
+        inhalePlayer?.stop()
+        exhalePlayer?.stop()
+    }
+
+    func toggleMute() {
+        isMuted.toggle()
+        inhalePlayer?.volume = isMuted ? 0 : 1
+        exhalePlayer?.volume = isMuted ? 0 : 1
     }
 }
