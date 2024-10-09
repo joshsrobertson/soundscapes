@@ -40,9 +40,9 @@ struct TimerSelectionView: View {
                 
                 // Navigation Link to start the session
                 NavigationLink(destination: SoundscapeDetailView(
-                    selectedSoundscape: selectedSoundscape,
-                    selectedBreathingPattern: selectedBreathingPattern.id,
-                    selectedTime: selectedDuration
+                        selectedSoundscape: selectedSoundscape,
+                        selectedBreathingPattern: selectedBreathingPattern, // Correct object passed here
+                        selectedTime: selectedDuration
                 )) {
                     Text("Start Session")
                         .font(.custom("Avenir", size: 22))
