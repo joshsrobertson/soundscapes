@@ -136,9 +136,9 @@
 				82FB425A2CB076C60042CE98 /* HomeView.swift */,
 				8290F2142CB475D700EAA520 /* SoundscapeSelectionView.swift */,
 				8290F2182CB47F1400EAA520 /* BreathingPatterSelectionView.swift */,
-				82FB42852CB079970042CE98 /* SoundscapeDetailView.swift */,
 				82AB4A9C2CB6350200DC43BE /* PostSoundscapeView.swift */,
 				8290F2162CB47EBA00EAA520 /* TimerSelectionView.swift */,
+				82FB42852CB079970042CE98 /* SoundscapeDetailView.swift */,
 				8283F7762CB6E05500607322 /* Quotes.swift */,
 			);
 			path = UI;

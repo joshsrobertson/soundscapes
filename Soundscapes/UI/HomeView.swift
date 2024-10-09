@@ -33,7 +33,6 @@ struct HomeView: View {
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 40)
                         .padding(.vertical, 30)
-                        .fontWeight(.bold)
                         .opacity(isTextVisible ? 1 : 0) // Control opacity with isTextVisible
                         .animation(.easeInOut(duration: 3), value: isTextVisible) // Slightly different timing
 

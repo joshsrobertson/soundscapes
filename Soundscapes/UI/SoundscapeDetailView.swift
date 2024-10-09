@@ -27,20 +27,21 @@ struct SoundscapeDetailView: View {
 
             VStack(spacing: 40) {
                 // Mute button and label
-                HStack(spacing: 10) {
-                    Button(action: {
-                        breathingManager.toggleMute()
-                    }) {
-                        Image(systemName: breathingManager.isMuted ? "speaker.slash.fill" : "speaker.3.fill")
-                            .font(.system(size: 24))
+                if selectedBreathingPattern.id != "None" {
+                    HStack(spacing: 10) {
+                        Button(action: {
+                            breathingManager.toggleMute()
+                        }) {
+                            Image(systemName: breathingManager.isMuted ? "speaker.slash.fill" : "speaker.3.fill")
+                                .font(.system(size: 24))
+                                .foregroundColor(.white)
+                        }
+                        Text("Breath Metronome")
+                            .font(.system(size: 14))
                             .foregroundColor(.white)
+                            .padding(.vertical, 50)
                     }
-                    Text("Breath Metronome")
-                        .font(.system(size: 14))
-                        .foregroundColor(.white)
-                        .padding(.vertical, 50)
                 }
-
                 if selectedBreathingPattern.id == "None" {
                                     Text(currentQuote)
                                         .font(.system(size: 19, weight: .medium, design: .rounded))
@@ -53,7 +54,7 @@ struct SoundscapeDetailView: View {
                                         .shadow(radius: 10)
                                         .frame(maxWidth: 300, maxHeight: .infinity, alignment: .center)
                                         .opacity(isQuoteVisible ? 1 : 0)
-                                        .animation(.easeInOut(duration: 2), value: isQuoteVisible)
+                                        .animation(.easeInOut(duration: 1), value: isQuoteVisible)
                 } else {
                     ZStack {
                         Circle()
@@ -135,7 +136,7 @@ struct SoundscapeDetailView: View {
                     } else if let lastChange = lastQuoteChangeTime,
                               (lastChange - timerModel.remainingTime) >= 20 {
                         isQuoteVisible = false
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() ) {
                             currentQuote = getRandomQuote()
                             lastQuoteChangeTime = timerModel.remainingTime
                             isQuoteVisible = true
