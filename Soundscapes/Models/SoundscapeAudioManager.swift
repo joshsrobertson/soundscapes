@@ -4,7 +4,10 @@ class SoundscapeAudioManager: ObservableObject {
     var audioEngine = AVAudioEngine()
     var soundscapePlayer = AVAudioPlayerNode()
     var audioFile: AVAudioFile?
+    var isPlaying = false
+    var isSleepMode = false // Flag to track Sleep Mode
     
+    // Set up the audio engine
     func setupAudioEngine() {
         audioEngine.attach(soundscapePlayer)
         audioEngine.connect(soundscapePlayer, to: audioEngine.mainMixerNode, format: nil)
@@ -19,6 +22,7 @@ class SoundscapeAudioManager: ObservableObject {
         }
     }
 
+    // Play the selected soundscape with looping functionality
     func playSoundscape(soundscape: String) {
         let soundscapeFileName = soundscape
         
@@ -30,17 +34,28 @@ class SoundscapeAudioManager: ObservableObject {
         do {
             audioFile = try AVAudioFile(forReading: soundscapeURL)
             if let audioFile = audioFile {
-                soundscapePlayer.scheduleFile(audioFile, at: nil, completionHandler: nil)
+                scheduleAudioFileLooping(audioFile: audioFile)
                 soundscapePlayer.play()
+                isPlaying = true
             }
         } catch {
             print("Error scheduling soundscape: \(error.localizedDescription)")
         }
     }
 
+    // Schedule the audio file to loop
+    func scheduleAudioFileLooping(audioFile: AVAudioFile) {
+        soundscapePlayer.scheduleFile(audioFile, at: nil, completionHandler: {
+            // When the sound finishes, schedule the file again to loop it
+            self.scheduleAudioFileLooping(audioFile: audioFile)
+        })
+    }
+
+    // Stop the audio when needed
     func stopAudio() {
         soundscapePlayer.stop()
         audioEngine.stop()
+        isPlaying = false
     }
 
     // Add this function for fading out
@@ -64,9 +79,32 @@ class SoundscapeAudioManager: ObservableObject {
 
     // Method to handle triggering the fade-out
     func checkForFadeOut(remainingTime: Int) {
+        // If Sleep Mode is enabled and 5 minutes (300 seconds) remain, lower the volume to 10%
+        if isSleepMode && remainingTime == 300 {
+            reduceVolume(to: 0.5)
+        }
+        if isSleepMode && remainingTime == 250 {
+            reduceVolume(to: 0.4)
+        }
+        if isSleepMode && remainingTime == 200 {
+            reduceVolume(to: 0.3)
+        }
+        if isSleepMode && remainingTime == 150 {
+            reduceVolume(to: 0.2)
+        }
         // Trigger the fade out when 7 seconds remain
         if remainingTime == 7 {
             fadeOut()
         }
+    }
+
+    // Reduce volume to a specified level
+    func reduceVolume(to volumeLevel: Float) {
+        audioEngine.mainMixerNode.outputVolume = volumeLevel
+    }
+
+    // Method to enable or disable Sleep Mode
+    func enableSleepMode(_ enabled: Bool) {
+        isSleepMode = enabled
     }
 }

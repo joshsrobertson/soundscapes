@@ -217,15 +217,15 @@
 				82FB42582CB076C60042CE98 /* SoundscapesApp.swift */,
 				82FB425E2CB076C80042CE98 /* Soundscapes.entitlements */,
 				82AB4A8D2CB5216F00DC43BE /* Info.plist */,
-				8283F7862CB6FD6B00607322 /* Video */,
 				8283F77B2CB6F61E00607322 /* UI */,
+				8283F77A2CB6F60900607322 /* Models */,
 				82FB425C2CB076C80042CE98 /* Assets.xcassets */,
 				82E097192CB787E300FB6684 /* Preview Assets.xcassets */,
 				82E097142CB7877D00FB6684 /* Preview Content */,
+				8283F77C2CB6F63800607322 /* Soundscape Audio */,
 				8283F77D2CB6F64C00607322 /* BG Images */,
 				8283F77E2CB6F67700607322 /* Breathing Audio */,
-				8283F77C2CB6F63800607322 /* Soundscape Audio */,
-				8283F77A2CB6F60900607322 /* Models */,
+				8283F7862CB6FD6B00607322 /* Video */,
 			);
 			path = Soundscapes;
 			sourceTree = "<group>";

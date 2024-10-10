@@ -35,6 +35,7 @@ struct TimerSelectionView: View {
                 VStack(spacing: 20) {
                     if isSleepMode {
                         // Only show these options in Sleep Mode
+                        timerButton(duration: 5, label: "5 Minutes")
                         timerButton(duration: 10, label: "10 Minutes")
                         timerButton(duration: 20, label: "20 Minutes")
                         timerButton(duration: 60, label: "1 Hour")
@@ -50,7 +51,7 @@ struct TimerSelectionView: View {
 
                 // Sleep Mode text
                 if isSleepMode {
-                    Text("The soundscape will gradually start fading out after 5 minutes to half volume until the end of the journey.")
+                    Text("The soundscape will gradually start fading 5 minutes before end of the journey as you drift off to sleep.")
                         .font(.custom("Avenir", size: 16))
                         .foregroundColor(.white)
                         .frame(width: 300)

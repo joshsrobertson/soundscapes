@@ -27,7 +27,7 @@ struct HomeView: View {
                         .animation(.easeInOut(duration: 1), value: isTextVisible) // Animate text appearance
 
                     // App Description
-                    Text("Relax, sleep and breathe with immersive soundscapes crafted by artists and sound designers.")
+                    Text("Journey with soundcapes inspired by Nature, to connect with your inner Nature.")
                         .font(.custom("Avenir", size: 20)) // Avenir for the description as well
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)

@@ -136,6 +136,7 @@ struct SoundscapeDetailView: View {
         .onAppear {
             soundscapeAudioManager.setupAudioEngine()
             soundscapeAudioManager.playSoundscape(soundscape: selectedSoundscape)
+            soundscapeAudioManager.enableSleepMode(isSleepMode)
             timerModel.startTimer(duration: selectedTime) {
                 showPostSoundscapeView = true
             }
