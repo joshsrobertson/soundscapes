@@ -1,12 +1,13 @@
 import SwiftUI
 
 struct SoundscapeSelectionView: View {
-    let isBreathingMode: Bool
+    let isBreathingMode: Bool // Passed from HomeView to determine the flow
+    let isSleepMode: Bool // New parameter to determine if Sleep mode is active
 
     let soundscapes = [
         Soundscape(id: "Xochimilco", name: "Xochimilco Piano Sunrise", description: "The soothing morning nature sounds of a protected wetland area in Mexico City with gentle piano.", imageName: "Xochimilco"),
         Soundscape(id: "OceanWaves", name: "Big Sur Ocean Waves", description: "Enjoy the relaxing sounds of waves crashing in Big Sur, California", imageName: "OceanWaves"),
-        Soundscape(id: "Electronic", name: "Outer Space Frequencies", description: "An intriguing soundscape created from source sounds provided by NASA from the processed frequencies of outerspace", imageName: "Electronic")
+        Soundscape(id: "Electronic", name: "Outer Space Frequencies", description: "An intriguing soundscape created from source sounds provided by NASA from the processed frequencies of outer space", imageName: "Electronic")
     ]
 
     @State private var selectedSoundscape: Soundscape?
@@ -23,11 +24,11 @@ struct SoundscapeSelectionView: View {
                             .resizable()
                             .scaledToFill()
                             .edgesIgnoringSafeArea(.all)
-                        
+
                         // Gray overlay to enhance text readability
                         Color.black.opacity(0.3)
                             .edgesIgnoringSafeArea(.all)
-                        
+
                         VStack(spacing: 20) {
                             Spacer()
 
@@ -56,7 +57,9 @@ struct SoundscapeSelectionView: View {
                             if isBreathingMode {
                                 NavigationLink(destination: BreathingPatternSelectionView(
                                     selectedSoundscape: soundscape.id,
-                                    backgroundImage: soundscape.imageName)) {
+                                    backgroundImage: soundscape.imageName,
+                                    isSleepMode: isSleepMode // Pass the isSleepMode flag
+                                )) {
                                     Text("Choose Soundscape")
                                         .font(.custom("Avenir", size: 22))
                                         .fontWeight(.semibold)
@@ -76,7 +79,9 @@ struct SoundscapeSelectionView: View {
                                 NavigationLink(destination: TimerSelectionView(
                                     selectedSoundscape: soundscape.id,
                                     selectedBreathingPattern: BreathingPattern(id: "None", name: "No Breathing Pattern", description: "", cadence: ""),
-                                    backgroundImage: soundscape.imageName)) {
+                                    backgroundImage: soundscape.imageName,
+                                    isSleepMode: isSleepMode // Pass the isSleepMode flag
+                                )) {
                                     Text("Select Soundscape")
                                         .font(.custom("Avenir", size: 22))
                                         .fontWeight(.semibold)

@@ -44,9 +44,27 @@ struct HomeView: View {
                         .opacity(isTextVisible ? 1 : 0) // Control opacity with isTextVisible
                         .animation(.easeInOut(duration: 5), value: isTextVisible) // Another staggered delay
 
-                    // Relax|Sleep and Breath options
+                    // Explore Button
+                    NavigationLink(destination: SoundscapeSelectionView(isBreathingMode: false, isSleepMode: false)) {
+                        Text("Explore")
+                            .font(.custom("Avenir", size: 18))
+                            .fontWeight(.semibold)
+                            .padding()
+                            .frame(width: 200)
+                            .background(LinearGradient(gradient: Gradient(colors: [Color.gray, Color.blue]),
+                                                       startPoint: .leading,
+                                                       endPoint: .trailing))
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                            .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
+                    }
+                    .padding(.horizontal, 40)
+
+                                    
+                    // Breathe
                     VStack(spacing: 20) {
-                        NavigationLink(destination: SoundscapeSelectionView(isBreathingMode: true)) {
+                        // Breathe Button
+                        NavigationLink(destination: SoundscapeSelectionView(isBreathingMode: true, isSleepMode: false)) {
                             Text("Breathe")
                                 .font(.custom("Avenir", size: 18))
                                 .fontWeight(.semibold)
@@ -60,9 +78,10 @@ struct HomeView: View {
                                 .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
                         }
                         .padding(.horizontal, 40)
-                    }
-                        NavigationLink(destination: SoundscapeSelectionView(isBreathingMode: false)) {
-                            Text("Relax | Sleep")
+
+                        // Sleep Button
+                        NavigationLink(destination: SoundscapeSelectionView(isBreathingMode: false, isSleepMode: true)) {
+                            Text("Sleep")
                                 .font(.custom("Avenir", size: 18))
                                 .fontWeight(.semibold)
                                 .padding()
@@ -75,6 +94,7 @@ struct HomeView: View {
                                 .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
                         }
                         .padding(.horizontal, 40)
+                    }
 
                     Spacer() // Push content up for better centering
                     
@@ -107,5 +127,3 @@ struct HomeView: View {
         }
     }
 }
-
-

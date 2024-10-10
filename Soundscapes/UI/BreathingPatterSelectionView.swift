@@ -3,6 +3,7 @@ import SwiftUI
 struct BreathingPatternSelectionView: View {
     var selectedSoundscape: String
     var backgroundImage: String
+    var isSleepMode: Bool // Add the isSleepMode parameter
 
     let breathingPatterns = [
         BreathingPattern(id: "In and Out", name: "In and Out Breathing", description: "A simple breathing pattern where you inhale for 4 seconds and exhale for 4 seconds. Helps promote calm and relaxation.", cadence: "4-4"),
@@ -56,7 +57,9 @@ struct BreathingPatternSelectionView: View {
                             NavigationLink(destination: TimerSelectionView(
                                 selectedSoundscape: selectedSoundscape,
                                 selectedBreathingPattern: pattern,
-                                backgroundImage: backgroundImage)) {
+                                backgroundImage: backgroundImage,
+                                isSleepMode: isSleepMode // Pass the isSleepMode parameter
+                            )) {
                                 Text("Select Breathing Pattern")
                                     .font(.custom("Avenir", size: 22))
                                     .padding()

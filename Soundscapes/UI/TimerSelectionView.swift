@@ -4,6 +4,8 @@ struct TimerSelectionView: View {
     var selectedSoundscape: String
     var selectedBreathingPattern: BreathingPattern
     var backgroundImage: String
+    var isSleepMode: Bool // New flag for Sleep Mode
+    
     @State private var selectedDuration: Int = 5 // Default to 5 minutes
     
     var body: some View {
@@ -26,16 +28,35 @@ struct TimerSelectionView: View {
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)
                     .frame(width: 300)
-                    .padding(.top,20)
-                    .padding(.bottom,20)
+                    .padding(.top, 50)
+                    .padding(.bottom, 20)
                 
                 // Timer Buttons
                 VStack(spacing: 20) {
-                    timerButton(duration: 1, label: "1 Minute")
-                    timerButton(duration: 5, label: "5 Minutes")
-                    timerButton(duration: 10, label: "10 Minutes")
-                    timerButton(duration: 20, label: "20 Minutes")
-                    timerButton(duration: 60, label: "1 Hour")
+                    if isSleepMode {
+                        // Only show these options in Sleep Mode
+                        timerButton(duration: 10, label: "10 Minutes")
+                        timerButton(duration: 20, label: "20 Minutes")
+                        timerButton(duration: 60, label: "1 Hour")
+                    } else {
+                        // Default options for other modes
+                        timerButton(duration: 1, label: "1 Minute")
+                        timerButton(duration: 5, label: "5 Minutes")
+                        timerButton(duration: 10, label: "10 Minutes")
+                        timerButton(duration: 20, label: "20 Minutes")
+                        timerButton(duration: 60, label: "1 Hour")
+                    }
+                }
+
+                // Sleep Mode text
+                if isSleepMode {
+                    Text("The soundscape will gradually start fading out after 5 minutes to half volume until the end of the journey.")
+                        .font(.custom("Avenir", size: 16))
+                        .foregroundColor(.white)
+                        .frame(width: 300)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 20)
+                        .padding(.top, 20)
                 }
                 
                 // Navigation Link to start the session
