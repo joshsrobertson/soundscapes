@@ -17,7 +17,7 @@ struct HomeView: View {
                     Spacer() // Push content down for better centering
 
                     // App Title
-                    Text("Sound.Scapes")
+                    Text("Sound Journeys")
                         .font(.custom("Baskerville", size: 40)) // Avenir font for a sleek look
                         .fontWeight(.bold)
                         .foregroundColor(.white)
@@ -27,7 +27,7 @@ struct HomeView: View {
                         .animation(.easeInOut(duration: 1), value: isTextVisible) // Animate text appearance
 
                     // App Description
-                    Text("Journey with soundcapes inspired by Nature, to connect with your inner Nature.")
+                    Text("Soundcape journeys inspired by Nature, designed to connect with your inner Nature.")
                         .font(.custom("Avenir", size: 20)) // Avenir for the description as well
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
