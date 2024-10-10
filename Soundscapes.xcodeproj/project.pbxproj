@@ -24,10 +24,10 @@
 		82AB4A972CB5D19300DC43BE /* exhaleSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AB4A962CB5D19200DC43BE /* exhaleSound.mp3 */; };
 		82AB4A992CB5D1A300DC43BE /* inhaleSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AB4A982CB5D1A300DC43BE /* inhaleSound.mp3 */; };
 		82AB4A9D2CB6350600DC43BE /* PostSoundscapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AB4A9C2CB6350200DC43BE /* PostSoundscapeView.swift */; };
+		82E0971A2CB787E300FB6684 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82E097192CB787E300FB6684 /* Preview Assets.xcassets */; };
 		82FB42592CB076C60042CE98 /* SoundscapesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42582CB076C60042CE98 /* SoundscapesApp.swift */; };
 		82FB425B2CB076C60042CE98 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB425A2CB076C60042CE98 /* HomeView.swift */; };
 		82FB425D2CB076C80042CE98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82FB425C2CB076C80042CE98 /* Assets.xcassets */; };
-		82FB42612CB076C80042CE98 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82FB42602CB076C80042CE98 /* Preview Assets.xcassets */; };
 		82FB426B2CB076C80042CE98 /* SoundscapesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB426A2CB076C80042CE98 /* SoundscapesTests.swift */; };
 		82FB42752CB076C80042CE98 /* SoundscapesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42742CB076C80042CE98 /* SoundscapesUITests.swift */; };
 		82FB42772CB076C80042CE98 /* SoundscapesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42762CB076C80042CE98 /* SoundscapesUITestsLaunchTests.swift */; };
@@ -73,12 +73,12 @@
 		82AB4A962CB5D19200DC43BE /* exhaleSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = exhaleSound.mp3; sourceTree = "<group>"; };
 		82AB4A982CB5D1A300DC43BE /* inhaleSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = inhaleSound.mp3; sourceTree = "<group>"; };
 		82AB4A9C2CB6350200DC43BE /* PostSoundscapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSoundscapeView.swift; sourceTree = "<group>"; };
+		82E097192CB787E300FB6684 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		82FB42552CB076C60042CE98 /* Soundscapes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soundscapes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FB42582CB076C60042CE98 /* SoundscapesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapesApp.swift; sourceTree = "<group>"; };
 		82FB425A2CB076C60042CE98 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		82FB425C2CB076C80042CE98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82FB425E2CB076C80042CE98 /* Soundscapes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Soundscapes.entitlements; sourceTree = "<group>"; };
-		82FB42602CB076C80042CE98 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		82FB42662CB076C80042CE98 /* SoundscapesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundscapesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FB426A2CB076C80042CE98 /* SoundscapesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapesTests.swift; sourceTree = "<group>"; };
 		82FB42702CB076C80042CE98 /* SoundscapesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoundscapesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,6 +184,13 @@
 			path = Video;
 			sourceTree = "<group>";
 		};
+		82E097142CB7877D00FB6684 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		82FB424C2CB076C60042CE98 = {
 			isa = PBXGroup;
 			children = (
@@ -213,21 +220,14 @@
 				8283F7862CB6FD6B00607322 /* Video */,
 				8283F77B2CB6F61E00607322 /* UI */,
 				82FB425C2CB076C80042CE98 /* Assets.xcassets */,
+				82E097192CB787E300FB6684 /* Preview Assets.xcassets */,
+				82E097142CB7877D00FB6684 /* Preview Content */,
 				8283F77D2CB6F64C00607322 /* BG Images */,
 				8283F77E2CB6F67700607322 /* Breathing Audio */,
 				8283F77C2CB6F63800607322 /* Soundscape Audio */,
-				82FB425F2CB076C80042CE98 /* Preview Content */,
 				8283F77A2CB6F60900607322 /* Models */,
 			);
 			path = Soundscapes;
-			sourceTree = "<group>";
-		};
-		82FB425F2CB076C80042CE98 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				82FB42602CB076C80042CE98 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		82FB42692CB076C80042CE98 /* SoundscapesTests */ = {
@@ -354,7 +354,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82FB42612CB076C80042CE98 /* Preview Assets.xcassets in Resources */,
 				82FB42902CB080B40042CE98 /* Nature.wav in Resources */,
 				8290F20F2CB46DB400EAA520 /* Xochimilco.mp3 in Resources */,
 				82AB4A992CB5D1A300DC43BE /* inhaleSound.mp3 in Resources */,
@@ -364,6 +363,7 @@
 				8290F21F2CB4B15C00EAA520 /* OceanWaves.mp3 in Resources */,
 				8290F1DE2CB44C6700EAA520 /* Calm Chime.mp3 in Resources */,
 				82AB4A912CB5A11500DC43BE /* Electronic.jpg in Resources */,
+				82E0971A2CB787E300FB6684 /* Preview Assets.xcassets in Resources */,
 				82FB425D2CB076C80042CE98 /* Assets.xcassets in Resources */,
 				8290F2232CB4B31B00EAA520 /* OceanWaves.jpg in Resources */,
 				8290F2112CB46E5900EAA520 /* Xochimilco.jpg in Resources */,
