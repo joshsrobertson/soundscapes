@@ -33,7 +33,7 @@ struct SoundscapeSelectionView: View {
 
                             // Soundscape Name with animation
                             Text(soundscape.name)
-                                .font(.custom("Baskerville", size: 36))
+                                .font(.custom("Baskerville", size: 30))
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
                                 .multilineTextAlignment(.center)

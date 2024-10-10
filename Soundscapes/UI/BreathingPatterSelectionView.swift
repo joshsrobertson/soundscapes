@@ -33,7 +33,7 @@ struct BreathingPatternSelectionView: View {
 
                             // Breathing pattern name with animation
                             Text(pattern.name)
-                                .font(.custom("Baskerville", size: 36))
+                                .font(.custom("Baskerville", size: 30))
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
                                 .frame(width: 300)
