@@ -9,16 +9,16 @@ struct HomeView: View {
         NavigationView {
             ZStack {
                 // Looping video background
-                LoopingVideoPlayer(videoName: "IntroVideo", videoType: "mov", player: $player)
+                LoopingVideoPlayer(videoName: "IntroVideo", videoType: "mp4", player: $player)
                     .edgesIgnoringSafeArea(.all)
-                    .opacity(1.0) // Full opacity for the video background
+                    .opacity(0.6) // Full opacity for the video background
 
                 VStack(spacing: 20) {
                     Spacer() // Push content down for better centering
 
                     // App Title
                     Text("Sound Journeys")
-                        .font(.custom("Baskerville", size: 40)) // Avenir font for a sleek look
+                        .font(.custom("Baskerville", size: 36))
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
@@ -27,8 +27,8 @@ struct HomeView: View {
                         .animation(.easeInOut(duration: 1), value: isTextVisible) // Animate text appearance
 
                     // App Description
-                    Text("Soundcape journeys inspired by Nature, designed to connect with your inner Nature.")
-                        .font(.custom("Avenir", size: 20)) // Avenir for the description as well
+                    Text("Inspired by Nature.")
+                        .font(.custom("Avenir", size: 20))
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 40)
@@ -36,8 +36,8 @@ struct HomeView: View {
                         .opacity(isTextVisible ? 1 : 0) // Control opacity with isTextVisible
                         .animation(.easeInOut(duration: 3), value: isTextVisible) // Slightly different timing
 
-                    Text("Choose your journey.")
-                        .font(.custom("Avenir", size: 18)) // Avenir for the description as well
+                    Text("Choose your path.")
+                        .font(.custom("Avenir", size: 18))
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 30)
@@ -47,54 +47,44 @@ struct HomeView: View {
                     // Explore Button
                     NavigationLink(destination: SoundscapeSelectionView(isBreathingMode: false, isSleepMode: false)) {
                         Text("Explore")
-                            .font(.custom("Avenir", size: 18))
+                            .font(.custom("Avenir", size: 16))
                             .fontWeight(.semibold)
                             .padding()
                             .frame(width: 200)
-                            .background(LinearGradient(gradient: Gradient(colors: [Color.gray, Color.blue]),
-                                                       startPoint: .leading,
-                                                       endPoint: .trailing))
-                            .foregroundColor(.white)
+                            .background(Color.white.opacity(0.8)) // Change to white background with opacity
+                            .foregroundColor(.black) // Black text
                             .cornerRadius(10)
                             .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
                     }
                     .padding(.horizontal, 40)
 
-                                    
-                    // Breathe
-                    VStack(spacing: 20) {
-                        // Breathe Button
-                        NavigationLink(destination: SoundscapeSelectionView(isBreathingMode: true, isSleepMode: false)) {
-                            Text("Breathe")
-                                .font(.custom("Avenir", size: 18))
-                                .fontWeight(.semibold)
-                                .padding()
-                                .frame(width: 200)
-                                .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.green]),
-                                                           startPoint: .leading,
-                                                           endPoint: .trailing))
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
-                                .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
-                        }
-                        .padding(.horizontal, 40)
-
-                        // Sleep Button
-                        NavigationLink(destination: SoundscapeSelectionView(isBreathingMode: false, isSleepMode: true)) {
-                            Text("Sleep")
-                                .font(.custom("Avenir", size: 18))
-                                .fontWeight(.semibold)
-                                .padding()
-                                .frame(width: 200)
-                                .background(LinearGradient(gradient: Gradient(colors: [Color.purple, Color.blue]),
-                                                           startPoint: .leading,
-                                                           endPoint: .trailing))
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
-                                .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
-                        }
-                        .padding(.horizontal, 40)
+                    // Breathe Button
+                    NavigationLink(destination: SoundscapeSelectionView(isBreathingMode: true, isSleepMode: false)) {
+                        Text("Breathe")
+                            .font(.custom("Avenir", size: 16))
+                            .fontWeight(.semibold)
+                            .padding()
+                            .frame(width: 200)
+                            .background(Color.white.opacity(0.8)) // Change to white background with opacity
+                            .foregroundColor(.black) // Black text
+                            .cornerRadius(10)
+                            .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
                     }
+                    .padding(.horizontal, 40)
+
+                    // Sleep Button
+                    NavigationLink(destination: SoundscapeSelectionView(isBreathingMode: false, isSleepMode: true)) {
+                        Text("Sleep")
+                            .font(.custom("Avenir", size: 16))
+                            .fontWeight(.semibold)
+                            .padding()
+                            .frame(width: 200)
+                            .background(Color.white.opacity(0.8)) // Change to white background with opacity
+                            .foregroundColor(.black) // Black text
+                            .cornerRadius(10)
+                            .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
+                    }
+                    .padding(.horizontal, 40)
 
                     Spacer() // Push content up for better centering
                     
@@ -112,7 +102,7 @@ struct HomeView: View {
                     player.play()
                 } else {
                     // Create the player again if it doesn't exist (in case of a fresh launch)
-                    let url = Bundle.main.url(forResource: "IntroVideo", withExtension: "mov")!
+                    let url = Bundle.main.url(forResource: "IntroVideo", withExtension: "mp4")!
                     let playerItem = AVPlayerItem(url: url)
                     let queuePlayer = AVQueuePlayer(playerItem: playerItem)
                     player = queuePlayer

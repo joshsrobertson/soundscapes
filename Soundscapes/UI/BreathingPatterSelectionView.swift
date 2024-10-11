@@ -61,22 +61,19 @@ struct BreathingPatternSelectionView: View {
                                 isSleepMode: isSleepMode // Pass the isSleepMode parameter
                             )) {
                                 Text("Select Breathing Pattern")
-                                    .font(.custom("Avenir", size: 22))
+                                    .font(.custom("Avenir", size: 16))
+                                    .fontWeight(.semibold)
                                     .padding()
-                                    .frame(width: 250)
-                                    .background(
-                                        LinearGradient(gradient: Gradient(colors: [Color.blue, Color.green]),
-                                                       startPoint: .leading,
-                                                       endPoint: .trailing)
-                                    )
-                                    .foregroundColor(.white)
+                                    .frame(width: 200)
+                                    .background(Color.white.opacity(0.8)) // Change to white background with opacity
+                                    .foregroundColor(.black) // Black text
                                     .cornerRadius(10)
                                     .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
-                                    .opacity(0.7)
                             }
                             .opacity(isTextVisible ? 1 : 0)
                             .animation(.easeInOut(duration: 1.5).delay(0.7), value: isTextVisible)
 
+                          /*
                             // Help text: "Swipe for More" on the first pattern
                             if pattern.id == breathingPatterns.first?.id {
                                 Text("Swipe for More")
@@ -92,7 +89,7 @@ struct BreathingPatternSelectionView: View {
                                     .opacity(isTextVisible ? 1 : 0)
                                     .animation(.easeInOut(duration: 1.5).delay(1.0), value: isTextVisible)
                             }
-
+                            */
                             Spacer()
                         }
                     }

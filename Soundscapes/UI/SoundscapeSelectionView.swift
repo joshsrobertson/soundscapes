@@ -5,7 +5,9 @@ struct SoundscapeSelectionView: View {
     let isSleepMode: Bool // New parameter to determine if Sleep mode is active
 
     let soundscapes = [
-        Soundscape(id: "Xochimilco", name: "Xochimilco Piano Sunrise", description: "The soothing morning nature sounds of a protected wetland area in Mexico City with gentle piano.", imageName: "Xochimilco"),
+       
+        Soundscape(id: "IcelandGlacier", name: "Iceland Glacier", description: "The sounds of an ice cave deep within the Vatnajökull Glacier, with cave vocals.", imageName: "IcelandGlacier"),
+        Soundscape(id: "Xochimilco", name: "Xochimilco Piano Sunrise", description: "The sunrise nature sounds of a protected wetland area in Mexico City with gentle piano.", imageName: "Xochimilco"),
         Soundscape(id: "OceanWaves", name: "Big Sur Ocean Waves", description: "Enjoy the relaxing sounds of waves crashing in Big Sur, California", imageName: "OceanWaves"),
         Soundscape(id: "Electronic", name: "Outer Space Frequencies", description: "An intriguing soundscape created from source sounds provided by NASA from the processed frequencies of outer space", imageName: "Electronic")
     ]
@@ -60,19 +62,14 @@ struct SoundscapeSelectionView: View {
                                     backgroundImage: soundscape.imageName,
                                     isSleepMode: isSleepMode // Pass the isSleepMode flag
                                 )) {
-                                    Text("Choose Soundscape")
-                                        .font(.custom("Avenir", size: 22))
+                                    Text("Select Soundscape")
+                                        .font(.custom("Avenir", size: 16))
                                         .fontWeight(.semibold)
                                         .padding()
                                         .frame(width: 200)
-                                        .background(
-                                            LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]),
-                                                           startPoint: .leading,
-                                                           endPoint: .trailing)
-                                        )
-                                        .foregroundColor(.white)
+                                        .background(Color.white.opacity(0.8)) // Change to white background with opacity
+                                        .foregroundColor(.black) // Black text
                                         .cornerRadius(10)
-                                        .opacity(0.7)
                                         .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
                                 }
                             } else {
@@ -83,26 +80,22 @@ struct SoundscapeSelectionView: View {
                                     isSleepMode: isSleepMode // Pass the isSleepMode flag
                                 )) {
                                     Text("Select Soundscape")
-                                        .font(.custom("Avenir", size: 22))
+                                        .font(.custom("Avenir", size: 16))
                                         .fontWeight(.semibold)
                                         .padding()
                                         .frame(width: 200)
-                                        .background(
-                                            LinearGradient(gradient: Gradient(colors: [Color.purple, Color.blue]),
-                                                           startPoint: .leading,
-                                                           endPoint: .trailing)
-                                        )
-                                        .foregroundColor(.white)
+                                        .background(Color.white.opacity(0.8)) // Change to white background with opacity
+                                        .foregroundColor(.black) // Black text
                                         .cornerRadius(10)
                                         .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
                                 }
                             }
 
-                            // Help text only on the first soundscape
-                            if index == 0 {
-                                Text("Swipe for More")
-                                    .font(.custom("Avenir", size: 20))
-                                    .foregroundColor(.white)
+                           /*  Help text only on the first soundscape
+                           if index == 0 {
+                                //Text("Swipe for More")
+                                    .font(.custom("Avenir", size: 16))
+                                   .foregroundColor(.white)
                                     .padding(.top, 10)
                                     .fontWeight(.bold)
                                     .opacity(isTextVisible ? 1 : 0)
@@ -113,6 +106,7 @@ struct SoundscapeSelectionView: View {
                                     .opacity(isTextVisible ? 1 : 0)
                                     .animation(.easeInOut(duration: 1.5).delay(1.0), value: isTextVisible)
                             }
+                            */
 
                             Spacer()
                         }

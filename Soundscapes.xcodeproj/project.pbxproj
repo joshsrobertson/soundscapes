@@ -10,7 +10,6 @@
 		8283F7732CB6DFF400607322 /* SoundscapeAudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8283F7722CB6DFF400607322 /* SoundscapeAudioManager.swift */; };
 		8283F7772CB6E05800607322 /* Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8283F7762CB6E05500607322 /* Quotes.swift */; };
 		8283F7792CB6E07800607322 /* BreathingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8283F7782CB6E07800607322 /* BreathingManager.swift */; };
-		8283F7852CB6FD3300607322 /* IntroVideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = 8283F7842CB6FD3300607322 /* IntroVideo.mov */; };
 		8290F1DE2CB44C6700EAA520 /* Calm Chime.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8290F1DD2CB44C6700EAA520 /* Calm Chime.mp3 */; };
 		8290F20F2CB46DB400EAA520 /* Xochimilco.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8290F20E2CB46DB400EAA520 /* Xochimilco.mp3 */; };
 		8290F2112CB46E5900EAA520 /* Xochimilco.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8290F2102CB46E5900EAA520 /* Xochimilco.jpg */; };
@@ -19,6 +18,9 @@
 		8290F2192CB47F1400EAA520 /* BreathingPatterSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290F2182CB47F1400EAA520 /* BreathingPatterSelectionView.swift */; };
 		8290F21F2CB4B15C00EAA520 /* OceanWaves.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8290F21E2CB4B15B00EAA520 /* OceanWaves.mp3 */; };
 		8290F2232CB4B31B00EAA520 /* OceanWaves.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8290F2222CB4B31B00EAA520 /* OceanWaves.jpg */; };
+		82A2EA5F2CB8B7B100AE43C5 /* IcelandGlacier.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82A2EA5E2CB8B7B100AE43C5 /* IcelandGlacier.jpg */; };
+		82A2EA612CB8B89B00AE43C5 /* IcelandGlacier.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82A2EA602CB8B89B00AE43C5 /* IcelandGlacier.mp3 */; };
+		82A2EA632CB8C58800AE43C5 /* IntroVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 82A2EA622CB8C58800AE43C5 /* IntroVideo.mp4 */; };
 		82AB4A8F2CB5A0BD00DC43BE /* Electronic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AB4A8E2CB5A0BD00DC43BE /* Electronic.mp3 */; };
 		82AB4A912CB5A11500DC43BE /* Electronic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82AB4A902CB5A11500DC43BE /* Electronic.jpg */; };
 		82AB4A972CB5D19300DC43BE /* exhaleSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AB4A962CB5D19200DC43BE /* exhaleSound.mp3 */; };
@@ -58,7 +60,6 @@
 		8283F7722CB6DFF400607322 /* SoundscapeAudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapeAudioManager.swift; sourceTree = "<group>"; };
 		8283F7762CB6E05500607322 /* Quotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quotes.swift; sourceTree = "<group>"; };
 		8283F7782CB6E07800607322 /* BreathingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingManager.swift; sourceTree = "<group>"; };
-		8283F7842CB6FD3300607322 /* IntroVideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = IntroVideo.mov; sourceTree = "<group>"; };
 		8290F1DD2CB44C6700EAA520 /* Calm Chime.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Calm Chime.mp3"; sourceTree = "<group>"; };
 		8290F20E2CB46DB400EAA520 /* Xochimilco.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Xochimilco.mp3; sourceTree = "<group>"; };
 		8290F2102CB46E5900EAA520 /* Xochimilco.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Xochimilco.jpg; sourceTree = "<group>"; };
@@ -67,6 +68,9 @@
 		8290F2182CB47F1400EAA520 /* BreathingPatterSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingPatterSelectionView.swift; sourceTree = "<group>"; };
 		8290F21E2CB4B15B00EAA520 /* OceanWaves.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = OceanWaves.mp3; sourceTree = "<group>"; };
 		8290F2222CB4B31B00EAA520 /* OceanWaves.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = OceanWaves.jpg; sourceTree = "<group>"; };
+		82A2EA5E2CB8B7B100AE43C5 /* IcelandGlacier.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IcelandGlacier.jpg; sourceTree = "<group>"; };
+		82A2EA602CB8B89B00AE43C5 /* IcelandGlacier.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = IcelandGlacier.mp3; sourceTree = "<group>"; };
+		82A2EA622CB8C58800AE43C5 /* IntroVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroVideo.mp4; sourceTree = "<group>"; };
 		82AB4A8D2CB5216F00DC43BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		82AB4A8E2CB5A0BD00DC43BE /* Electronic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Electronic.mp3; sourceTree = "<group>"; };
 		82AB4A902CB5A11500DC43BE /* Electronic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Electronic.jpg; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 		8283F77C2CB6F63800607322 /* Soundscape Audio */ = {
 			isa = PBXGroup;
 			children = (
+				82A2EA602CB8B89B00AE43C5 /* IcelandGlacier.mp3 */,
 				8290F20E2CB46DB400EAA520 /* Xochimilco.mp3 */,
 				8290F21E2CB4B15B00EAA520 /* OceanWaves.mp3 */,
 				82AB4A8E2CB5A0BD00DC43BE /* Electronic.mp3 */,
@@ -160,6 +165,7 @@
 			children = (
 				8283F77F2CB6F6CA00607322 /* Video */,
 				8290F2222CB4B31B00EAA520 /* OceanWaves.jpg */,
+				82A2EA5E2CB8B7B100AE43C5 /* IcelandGlacier.jpg */,
 				82AB4A902CB5A11500DC43BE /* Electronic.jpg */,
 				8290F2102CB46E5900EAA520 /* Xochimilco.jpg */,
 			);
@@ -179,7 +185,7 @@
 		8283F7862CB6FD6B00607322 /* Video */ = {
 			isa = PBXGroup;
 			children = (
-				8283F7842CB6FD3300607322 /* IntroVideo.mov */,
+				82A2EA622CB8C58800AE43C5 /* IntroVideo.mp4 */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -357,11 +363,13 @@
 				82FB42902CB080B40042CE98 /* Nature.wav in Resources */,
 				8290F20F2CB46DB400EAA520 /* Xochimilco.mp3 in Resources */,
 				82AB4A992CB5D1A300DC43BE /* inhaleSound.mp3 in Resources */,
-				8283F7852CB6FD3300607322 /* IntroVideo.mov in Resources */,
+				82A2EA612CB8B89B00AE43C5 /* IcelandGlacier.mp3 in Resources */,
 				82AB4A8F2CB5A0BD00DC43BE /* Electronic.mp3 in Resources */,
 				82AB4A972CB5D19300DC43BE /* exhaleSound.mp3 in Resources */,
 				8290F21F2CB4B15C00EAA520 /* OceanWaves.mp3 in Resources */,
 				8290F1DE2CB44C6700EAA520 /* Calm Chime.mp3 in Resources */,
+				82A2EA632CB8C58800AE43C5 /* IntroVideo.mp4 in Resources */,
+				82A2EA5F2CB8B7B100AE43C5 /* IcelandGlacier.jpg in Resources */,
 				82AB4A912CB5A11500DC43BE /* Electronic.jpg in Resources */,
 				82E0971A2CB787E300FB6684 /* Preview Assets.xcassets in Resources */,
 				82FB425D2CB076C80042CE98 /* Assets.xcassets in Resources */,

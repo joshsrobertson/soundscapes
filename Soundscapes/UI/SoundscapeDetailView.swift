@@ -62,10 +62,9 @@ struct SoundscapeDetailView: View {
                             .font(.system(size: 19, weight: .medium, design: .rounded))
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
-                            .padding(.horizontal, 30)
                             .padding(.vertical, 10)
                             .shadow(radius: 10)
-                            .frame(maxWidth: 300, maxHeight: .infinity, alignment: .center)
+                            .frame(maxWidth: 300, minHeight: 300)
                     } else {
                         ZStack {
                             Circle()
@@ -93,14 +92,15 @@ struct SoundscapeDetailView: View {
                         }
                         .shadow(color: Color.white.opacity(0.2), radius: 10, x: 0, y: 0)
                         
-                        Spacer()
+                      
                     }
 
                     // Remaining Time Display (only in non-Sleep Mode)
                     Text("Remaining Time: \(formatTime(seconds: timerModel.remainingTime))")
-                        .font(.system(size: 18))
+                        .font(.system(size: 16))
                         .foregroundColor(.white)
                         .padding(.bottom, 20)
+                        .padding(.top, 40)
                 }
 
                 // "Feel free to close your device" text helper in Sleep Mode above the Stop button
@@ -122,10 +122,12 @@ struct SoundscapeDetailView: View {
                     presentationMode.wrappedValue.dismiss()
                 }) {
                     Text("Stop")
-                        .font(.body)
-                        .padding()
+                        .font(.custom("Avenir", size: 16))
+                        .fontWeight(.bold)
+                        .foregroundColor(.black)
                         .frame(width: 150)
-                        .background(Color.gray.opacity(0.8))
+                        .padding(10)
+                        .background(Color.white.opacity(0.8))
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
@@ -161,7 +163,7 @@ struct SoundscapeDetailView: View {
                 if lastQuoteChangeTime == nil {
                     lastQuoteChangeTime = timerModel.remainingTime
                 } else if let lastChange = lastQuoteChangeTime,
-                          (lastChange - timerModel.remainingTime) >= 20 {
+                          (lastChange - timerModel.remainingTime) >= 15 {
                     // Change the quote every 20 seconds
                     isQuoteVisible = false // Fade out the current quote first
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0) {

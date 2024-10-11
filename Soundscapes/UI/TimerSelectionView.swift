@@ -28,7 +28,7 @@ struct TimerSelectionView: View {
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)
                     .frame(width: 300)
-                    .padding(.top, 50)
+                    .padding(.top, 125)
                     .padding(.bottom, 20)
                 
                 // Timer Buttons
@@ -68,15 +68,13 @@ struct TimerSelectionView: View {
                     isSleepMode: isSleepMode // Ensure the Sleep Mode flag is passed here
                 )) {
                     Text("Start Session")
-                        .font(.custom("Avenir", size: 22))
+                        .font(.custom("Avenir", size: 16))
                         .fontWeight(.semibold)
                         .padding()
-                        .frame(width: 220)
-                        .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]),
-                                                   startPoint: .leading,
-                                                   endPoint: .trailing))
-                        .foregroundColor(.white)
-                        .cornerRadius(15)
+                        .frame(width: 200)
+                        .background(Color.white.opacity(0.8)) // Change to white background with opacity
+                        .foregroundColor(.black) // Black text
+                        .cornerRadius(10)
                         .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
                 }
                 .padding(.top, 40)
@@ -95,11 +93,11 @@ struct TimerSelectionView: View {
             selectedDuration = duration
         }) {
             Text(label)
-                .font(.custom("Avenir", size: 20))
+                .font(.custom("Avenir", size: 16))
                 .fontWeight(.medium)
                 .frame(width: 200, height: 50)
                 .background(LinearGradient(
-                    gradient: Gradient(colors: selectedDuration == duration ? [Color.blue, Color.green] : [Color.gray.opacity(0.8), Color.gray]),
+                    gradient: Gradient(colors: selectedDuration == duration ? [Color.purple, Color.blue] : [Color.black.opacity(0.5), Color.black.opacity(0.7)]),
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing
                 ))
