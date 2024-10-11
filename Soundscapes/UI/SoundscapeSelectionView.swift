@@ -5,7 +5,6 @@ struct SoundscapeSelectionView: View {
     let isSleepMode: Bool // New parameter to determine if Sleep mode is active
 
     let soundscapes = [
-       
         Soundscape(id: "IcelandGlacier", name: "Iceland Glacier", description: "The sounds of an ice cave deep within the Vatnajökull Glacier, with cave vocals.", imageName: "IcelandGlacier"),
         Soundscape(id: "Xochimilco", name: "Xochimilco Piano Sunrise", description: "The sunrise nature sounds of a protected wetland area in Mexico City with gentle piano.", imageName: "Xochimilco"),
         Soundscape(id: "OceanWaves", name: "Big Sur Ocean Waves", description: "Enjoy the relaxing sounds of waves crashing in Big Sur, California", imageName: "OceanWaves"),
@@ -18,19 +17,40 @@ struct SoundscapeSelectionView: View {
 
     var body: some View {
         ZStack {
-            TabView {
-                ForEach(Array(soundscapes.enumerated()), id: \.element.id) { index, soundscape in
-                    ZStack {
-                        // Full-bleed background image
-                        Image(soundscape.imageName)
-                            .resizable()
-                            .scaledToFill()
-                            .edgesIgnoringSafeArea(.all)
+            // Background image outside the TabView to ensure full-bleed across all tabs
+            Image(selectedSoundscape?.imageName ?? soundscapes[0].imageName)
+                .resizable()
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all)
 
-                        // Gray overlay to enhance text readability
-                        Color.black.opacity(0.3)
-                            .edgesIgnoringSafeArea(.all)
+            // Gray overlay for text readability
+            Color.black.opacity(0.3)
+                .edgesIgnoringSafeArea(.all)
 
+            VStack {
+                HStack {
+                    // Custom Back button
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss() // Navigate back to HomeView
+                    }) {
+                        HStack {
+                            Image(systemName: "arrow.left")
+                                .font(.title2)
+                                .foregroundColor(.white)
+                            Text("Home")
+                                .font(.custom("Avenir", size: 18))
+                                .foregroundColor(.white)
+                        }
+                        .padding()
+                    }
+                    Spacer()
+                }
+                .padding(.top, 40) // Add padding to push down the back button
+
+              
+
+                TabView {
+                    ForEach(Array(soundscapes.enumerated()), id: \.element.id) { index, soundscape in
                         VStack(spacing: 20) {
                             Spacer()
 
@@ -55,7 +75,7 @@ struct SoundscapeSelectionView: View {
 
                             Spacer()
 
-                            // Select Soundscape Button with gradient
+                            // Select Soundscape Button
                             if isBreathingMode {
                                 NavigationLink(destination: BreathingPatternSelectionView(
                                     selectedSoundscape: soundscape.id,
@@ -67,8 +87,8 @@ struct SoundscapeSelectionView: View {
                                         .fontWeight(.semibold)
                                         .padding()
                                         .frame(width: 200)
-                                        .background(Color.white.opacity(0.8)) // Change to white background with opacity
-                                        .foregroundColor(.black) // Black text
+                                        .background(Color.white.opacity(0.8))
+                                        .foregroundColor(.black)
                                         .cornerRadius(10)
                                         .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
                                 }
@@ -84,59 +104,23 @@ struct SoundscapeSelectionView: View {
                                         .fontWeight(.semibold)
                                         .padding()
                                         .frame(width: 200)
-                                        .background(Color.white.opacity(0.8)) // Change to white background with opacity
-                                        .foregroundColor(.black) // Black text
+                                        .background(Color.white.opacity(0.8))
+                                        .foregroundColor(.black)
                                         .cornerRadius(10)
                                         .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
                                 }
                             }
-
-                           /*  Help text only on the first soundscape
-                           if index == 0 {
-                                //Text("Swipe for More")
-                                    .font(.custom("Avenir", size: 16))
-                                   .foregroundColor(.white)
-                                    .padding(.top, 10)
-                                    .fontWeight(.bold)
-                                    .opacity(isTextVisible ? 1 : 0)
-                                    .animation(.easeInOut(duration: 1.5).delay(0.8), value: isTextVisible)
-                                Image(systemName: "arrow.right")
-                                    .font(.title2)
-                                    .foregroundColor(.white)
-                                    .opacity(isTextVisible ? 1 : 0)
-                                    .animation(.easeInOut(duration: 1.5).delay(1.0), value: isTextVisible)
-                            }
-                            */
 
                             Spacer()
                         }
                         .padding()
                     }
                 }
-            }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
+                .frame(height: 500) // Adjust height of TabView to center better
 
-            // Custom Back button
-            VStack {
-                HStack {
-                    Button(action: {
-                        presentationMode.wrappedValue.dismiss() // Navigate back to HomeView
-                    }) {
-                        HStack {
-                            Image(systemName: "arrow.left")
-                                .font(.title2)
-                                .foregroundColor(.white)
-                            Text("Home")
-                                .font(.custom("Avenir", size: 18))
-                                .foregroundColor(.white)
-                        }
-                        .padding()
-                    }
-                    Spacer()
-                }
                 Spacer()
             }
-            .padding()
         }
         .navigationBarHidden(true)
         .onAppear {
