@@ -19,9 +19,9 @@
 		8290F21F2CB4B15C00EAA520 /* OceanWaves.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8290F21E2CB4B15B00EAA520 /* OceanWaves.mp3 */; };
 		8290F2232CB4B31B00EAA520 /* OceanWaves.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8290F2222CB4B31B00EAA520 /* OceanWaves.jpg */; };
 		829E569C2CB8F14F0011E8AC /* CircularTimerSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829E569B2CB8F14F0011E8AC /* CircularTimerSelector.swift */; };
+		829E569E2CB9790A0011E8AC /* IntroVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 829E569D2CB9790A0011E8AC /* IntroVideo.mp4 */; };
 		82A2EA5F2CB8B7B100AE43C5 /* IcelandGlacier.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82A2EA5E2CB8B7B100AE43C5 /* IcelandGlacier.jpg */; };
 		82A2EA612CB8B89B00AE43C5 /* IcelandGlacier.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82A2EA602CB8B89B00AE43C5 /* IcelandGlacier.mp3 */; };
-		82A2EA632CB8C58800AE43C5 /* IntroVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 82A2EA622CB8C58800AE43C5 /* IntroVideo.mp4 */; };
 		82AB4A8F2CB5A0BD00DC43BE /* Electronic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AB4A8E2CB5A0BD00DC43BE /* Electronic.mp3 */; };
 		82AB4A912CB5A11500DC43BE /* Electronic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82AB4A902CB5A11500DC43BE /* Electronic.jpg */; };
 		82AB4A972CB5D19300DC43BE /* exhaleSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AB4A962CB5D19200DC43BE /* exhaleSound.mp3 */; };
@@ -69,9 +69,9 @@
 		8290F21E2CB4B15B00EAA520 /* OceanWaves.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = OceanWaves.mp3; sourceTree = "<group>"; };
 		8290F2222CB4B31B00EAA520 /* OceanWaves.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = OceanWaves.jpg; sourceTree = "<group>"; };
 		829E569B2CB8F14F0011E8AC /* CircularTimerSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTimerSelector.swift; sourceTree = "<group>"; };
+		829E569D2CB9790A0011E8AC /* IntroVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroVideo.mp4; sourceTree = "<group>"; };
 		82A2EA5E2CB8B7B100AE43C5 /* IcelandGlacier.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IcelandGlacier.jpg; sourceTree = "<group>"; };
 		82A2EA602CB8B89B00AE43C5 /* IcelandGlacier.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = IcelandGlacier.mp3; sourceTree = "<group>"; };
-		82A2EA622CB8C58800AE43C5 /* IntroVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroVideo.mp4; sourceTree = "<group>"; };
 		82AB4A8D2CB5216F00DC43BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		82AB4A8E2CB5A0BD00DC43BE /* Electronic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Electronic.mp3; sourceTree = "<group>"; };
 		82AB4A902CB5A11500DC43BE /* Electronic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Electronic.jpg; sourceTree = "<group>"; };
@@ -187,7 +187,7 @@
 		8283F7862CB6FD6B00607322 /* Video */ = {
 			isa = PBXGroup;
 			children = (
-				82A2EA622CB8C58800AE43C5 /* IntroVideo.mp4 */,
+				829E569D2CB9790A0011E8AC /* IntroVideo.mp4 */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -365,7 +365,7 @@
 				82AB4A972CB5D19300DC43BE /* exhaleSound.mp3 in Resources */,
 				8290F21F2CB4B15C00EAA520 /* OceanWaves.mp3 in Resources */,
 				8290F1DE2CB44C6700EAA520 /* Calm Chime.mp3 in Resources */,
-				82A2EA632CB8C58800AE43C5 /* IntroVideo.mp4 in Resources */,
+				829E569E2CB9790A0011E8AC /* IntroVideo.mp4 in Resources */,
 				82A2EA5F2CB8B7B100AE43C5 /* IcelandGlacier.jpg in Resources */,
 				82AB4A912CB5A11500DC43BE /* Electronic.jpg in Resources */,
 				82FB425D2CB076C80042CE98 /* Assets.xcassets in Resources */,

@@ -24,7 +24,7 @@ struct TimerSelectionView: View {
 
             VStack(spacing: 30) {
                 Text("Journey Length")
-                    .font(.custom("Baskerville", size: 26))
+                    .font(.custom("Baskerville", size: 30))
                     .fontWeight(.bold)
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)

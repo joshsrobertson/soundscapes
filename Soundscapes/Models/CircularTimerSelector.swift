@@ -10,7 +10,7 @@ struct CircularTimerSelector: View {
 
     let minTime = 1
     let maxTime = 60
-    let radius: CGFloat = 125
+    let radius: CGFloat = 100 // Circle size
 
     var body: some View {
         ZStack {
@@ -26,9 +26,10 @@ struct CircularTimerSelector: View {
 
             // Time label
             Text("\(selectedDuration) min")
-                .font(.largeTitle)
+                .font(.custom("Avenir", size: 20))
                 .fontWeight(.bold)
                 .foregroundColor(.white)
+        
 
             // Knob for user to drag
             Circle()
@@ -48,8 +49,12 @@ struct CircularTimerSelector: View {
         }
         .frame(width: radius * 2, height: radius * 2)
         .onAppear {
-            updateKnobPosition()
-        }
+                    // Set the initial knob position based on the starting duration (e.g., 5 minutes)
+                    updateAngleFromDuration()
+                }
+        .onChange(of: selectedDuration) { _ in
+                   updateAngleFromDuration()
+               }
     }
 
     private func handleDragChange(location: CGPoint) {
@@ -84,6 +89,13 @@ struct CircularTimerSelector: View {
         let yOffset = radius * sin(angle)
         knobPosition = CGPoint(x: radius + xOffset, y: radius + yOffset)
     }
+    
+    private func updateAngleFromDuration() {
+            // Convert the duration back into an angle
+            let percentage = Double(selectedDuration - minTime) / Double(maxTime - minTime)
+            angle = (percentage * 2 * .pi) - .pi / 2 // Adjust to start from the top (12 o'clock)
+            updateKnobPosition()
+        }
 
     private func triggerHapticFeedback() {
         guard let engine = hapticEngine else { return }

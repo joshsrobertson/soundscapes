@@ -11,7 +11,7 @@ struct HomeView: View {
                 // Looping video background
                 LoopingVideoPlayer(videoName: "IntroVideo", videoType: "mp4", player: $player)
                     .edgesIgnoringSafeArea(.all)
-                    .opacity(0.6) // Full opacity for the video background
+                    .opacity(1) // Full opacity for the video background
 
                 VStack(spacing: 20) {
                     Spacer() // Push content down for better centering

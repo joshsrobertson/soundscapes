@@ -13,12 +13,13 @@ struct SoundscapeSelectionView: View {
 
     @State private var selectedSoundscape: Soundscape?
     @State private var isTextVisible = false // Animation for text
+    @State private var currentBackgroundImage: String = "IcelandGlacier" // Default starting image
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         ZStack {
-            // Background image outside the TabView to ensure full-bleed across all tabs
-            Image(selectedSoundscape?.imageName ?? soundscapes[0].imageName)
+            // Background image updated dynamically based on selected soundscape
+            Image(currentBackgroundImage)
                 .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
@@ -49,8 +50,8 @@ struct SoundscapeSelectionView: View {
 
               
 
-                TabView {
-                    ForEach(Array(soundscapes.enumerated()), id: \.element.id) { index, soundscape in
+                TabView(selection: $selectedSoundscape) {
+                    ForEach(soundscapes, id: \.id) { soundscape in
                         VStack(spacing: 20) {
                             Spacer()
 
@@ -114,6 +115,7 @@ struct SoundscapeSelectionView: View {
                             Spacer()
                         }
                         .padding()
+                        .tag(soundscape)
                     }
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
@@ -128,11 +130,20 @@ struct SoundscapeSelectionView: View {
             withAnimation {
                 isTextVisible = true
             }
+            // Set the default soundscape and background image on load
+            selectedSoundscape = soundscapes.first
+            currentBackgroundImage = soundscapes.first?.imageName ?? "IcelandGlacier"
+        }
+        .onChange(of: selectedSoundscape) { newSoundscape in
+            // Update the background image when the selected soundscape changes
+            if let newSoundscape = newSoundscape {
+                currentBackgroundImage = newSoundscape.imageName
+            }
         }
     }
 }
 
-struct Soundscape: Identifiable {
+struct Soundscape: Identifiable, Hashable {
     var id: String
     var name: String
     var description: String
