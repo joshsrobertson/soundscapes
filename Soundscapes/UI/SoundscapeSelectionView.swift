@@ -7,7 +7,11 @@ struct SoundscapeSelectionView: View {
     let soundscapes = [
         Soundscape(id: "IcelandGlacier", name: "Iceland Glacier", description: "The sounds of an ice cave deep within the Vatnajökull Glacier, with cave vocals.", imageName: "IcelandGlacier"),
         Soundscape(id: "Xochimilco", name: "Xochimilco Piano Sunrise", description: "The sunrise nature sounds of a protected wetland area in Mexico City with gentle piano.", imageName: "Xochimilco"),
-        Soundscape(id: "OceanWaves", name: "Big Sur Ocean Waves", description: "Enjoy the relaxing sounds of waves crashing in Big Sur, California", imageName: "OceanWaves"),
+        Soundscape(id: "RainStorm", name: "South Dakota Rain", description: "Journey to South Dakota, USA during a gentle rain storm with distant thunder.", imageName: "RainStorm"),
+        Soundscape(id: "TibetanBowls", name: "Tibetan Singing Bowls", description: "Featuring sounds of ancient Tibetan singing bowls hand-crated from natural metals, designed to invoke deep states of meditation and energy balancing.", imageName: "TibetanBowls"),
+        Soundscape(id: "OceanWaves", name: "Big Sur Ocean Waves", description: "Enjoy the soothing sounds of waves crashing in Big Sur, California", imageName: "OceanWaves"),
+        Soundscape(id: "Antarctica", name: "Antarctica Waters with Ambient Music", description: "Crafted by Madame Gandhi, featuring the underwater sound of glacial melt layered with a musical pad.", imageName: "Antarctica"),
+        
         Soundscape(id: "Electronic", name: "Outer Space Frequencies", description: "An intriguing soundscape created from source sounds provided by NASA from the processed frequencies of outer space", imageName: "Electronic")
     ]
 

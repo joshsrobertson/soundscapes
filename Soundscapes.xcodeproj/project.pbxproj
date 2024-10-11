@@ -27,6 +27,12 @@
 		82AB4A972CB5D19300DC43BE /* exhaleSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AB4A962CB5D19200DC43BE /* exhaleSound.mp3 */; };
 		82AB4A992CB5D1A300DC43BE /* inhaleSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AB4A982CB5D1A300DC43BE /* inhaleSound.mp3 */; };
 		82AB4A9D2CB6350600DC43BE /* PostSoundscapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AB4A9C2CB6350200DC43BE /* PostSoundscapeView.swift */; };
+		82AC168D2CB99D70001CF4F0 /* TibetanBowls.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82AC168C2CB99D70001CF4F0 /* TibetanBowls.jpg */; };
+		82AC168F2CB99D96001CF4F0 /* TibetanBowls.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AC168E2CB99D96001CF4F0 /* TibetanBowls.mp3 */; };
+		82AC16912CB9A243001CF4F0 /* RainStorm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AC16902CB9A243001CF4F0 /* RainStorm.mp3 */; };
+		82AC16932CB9A250001CF4F0 /* RainStorm.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82AC16922CB9A250001CF4F0 /* RainStorm.jpg */; };
+		82AC16952CB9A6B1001CF4F0 /* Antarctica.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AC16942CB9A6B1001CF4F0 /* Antarctica.mp3 */; };
+		82AC16972CB9A6BC001CF4F0 /* Antarctica.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82AC16962CB9A6BC001CF4F0 /* Antarctica.jpg */; };
 		82FB42592CB076C60042CE98 /* SoundscapesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42582CB076C60042CE98 /* SoundscapesApp.swift */; };
 		82FB425B2CB076C60042CE98 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB425A2CB076C60042CE98 /* HomeView.swift */; };
 		82FB425D2CB076C80042CE98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82FB425C2CB076C80042CE98 /* Assets.xcassets */; };
@@ -78,6 +84,12 @@
 		82AB4A962CB5D19200DC43BE /* exhaleSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = exhaleSound.mp3; sourceTree = "<group>"; };
 		82AB4A982CB5D1A300DC43BE /* inhaleSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = inhaleSound.mp3; sourceTree = "<group>"; };
 		82AB4A9C2CB6350200DC43BE /* PostSoundscapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSoundscapeView.swift; sourceTree = "<group>"; };
+		82AC168C2CB99D70001CF4F0 /* TibetanBowls.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TibetanBowls.jpg; sourceTree = "<group>"; };
+		82AC168E2CB99D96001CF4F0 /* TibetanBowls.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TibetanBowls.mp3; sourceTree = "<group>"; };
+		82AC16902CB9A243001CF4F0 /* RainStorm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = RainStorm.mp3; sourceTree = "<group>"; };
+		82AC16922CB9A250001CF4F0 /* RainStorm.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = RainStorm.jpg; sourceTree = "<group>"; };
+		82AC16942CB9A6B1001CF4F0 /* Antarctica.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Antarctica.mp3; sourceTree = "<group>"; };
+		82AC16962CB9A6BC001CF4F0 /* Antarctica.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Antarctica.jpg; sourceTree = "<group>"; };
 		82FB42552CB076C60042CE98 /* Sound Journeys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sound Journeys.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FB42582CB076C60042CE98 /* SoundscapesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapesApp.swift; sourceTree = "<group>"; };
 		82FB425A2CB076C60042CE98 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -154,10 +166,13 @@
 			isa = PBXGroup;
 			children = (
 				82A2EA602CB8B89B00AE43C5 /* IcelandGlacier.mp3 */,
+				82AC16942CB9A6B1001CF4F0 /* Antarctica.mp3 */,
 				8290F20E2CB46DB400EAA520 /* Xochimilco.mp3 */,
 				8290F21E2CB4B15B00EAA520 /* OceanWaves.mp3 */,
 				82AB4A8E2CB5A0BD00DC43BE /* Electronic.mp3 */,
 				82FB428C2CB080B40042CE98 /* Nature.wav */,
+				82AC168E2CB99D96001CF4F0 /* TibetanBowls.mp3 */,
+				82AC16902CB9A243001CF4F0 /* RainStorm.mp3 */,
 			);
 			path = "Soundscape Audio";
 			sourceTree = "<group>";
@@ -167,9 +182,12 @@
 			children = (
 				8283F77F2CB6F6CA00607322 /* Video */,
 				8290F2222CB4B31B00EAA520 /* OceanWaves.jpg */,
+				82AC168C2CB99D70001CF4F0 /* TibetanBowls.jpg */,
 				82A2EA5E2CB8B7B100AE43C5 /* IcelandGlacier.jpg */,
 				82AB4A902CB5A11500DC43BE /* Electronic.jpg */,
 				8290F2102CB46E5900EAA520 /* Xochimilco.jpg */,
+				82AC16922CB9A250001CF4F0 /* RainStorm.jpg */,
+				82AC16962CB9A6BC001CF4F0 /* Antarctica.jpg */,
 			);
 			path = "BG Images";
 			sourceTree = "<group>";
@@ -357,6 +375,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82AC16932CB9A250001CF4F0 /* RainStorm.jpg in Resources */,
 				82FB42902CB080B40042CE98 /* Nature.wav in Resources */,
 				8290F20F2CB46DB400EAA520 /* Xochimilco.mp3 in Resources */,
 				82AB4A992CB5D1A300DC43BE /* inhaleSound.mp3 in Resources */,
@@ -364,11 +383,16 @@
 				82AB4A8F2CB5A0BD00DC43BE /* Electronic.mp3 in Resources */,
 				82AB4A972CB5D19300DC43BE /* exhaleSound.mp3 in Resources */,
 				8290F21F2CB4B15C00EAA520 /* OceanWaves.mp3 in Resources */,
+				82AC168F2CB99D96001CF4F0 /* TibetanBowls.mp3 in Resources */,
+				82AC16952CB9A6B1001CF4F0 /* Antarctica.mp3 in Resources */,
 				8290F1DE2CB44C6700EAA520 /* Calm Chime.mp3 in Resources */,
+				82AC16912CB9A243001CF4F0 /* RainStorm.mp3 in Resources */,
+				82AC16972CB9A6BC001CF4F0 /* Antarctica.jpg in Resources */,
 				829E569E2CB9790A0011E8AC /* IntroVideo.mp4 in Resources */,
 				82A2EA5F2CB8B7B100AE43C5 /* IcelandGlacier.jpg in Resources */,
 				82AB4A912CB5A11500DC43BE /* Electronic.jpg in Resources */,
 				82FB425D2CB076C80042CE98 /* Assets.xcassets in Resources */,
+				82AC168D2CB99D70001CF4F0 /* TibetanBowls.jpg in Resources */,
 				8290F2232CB4B31B00EAA520 /* OceanWaves.jpg in Resources */,
 				8290F2112CB46E5900EAA520 /* Xochimilco.jpg in Resources */,
 			);

@@ -37,7 +37,7 @@ struct SoundscapeDetailView: View {
             }
 
             VStack(spacing: 40) {
-                // Mute button and label
+                // Mute button for Breath metronome and label if breathing pattern is selected
                 if selectedBreathingPattern.id != "None" {
                     HStack(spacing: 10) {
                         Button(action: {
@@ -56,7 +56,7 @@ struct SoundscapeDetailView: View {
 
                 // In Sleep Mode, hide quotes and remaining time
                 if !isSleepMode {
-                    // Display quote in non-Sleep Mode
+                // Display quote in non-Sleep Mode
                     if selectedBreathingPattern.id == "None" {
                         Text(currentQuote)
                             .font(.system(size: 19, weight: .medium, design: .rounded))
@@ -66,6 +66,7 @@ struct SoundscapeDetailView: View {
                             .shadow(radius: 10)
                             .frame(maxWidth: 300, minHeight: 300)
                     } else {
+                     //Show Breathing Circle if a Breathing Pattern has been selected
                         ZStack {
                             Circle()
                                 .stroke(
@@ -135,6 +136,9 @@ struct SoundscapeDetailView: View {
 
             }
         }
+        
+        //Setup Audio, Quotes, and Timer
+        
         .onAppear {
             soundscapeAudioManager.setupAudioEngine()
             soundscapeAudioManager.playSoundscape(soundscape: selectedSoundscape)
@@ -145,6 +149,9 @@ struct SoundscapeDetailView: View {
             currentQuote = getRandomQuote(for: selectedSoundscape)
             isQuoteVisible = true
         }
+        
+        //Update Breathing Phase
+        
         .onChange(of: timerModel.remainingTime) { _ in
             if cycleStartTime == nil {
                 cycleStartTime = timerModel.remainingTime
@@ -163,7 +170,7 @@ struct SoundscapeDetailView: View {
                 if lastQuoteChangeTime == nil {
                     lastQuoteChangeTime = timerModel.remainingTime
                 } else if let lastChange = lastQuoteChangeTime,
-                          (lastChange - timerModel.remainingTime) >= 15 {
+                          (lastChange - timerModel.remainingTime) >= 20 {
                     // Change the quote every 20 seconds
                     isQuoteVisible = false // Fade out the current quote first
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
@@ -175,8 +182,9 @@ struct SoundscapeDetailView: View {
             }
         }
         .onDisappear {
-            soundscapeAudioManager.stopAudio()
+            soundscapeAudioManager.stopAudio() // Stop audio when leaving screen
         }
+        // Deprecated code to fix
         NavigationLink(destination: PostSoundscapeView(), isActive: $showPostSoundscapeView) {
             EmptyView()
         }
