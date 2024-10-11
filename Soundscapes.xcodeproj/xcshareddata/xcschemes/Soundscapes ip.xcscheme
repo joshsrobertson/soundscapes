@@ -16,7 +16,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "82FB42542CB076C60042CE98"
-               BuildableName = "Soundscapes.app"
+               BuildableName = "Sound Journeys.app"
                BlueprintName = "Soundscapes"
                ReferencedContainer = "container:Soundscapes.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "82FB42542CB076C60042CE98"
-            BuildableName = "Soundscapes.app"
+            BuildableName = "Sound Journeys.app"
             BlueprintName = "Soundscapes"
             ReferencedContainer = "container:Soundscapes.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "82FB42542CB076C60042CE98"
-            BuildableName = "Soundscapes.app"
+            BuildableName = "Sound Journeys.app"
             BlueprintName = "Soundscapes"
             ReferencedContainer = "container:Soundscapes.xcodeproj">
          </BuildableReference>

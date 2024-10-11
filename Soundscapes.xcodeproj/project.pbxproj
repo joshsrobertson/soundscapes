@@ -26,7 +26,6 @@
 		82AB4A972CB5D19300DC43BE /* exhaleSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AB4A962CB5D19200DC43BE /* exhaleSound.mp3 */; };
 		82AB4A992CB5D1A300DC43BE /* inhaleSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AB4A982CB5D1A300DC43BE /* inhaleSound.mp3 */; };
 		82AB4A9D2CB6350600DC43BE /* PostSoundscapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AB4A9C2CB6350200DC43BE /* PostSoundscapeView.swift */; };
-		82E0971A2CB787E300FB6684 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82E097192CB787E300FB6684 /* Preview Assets.xcassets */; };
 		82FB42592CB076C60042CE98 /* SoundscapesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42582CB076C60042CE98 /* SoundscapesApp.swift */; };
 		82FB425B2CB076C60042CE98 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB425A2CB076C60042CE98 /* HomeView.swift */; };
 		82FB425D2CB076C80042CE98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82FB425C2CB076C80042CE98 /* Assets.xcassets */; };
@@ -77,7 +76,6 @@
 		82AB4A962CB5D19200DC43BE /* exhaleSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = exhaleSound.mp3; sourceTree = "<group>"; };
 		82AB4A982CB5D1A300DC43BE /* inhaleSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = inhaleSound.mp3; sourceTree = "<group>"; };
 		82AB4A9C2CB6350200DC43BE /* PostSoundscapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSoundscapeView.swift; sourceTree = "<group>"; };
-		82E097192CB787E300FB6684 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		82FB42552CB076C60042CE98 /* Sound Journeys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sound Journeys.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FB42582CB076C60042CE98 /* SoundscapesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapesApp.swift; sourceTree = "<group>"; };
 		82FB425A2CB076C60042CE98 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -96,6 +94,7 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		8283F77F2CB6F6CA00607322 /* Video */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Video; sourceTree = "<group>"; };
+		829E56992CB8E7D50011E8AC /* Preview Content */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Preview Content"; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,13 +189,6 @@
 			path = Video;
 			sourceTree = "<group>";
 		};
-		82E097142CB7877D00FB6684 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
 		82FB424C2CB076C60042CE98 = {
 			isa = PBXGroup;
 			children = (
@@ -226,8 +218,7 @@
 				8283F77B2CB6F61E00607322 /* UI */,
 				8283F77A2CB6F60900607322 /* Models */,
 				82FB425C2CB076C80042CE98 /* Assets.xcassets */,
-				82E097192CB787E300FB6684 /* Preview Assets.xcassets */,
-				82E097142CB7877D00FB6684 /* Preview Content */,
+				829E56992CB8E7D50011E8AC /* Preview Content */,
 				8283F77C2CB6F63800607322 /* Soundscape Audio */,
 				8283F77D2CB6F64C00607322 /* BG Images */,
 				8283F77E2CB6F67700607322 /* Breathing Audio */,
@@ -267,6 +258,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				829E56992CB8E7D50011E8AC /* Preview Content */,
 			);
 			name = Soundscapes;
 			productName = Soundscapes;
@@ -320,7 +314,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					82FB42542CB076C60042CE98 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -371,7 +365,6 @@
 				82A2EA632CB8C58800AE43C5 /* IntroVideo.mp4 in Resources */,
 				82A2EA5F2CB8B7B100AE43C5 /* IcelandGlacier.jpg in Resources */,
 				82AB4A912CB5A11500DC43BE /* Electronic.jpg in Resources */,
-				82E0971A2CB787E300FB6684 /* Preview Assets.xcassets in Resources */,
 				82FB425D2CB076C80042CE98 /* Assets.xcassets in Resources */,
 				8290F2232CB4B31B00EAA520 /* OceanWaves.jpg in Resources */,
 				8290F2112CB46E5900EAA520 /* Xochimilco.jpg in Resources */,
@@ -480,9 +473,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -538,9 +533,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -565,6 +562,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Soundscapes/Preview Content\"";
 				DEVELOPMENT_TEAM = 824KXL2FBD;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -608,6 +606,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Soundscapes/Preview Content\"";
 				DEVELOPMENT_TEAM = 824KXL2FBD;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -645,10 +644,10 @@
 		82FB427E2CB076C80042CE98 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 824KXL2FBD;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
@@ -668,10 +667,10 @@
 		82FB427F2CB076C80042CE98 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 824KXL2FBD;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
@@ -691,9 +690,9 @@
 		82FB42812CB076C80042CE98 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 824KXL2FBD;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
@@ -713,9 +712,9 @@
 		82FB42822CB076C80042CE98 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 824KXL2FBD;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
