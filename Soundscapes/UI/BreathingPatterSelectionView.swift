@@ -13,6 +13,7 @@ struct BreathingPatternSelectionView: View {
     ]
 
     @State private var isTextVisible = false // Animation for text
+    @State private var selectedPageIndex = 0 // Keep track of the page index
 
     var body: some View {
         ZStack {
@@ -27,8 +28,11 @@ struct BreathingPatternSelectionView: View {
                 .edgesIgnoringSafeArea(.all)
 
             VStack(spacing: 20) {
-                TabView {
-                    ForEach(breathingPatterns, id: \.id) { pattern in
+                Spacer() // Add Spacer to push content up
+
+                TabView(selection: $selectedPageIndex) {
+                    ForEach(breathingPatterns.indices, id: \.self) { index in
+                        let pattern = breathingPatterns[index]
                         VStack(spacing: 20) {
                             Spacer()
 
@@ -73,29 +77,18 @@ struct BreathingPatternSelectionView: View {
                             .opacity(isTextVisible ? 1 : 0)
                             .animation(.easeInOut(duration: 1.5).delay(0.7), value: isTextVisible)
 
-                          /*
-                            // Help text: "Swipe for More" on the first pattern
-                            if pattern.id == breathingPatterns.first?.id {
-                                Text("Swipe for More")
-                                    .font(.custom("Avenir", size: 20))
-                                    .foregroundColor(.white)
-                                    .padding(.top, 10)
-                                    .fontWeight(.bold)
-                                    .opacity(isTextVisible ? 1 : 0)
-                                    .animation(.easeInOut(duration: 1.5).delay(0.8), value: isTextVisible)
-                                Image(systemName: "arrow.right")
-                                    .font(.title2)
-                                    .foregroundColor(.white)
-                                    .opacity(isTextVisible ? 1 : 0)
-                                    .animation(.easeInOut(duration: 1.5).delay(1.0), value: isTextVisible)
-                            }
-                            */
                             Spacer()
                         }
+                        .tag(index) // Tag to link to the TabView's selection
                     }
                 }
-                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic)) // Swipeable TabView
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always)) // Always show the page index circles
+                .frame(height: 500) // Adjust the height of the TabView
+                .padding(.bottom, 50) // Ensure padding at the bottom so the dots are visible
+
+                Spacer() // Add Spacer below the TabView for spacing
             }
+            .padding(.bottom, 50) // Ensure the VStack has some padding at the bottom
         }
         .onAppear {
             // Trigger the text animation

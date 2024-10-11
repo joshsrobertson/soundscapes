@@ -18,6 +18,7 @@
 		8290F2192CB47F1400EAA520 /* BreathingPatterSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290F2182CB47F1400EAA520 /* BreathingPatterSelectionView.swift */; };
 		8290F21F2CB4B15C00EAA520 /* OceanWaves.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8290F21E2CB4B15B00EAA520 /* OceanWaves.mp3 */; };
 		8290F2232CB4B31B00EAA520 /* OceanWaves.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8290F2222CB4B31B00EAA520 /* OceanWaves.jpg */; };
+		829E569C2CB8F14F0011E8AC /* CircularTimerSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829E569B2CB8F14F0011E8AC /* CircularTimerSelector.swift */; };
 		82A2EA5F2CB8B7B100AE43C5 /* IcelandGlacier.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82A2EA5E2CB8B7B100AE43C5 /* IcelandGlacier.jpg */; };
 		82A2EA612CB8B89B00AE43C5 /* IcelandGlacier.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82A2EA602CB8B89B00AE43C5 /* IcelandGlacier.mp3 */; };
 		82A2EA632CB8C58800AE43C5 /* IntroVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 82A2EA622CB8C58800AE43C5 /* IntroVideo.mp4 */; };
@@ -67,6 +68,7 @@
 		8290F2182CB47F1400EAA520 /* BreathingPatterSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingPatterSelectionView.swift; sourceTree = "<group>"; };
 		8290F21E2CB4B15B00EAA520 /* OceanWaves.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = OceanWaves.mp3; sourceTree = "<group>"; };
 		8290F2222CB4B31B00EAA520 /* OceanWaves.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = OceanWaves.jpg; sourceTree = "<group>"; };
+		829E569B2CB8F14F0011E8AC /* CircularTimerSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTimerSelector.swift; sourceTree = "<group>"; };
 		82A2EA5E2CB8B7B100AE43C5 /* IcelandGlacier.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IcelandGlacier.jpg; sourceTree = "<group>"; };
 		82A2EA602CB8B89B00AE43C5 /* IcelandGlacier.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = IcelandGlacier.mp3; sourceTree = "<group>"; };
 		82A2EA622CB8C58800AE43C5 /* IntroVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroVideo.mp4; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		8283F77A2CB6F60900607322 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				829E569B2CB8F14F0011E8AC /* CircularTimerSelector.swift */,
 				82FB42892CB07A040042CE98 /* TimerViewModel.swift */,
 				8283F7782CB6E07800607322 /* BreathingManager.swift */,
 				8283F7722CB6DFF400607322 /* SoundscapeAudioManager.swift */,
@@ -399,6 +402,7 @@
 				8290F2152CB475D700EAA520 /* SoundscapeSelectionView.swift in Sources */,
 				8283F7772CB6E05800607322 /* Quotes.swift in Sources */,
 				8283F7732CB6DFF400607322 /* SoundscapeAudioManager.swift in Sources */,
+				829E569C2CB8F14F0011E8AC /* CircularTimerSelector.swift in Sources */,
 				82AB4A9D2CB6350600DC43BE /* PostSoundscapeView.swift in Sources */,
 				82FB428A2CB07A040042CE98 /* TimerViewModel.swift in Sources */,
 				8290F2172CB47EBA00EAA520 /* TimerSelectionView.swift in Sources */,
@@ -561,7 +565,7 @@
 				CODE_SIGN_ENTITLEMENTS = Soundscapes/Soundscapes.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Soundscapes/Preview Content\"";
 				DEVELOPMENT_TEAM = 824KXL2FBD;
@@ -605,7 +609,7 @@
 				CODE_SIGN_ENTITLEMENTS = Soundscapes/Soundscapes.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Soundscapes/Preview Content\"";
 				DEVELOPMENT_TEAM = 824KXL2FBD;
