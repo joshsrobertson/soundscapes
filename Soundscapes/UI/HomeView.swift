@@ -11,14 +11,14 @@ struct HomeView: View {
                 // Looping video background
                 LoopingVideoPlayer(videoName: "IntroVideo", videoType: "mp4", player: $player)
                     .edgesIgnoringSafeArea(.all)
-                    .opacity(0.8) // Full opacity for the video background
+                    .opacity(1) // Full opacity for the video background
 
                 VStack(spacing: 20) {
                     Spacer() // Push content down for better centering
 
                     // App Title
                     Text("Sound Journeys")
-                        .font(.custom("Baskerville", size: 40)) // Avenir font for a sleek look
+                        .font(.custom("Baskerville", size: 34)) // Avenir font for a sleek look
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
@@ -27,7 +27,7 @@ struct HomeView: View {
                         .animation(.easeInOut(duration: 1), value: isTextVisible) // Animate text appearance
 
                     // App Description
-                    Text("Soundscape journeys inspired by Nature, designed to connect with your inner Nature.")
+                    Text("Inspired by Nature.")
                         .font(.custom("Avenir", size: 20)) // Avenir for the description as well
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
@@ -36,8 +36,8 @@ struct HomeView: View {
                         .opacity(isTextVisible ? 1 : 0) // Control opacity with isTextVisible
                         .animation(.easeInOut(duration: 3), value: isTextVisible) // Slightly different timing
 
-                    Text("Choose your journey.")
-                        .font(.custom("Avenir", size: 18)) // Avenir for the description as well
+                    Text("Choose your path.")
+                        .font(.custom("Avenir", size: 16)) // Avenir for the description as well
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 30)
