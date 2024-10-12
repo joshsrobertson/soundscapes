@@ -3,10 +3,11 @@ import SwiftUI
 struct CategorySelectionView: View {
     let isBreathingMode: Bool
     let isSleepMode: Bool
+    let isJourneyMode: Bool
 
     // State to track the random background image from all soundscapes
     @State private var selectedSoundscapeImage: String = ""
-    
+
     var body: some View {
         ZStack {
             // Background image randomly selected from soundscapes
@@ -56,6 +57,7 @@ struct CategorySelectionView: View {
         NavigationLink(destination: SoundscapeSelectionView(
             isBreathingMode: isBreathingMode,
             isSleepMode: isSleepMode,
+            isJourneyMode: isJourneyMode,
             filteredSoundscapes: soundscapes.filter { $0.category.contains(category) }
         )) {
             HStack {
@@ -94,6 +96,6 @@ struct CategorySelectionView: View {
 
     // Function to get a random image from any soundscape
     func getRandomImage() -> String {
-        return soundscapes.randomElement()?.imageName ?? "NatureSoundsBackground" // Default background if none found
+        return soundscapes.randomElement()?.imageName ?? "Xochimilco" // Default background if none found
     }
 }

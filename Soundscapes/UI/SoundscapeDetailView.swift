@@ -8,56 +8,40 @@ struct SoundscapeDetailView: View {
     var selectedSoundscape: String
     var selectedBreathingPattern: BreathingPattern
     var selectedTime: Int
-    var isSleepMode: Bool // New flag for Sleep Mode
+    var isJourneyMode: Bool
+    var isBreathingMode: Bool
+    var isSleepMode: Bool
 
     @State private var showPostSoundscapeView = false
     @State private var cycleStartTime: Int? = nil
     @State private var lastQuoteChangeTime: Int? = nil
     @State private var isQuoteVisible = false
     @State private var currentQuote: String = ""
+    @State private var showBreathingCircle = false
 
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
-        ZStack {
-            // Background image
-            Image(selectedSoundscape)
-                .resizable()
-                .scaledToFill()
-                .edgesIgnoringSafeArea(.all)
-
-            // Purple-blue overlay with 60% opacity in Sleep Mode
-            if isSleepMode {
-                Color.purple.opacity(0.6)
+        NavigationStack {
+            ZStack {
+                // Background image
+                Image(selectedSoundscape)
+                    .resizable()
+                    .scaledToFill()
                     .edgesIgnoringSafeArea(.all)
-            } else {
-                // Black overlay with 30% opacity in non-Sleep Mode
-                Color.black.opacity(0.3)
-                    .edgesIgnoringSafeArea(.all)
-            }
 
-            VStack(spacing: 40) {
-                // Mute button for Breath metronome and label if breathing pattern is selected
-                if selectedBreathingPattern.id != "None" {
-                    HStack(spacing: 10) {
-                        Button(action: {
-                            breathingManager.toggleMute()
-                        }) {
-                            Image(systemName: breathingManager.isMuted ? "speaker.slash.fill" : "speaker.3.fill")
-                                .font(.system(size: 24))
-                                .foregroundColor(.white)
-                        }
-                        Text("Breath Metronome")
-                            .font(.system(size: 14))
-                            .foregroundColor(.white)
-                            .padding(.vertical, 50)
-                    }
+                // Overlay for Sleep Mode or regular mode
+                if isSleepMode {
+                    Color.purple.opacity(0.6).edgesIgnoringSafeArea(.all)
+                } else {
+                    Color.black.opacity(0.4).edgesIgnoringSafeArea(.all)
                 }
 
-                // In Sleep Mode, hide quotes and remaining time
-                if !isSleepMode {
-                // Display quote in non-Sleep Mode
-                    if selectedBreathingPattern.id == "None" {
+                VStack {
+                    Spacer() // Push the content down slightly to center it better
+
+                    if isJourneyMode {
+                        // Display quotes in Journey Mode
                         Text(currentQuote)
                             .font(.system(size: 19, weight: .medium, design: .rounded))
                             .foregroundColor(.white)
@@ -65,131 +49,161 @@ struct SoundscapeDetailView: View {
                             .padding(.vertical, 10)
                             .shadow(radius: 10)
                             .frame(maxWidth: 300, minHeight: 300)
-                    } else {
-                     //Show Breathing Circle if a Breathing Pattern has been selected
-                        ZStack {
-                            Circle()
-                                .stroke(
-                                    LinearGradient(
-                                        gradient: Gradient(colors: [Color.white.opacity(0.8), Color.white.opacity(0.5)]),
-                                        startPoint: .topLeading,
-                                        endPoint: .bottomTrailing
-                                    ),
-                                    lineWidth: 10
-                                )
-                                .frame(width: 250, height: 250)
-                                .scaleEffect(breathingManager.circleScale)
-                                .animation(.easeInOut(duration: 4), value: breathingManager.circleScale)
 
-                            Circle()
-                                .fill(Color.white.opacity(0.2))
-                                .frame(width: 150, height: 150)
-                                .scaleEffect(breathingManager.circleScale)
-                                .animation(.easeInOut(duration: 4), value: breathingManager.circleScale)
+                        // Remaining Time Display in Journey Mode
+                        Text("Remaining Time: \(formatTime(seconds: timerModel.remainingTime))")
+                            .font(.custom("Avenir", size: 16))
+                            .foregroundColor(.white)
+                            .padding(.top, 40)
+                            .padding(.bottom, 20)
+                    } else if isBreathingMode {
+                        if showBreathingCircle {
+                            // Mute button and label for Breathing Metronome
+                            HStack(spacing: 10) {
+                                Button(action: {
+                                    breathingManager.toggleMute()
+                                }) {
+                                    Image(systemName: breathingManager.isMuted ? "speaker.slash.fill" : "speaker.3.fill")
+                                        .font(.system(size: 24))
+                                        .foregroundColor(.white)
+                                }
+                                Text("Breath Metronome")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.white)
+                            }
+                            .padding(.top, 40)
+                            .padding(.bottom, 40)
+                            Spacer()
+                                .frame(height: 50)
 
-                            Text(breathingManager.breathingPhase)
-                                .font(.system(size: 24, weight: .medium, design: .rounded))
+                            // Breathing Circle in Breathing Mode
+                            ZStack {
+                                Circle()
+                                    .stroke(
+                                        LinearGradient(
+                                            gradient: Gradient(colors: [Color.white.opacity(0.8), Color.white.opacity(0.5)]),
+                                            startPoint: .topLeading,
+                                            endPoint: .bottomTrailing
+                                        ),
+                                        lineWidth: 10
+                                    )
+                                    .frame(width: 250, height: 250)
+                                    .scaleEffect(breathingManager.circleScale)
+                                    .animation(.easeInOut(duration: 4), value: breathingManager.circleScale)
+
+                                Circle()
+                                    .fill(Color.white.opacity(0.2))
+                                    .frame(width: 150, height: 150)
+                                    .scaleEffect(breathingManager.circleScale)
+                                    .animation(.easeInOut(duration: 4), value: breathingManager.circleScale)
+
+                                Text(breathingManager.breathingPhase)
+                                    .font(.custom("Avenir", size: 18))
+                                    .foregroundColor(.white)
+                            }
+                            .shadow(color: Color.white.opacity(0.2), radius: 10, x: 0, y: 0)
+
+                            Spacer()
+
+                            // Remaining Time Display in Breath Mode
+                            Text("Remaining Time: \(formatTime(seconds: timerModel.remainingTime))")
+                                .font(.custom("Avenir", size: 16))
                                 .foregroundColor(.white)
+                                .padding(.top, 40)
+                                .padding(.bottom, 20)
+                        } else {
+                            // "Get Ready to Breathe" message before the circle appears
+                            Text("Get Ready to Breathe")
+                                .font(.custom("Avenir", size: 22))
+                                .foregroundColor(.white)
+                                .padding(.top, 60)
+
+                            Spacer()
                         }
-                        .shadow(color: Color.white.opacity(0.2), radius: 10, x: 0, y: 0)
-                        
-                      
+                    } else if isSleepMode {
+                        // Sleep Mode helper text
+                        Text("Feel free to close your device, the audio will gently lower over time and fade out as you relax into sleep. Have a peaceful night.")
+                            .font(.custom("Avenir", size: 18))
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .multilineTextAlignment(.center)
+                            .frame(width: 300)
+                            .padding(.horizontal, 20)
+                            .padding(.bottom, 200)
+                            .padding(.top, 100)
                     }
 
-                    // Remaining Time Display (only in non-Sleep Mode)
-                    Text("Remaining Time: \(formatTime(seconds: timerModel.remainingTime))")
-                        .font(.system(size: 16))
-                        .foregroundColor(.white)
-                        .padding(.bottom, 20)
-                        .padding(.top, 40)
+                    // Move the stop button higher
+                 
+
+                    // Stop button
+                    Button(action: {
+                        soundscapeAudioManager.stopAudio()
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Text("Stop")
+                            .font(.custom("Avenir", size: 16))
+                            .fontWeight(.bold)
+                            .foregroundColor(.black)
+                            .frame(width: 150)
+                            .padding(10)
+                            .background(Color.white.opacity(0.8))
+                            .cornerRadius(10)
+                    }
+                    .padding(.bottom, 170) // Adjust this to move the button higher
                 }
-
-                // "Feel free to close your device" text helper in Sleep Mode above the Stop button
-                if isSleepMode {
-                    Text("Feel free to close your device, the audio will gently lower over time and fade out as you relax into sleep. Have a peaceful night.")
-                        .font(.custom("Avenir", size: 18))
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.center)
-                        .frame(width: 300)
-                        .padding(.horizontal, 20)
-                        .padding(.bottom, 100)
-                        .padding(.top, 100)
+            }
+            .onAppear {
+                soundscapeAudioManager.setupAudioEngine()
+                soundscapeAudioManager.playSoundscape(soundscape: selectedSoundscape)
+                soundscapeAudioManager.enableSleepMode(isSleepMode)
+                timerModel.startTimer(duration: selectedTime) {
+                    showPostSoundscapeView = true
                 }
+                currentQuote = getRandomQuote(for: selectedSoundscape)
+                isQuoteVisible = true
 
-                // Stop button
-                Button(action: {
-                    soundscapeAudioManager.stopAudio()
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    Text("Stop")
-                        .font(.custom("Avenir", size: 16))
-                        .fontWeight(.bold)
-                        .foregroundColor(.black)
-                        .frame(width: 150)
-                        .padding(10)
-                        .background(Color.white.opacity(0.8))
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
+                // Delay showing the breathing circle for 5 seconds
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                    showBreathingCircle = true
                 }
-                .padding()
-
             }
-        }
-        
-        //Setup Audio, Quotes, and Timer
-        
-        .onAppear {
-            soundscapeAudioManager.setupAudioEngine()
-            soundscapeAudioManager.playSoundscape(soundscape: selectedSoundscape)
-            soundscapeAudioManager.enableSleepMode(isSleepMode)
-            timerModel.startTimer(duration: selectedTime) {
-                showPostSoundscapeView = true
-            }
-            currentQuote = getRandomQuote(for: selectedSoundscape)
-            isQuoteVisible = true
-        }
-        
-        //Update Breathing Phase
-        
-        .onChange(of: timerModel.remainingTime) { _ in
-            if cycleStartTime == nil {
-                cycleStartTime = timerModel.remainingTime
-            }
-            breathingManager.updateBreathingPhase(
-                selectedBreathingPattern: selectedBreathingPattern,
-                remainingTime: timerModel.remainingTime,
-                cycleStartTime: cycleStartTime
-            )
+            .onChange(of: timerModel.remainingTime) { _ in
+                if cycleStartTime == nil {
+                    cycleStartTime = timerModel.remainingTime
+                }
+                breathingManager.updateBreathingPhase(
+                    selectedBreathingPattern: selectedBreathingPattern,
+                    remainingTime: timerModel.remainingTime,
+                    cycleStartTime: cycleStartTime
+                )
+                soundscapeAudioManager.checkForFadeOut(remainingTime: timerModel.remainingTime)
 
-            // Let the sound manager handle the fade-out
-            soundscapeAudioManager.checkForFadeOut(remainingTime: timerModel.remainingTime)
-
-            // Update the quote every 20 seconds in non-Sleep Mode
-            if !isSleepMode {
-                if lastQuoteChangeTime == nil {
-                    lastQuoteChangeTime = timerModel.remainingTime
-                } else if let lastChange = lastQuoteChangeTime,
-                          (lastChange - timerModel.remainingTime) >= 20 {
-                    // Change the quote every 20 seconds
-                    isQuoteVisible = false // Fade out the current quote first
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
-                        currentQuote = getRandomQuote(for: selectedSoundscape)
+                // Update the quote every 20 seconds in Journey Mode
+                if isJourneyMode {
+                    if lastQuoteChangeTime == nil {
                         lastQuoteChangeTime = timerModel.remainingTime
-                        isQuoteVisible = true // Fade-in the new quote
+                    } else if let lastChange = lastQuoteChangeTime,
+                              (lastChange - timerModel.remainingTime) >= 20 {
+                        isQuoteVisible = false
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
+                            currentQuote = getRandomQuote(for: selectedSoundscape)
+                            lastQuoteChangeTime = timerModel.remainingTime
+                            isQuoteVisible = true
+                        }
                     }
                 }
             }
-        }
-        .onDisappear {
-            soundscapeAudioManager.stopAudio() // Stop audio when leaving screen
-        }
-        // Deprecated code to fix
-        NavigationLink(destination: PostSoundscapeView(), isActive: $showPostSoundscapeView) {
-            EmptyView()
+            .onDisappear {
+                soundscapeAudioManager.stopAudio()
+            }
+            .navigationDestination(isPresented: $showPostSoundscapeView) {
+                PostSoundscapeView()
+            }
         }
     }
 
+    // Helper function to format time
     func formatTime(seconds: Int) -> String {
         let minutes = seconds / 60
         let seconds = seconds % 60

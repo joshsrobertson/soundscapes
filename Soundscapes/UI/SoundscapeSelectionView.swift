@@ -3,6 +3,8 @@ import SwiftUI
 struct SoundscapeSelectionView: View {
     let isBreathingMode: Bool
     let isSleepMode: Bool
+    let isJourneyMode: Bool
+
     let filteredSoundscapes: [Soundscape] // Take filtered soundscapes as input
 
     @State private var selectedSoundscape: Soundscape?
@@ -51,41 +53,18 @@ struct SoundscapeSelectionView: View {
                             Spacer()
 
                             // Select Soundscape Button
-                            if isBreathingMode {
-                                NavigationLink(destination: BreathingPatternSelectionView(
-                                    selectedSoundscape: soundscape.id,
-                                    backgroundImage: soundscape.imageName,
-                                    isSleepMode: isSleepMode
-                                )) {
-                                    Text("Select Soundscape")
-                                        .font(.custom("Avenir", size: 16))
-                                        .fontWeight(.semibold)
-                                        .padding()
-                                        .frame(width: 200)
-                                        .background(Color.white.opacity(0.8))
-                                        .foregroundColor(.black)
-                                        .cornerRadius(10)
-                                        .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
-                                }
-                            } else {
-                                NavigationLink(destination: TimerSelectionView(
-                                    selectedSoundscape: soundscape.id,
-                                    selectedBreathingPattern: BreathingPattern(id: "None", name: "No Breathing Pattern", description: "", cadence: ""),
-                                    backgroundImage: soundscape.imageName,
-                                    isSleepMode: isSleepMode
-                                )) {
-                                    Text("Select Soundscape")
-                                        .font(.custom("Avenir", size: 16))
-                                        .fontWeight(.semibold)
-                                        .padding()
-                                        .frame(width: 200)
-                                        .background(Color.white.opacity(0.8))
-                                        .foregroundColor(.black)
-                                        .cornerRadius(10)
-                                        .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
-                                }
+                            NavigationLink(destination: destinationView(for: soundscape)) {
+                                Text("Select Soundscape")
+                                    .font(.custom("Avenir", size: 16))
+                                    .fontWeight(.semibold)
+                                    .padding()
+                                    .frame(width: 200)
+                                    .background(Color.white.opacity(0.8))
+                                    .foregroundColor(.black)
+                                    .cornerRadius(10)
+                                    .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
                             }
-                            
+
                             Spacer()
                                 .frame(height: 60) // Add space before the index dots to match the other view
                         }
@@ -110,6 +89,27 @@ struct SoundscapeSelectionView: View {
             if let newSoundscape = newSoundscape {
                 currentBackgroundImage = newSoundscape.imageName
             }
+        }
+    }
+    
+    // Function to determine the destination based on the selected mode
+    @ViewBuilder
+    func destinationView(for soundscape: Soundscape) -> some View {
+        if isBreathingMode {
+            BreathingPatternSelectionView(
+                selectedSoundscape: soundscape.id,
+                backgroundImage: soundscape.imageName,
+                isSleepMode: isSleepMode
+            )
+        } else if isJourneyMode || isSleepMode {
+            TimerSelectionView(
+                selectedSoundscape: soundscape.id,
+                selectedBreathingPattern: BreathingPattern(id: "None", name: "No Breathing Pattern", description: "", cadence: ""), // Adjust as needed
+                backgroundImage: soundscape.imageName,
+                isSleepMode: isSleepMode,
+                isJourneyMode: isJourneyMode,
+                isBreathingMode: isBreathingMode
+            )
         }
     }
 }

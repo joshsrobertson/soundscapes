@@ -6,6 +6,8 @@ struct TimerSelectionView: View {
     var selectedBreathingPattern: BreathingPattern
     var backgroundImage: String
     var isSleepMode: Bool
+    var isJourneyMode: Bool
+    var isBreathingMode: Bool
     
     @State private var selectedDuration: Int = 5
     @State private var hapticEngine: CHHapticEngine? // For haptic feedback
@@ -51,7 +53,7 @@ struct TimerSelectionView: View {
                 }
                 .padding(.top, 30)
 
-               /*  if isSleepMode {
+                if isSleepMode {
                     Text("The audio will fade gently towards the end as you fall asleep.")
                         .font(.custom("Avenir", size: 16))
                         .foregroundColor(.white)
@@ -60,12 +62,17 @@ struct TimerSelectionView: View {
                         .padding(.horizontal, 20)
                         .padding(.top, 20)
                 }
-                */
-                // Navigation Link to start the session
+
+                // Navigation Link to start the session, now without presentationMode
                 NavigationLink(destination: SoundscapeDetailView(
+                    soundscapeAudioManager: SoundscapeAudioManager(),
+                    timerModel: TimerModel(),
+                    breathingManager: BreathingManager(),
                     selectedSoundscape: selectedSoundscape,
                     selectedBreathingPattern: selectedBreathingPattern,
                     selectedTime: selectedDuration,
+                    isJourneyMode: isJourneyMode,
+                    isBreathingMode: isBreathingMode,
                     isSleepMode: isSleepMode
                 )) {
                     Text("Start Session")

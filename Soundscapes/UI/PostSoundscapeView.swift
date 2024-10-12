@@ -35,28 +35,26 @@ struct PostSoundscapeView: View {
                 Spacer()
                 
                 // Return to Home button with NavigationLink
-                NavigationLink(destination: HomeView().navigationBarBackButtonHidden(true), isActive: $navigateToHome) {
-                    EmptyView()
-                }
-
                 Button(action: {
                     // Trigger navigation to HomeView
                     navigateToHome = true
                 }) {
-                    Text("Return to Home")
-                        .font(.custom("Avenir", size: 22))
-                        .padding()
-                        .frame(width: 250)
-                        .background(
-                            LinearGradient(gradient: Gradient(colors: [Color.blue, Color.green]),
-                                           startPoint: .leading,
-                                           endPoint: .trailing)
-                        )
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                        .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
+                    NavigationLink(
+                        destination: HomeView().navigationBarBackButtonHidden(true)) {
+                        Text("Return to Home")
+                            .font(.custom("Avenir", size: 22))
+                            .padding()
+                            .frame(width: 250)
+                            .background(
+                                LinearGradient(gradient: Gradient(colors: [Color.blue, Color.green]),
+                                               startPoint: .leading,
+                                               endPoint: .trailing)
+                            )
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                            .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
+                    }
                 }
-                
                 Spacer()
             }
             .navigationBarBackButtonHidden(true) // Hide back button on this view

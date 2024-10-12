@@ -25,7 +25,7 @@ struct HomeView: View {
                         .animation(.easeInOut(duration: 5), value: isTextVisible) // Another staggered delay
 
                     // Journey Button with icon
-                    NavigationLink(destination: CategorySelectionView(isBreathingMode: false, isSleepMode: false)) {
+                    NavigationLink(destination: CategorySelectionView(isBreathingMode: false, isSleepMode: false, isJourneyMode: true)) {
                         HStack {
                             Image(systemName: "map") // Icon for journey
                                 .font(.title2)
@@ -47,7 +47,7 @@ struct HomeView: View {
 
                     // Breathe and Sleep Buttons with icons
                     VStack(spacing: 20) {
-                        NavigationLink(destination: CategorySelectionView(isBreathingMode: true, isSleepMode: false)) {
+                        NavigationLink(destination: CategorySelectionView(isBreathingMode: true, isSleepMode: false, isJourneyMode: false)) {
                             HStack {
                                 Image(systemName: "wind") // Icon for breathe
                                     .font(.title2)
@@ -67,7 +67,7 @@ struct HomeView: View {
                         }
                         .padding(.horizontal, 40)
 
-                        NavigationLink(destination: CategorySelectionView(isBreathingMode: false, isSleepMode: true)) {
+                        NavigationLink(destination: CategorySelectionView(isBreathingMode: false, isSleepMode: true, isJourneyMode: false)) {
                             HStack {
                                 Image(systemName: "moon.stars.fill") // Icon for sleep
                                     .font(.title2)
@@ -119,6 +119,8 @@ struct HomeView: View {
         }
     }
 }
-#Preview {
+
+/*#Preview {
     HomeView()
 }
+*/
