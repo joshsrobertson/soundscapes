@@ -62,7 +62,9 @@ struct BreathingPatternSelectionView: View {
                                 selectedSoundscape: selectedSoundscape,
                                 selectedBreathingPattern: pattern,
                                 backgroundImage: backgroundImage,
-                                isSleepMode: isSleepMode // Pass the isSleepMode parameter
+                                isSleepMode: isSleepMode,
+                                isJourneyMode: false, // You can update this logic based on navigation flow
+                                isBreathingMode: true // Assuming this is breathing mode
                             )) {
                                 Text("Select Breathing Pattern")
                                     .font(.custom("Avenir", size: 16))
