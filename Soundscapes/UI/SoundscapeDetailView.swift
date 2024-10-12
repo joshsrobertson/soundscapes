@@ -20,7 +20,7 @@ struct SoundscapeDetailView: View {
     @State private var showBreathingCircle = false
 
     @Environment(\.presentationMode) var presentationMode
-
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -113,10 +113,11 @@ struct SoundscapeDetailView: View {
                                 .padding(.bottom, 20)
                         } else {
                             // "Get Ready to Breathe" message before the circle appears
-                            Text("Get Ready to Breathe")
-                                .font(.custom("Avenir", size: 22))
+                            Text("Take a deep breath in to begin.")
+                                .font(.custom("Avenir", size: 18))
                                 .foregroundColor(.white)
                                 .padding(.top, 60)
+                                .multilineTextAlignment(.center)
 
                             Spacer()
                         }
@@ -164,7 +165,7 @@ struct SoundscapeDetailView: View {
                 isQuoteVisible = true
 
                 // Delay showing the breathing circle for 5 seconds
-                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                     showBreathingCircle = true
                 }
             }
@@ -201,6 +202,7 @@ struct SoundscapeDetailView: View {
                 PostSoundscapeView()
             }
         }
+        
     }
 
     // Helper function to format time
@@ -209,4 +211,6 @@ struct SoundscapeDetailView: View {
         let seconds = seconds % 60
         return String(format: "%02d:%02d", minutes, seconds)
     }
+    
 }
+

@@ -33,6 +33,8 @@
 		82F441812CBA305800E066C3 /* 432Acoustic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82F441802CBA305800E066C3 /* 432Acoustic.jpg */; };
 		82F441832CBA307E00E066C3 /* 432Acoustic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82F441822CBA307E00E066C3 /* 432Acoustic.mp3 */; };
 		82F441852CBA3AA000E066C3 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F441842CBA3AA000E066C3 /* LoadingView.swift */; };
+		82F441AF2CBAF9AD00E066C3 /* AutumnWind.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82F441AE2CBAF9AD00E066C3 /* AutumnWind.mp3 */; };
+		82F441B12CBAF9C000E066C3 /* AutumnWind.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82F441B02CBAF9C000E066C3 /* AutumnWind.jpg */; };
 		82FB42592CB076C60042CE98 /* SoundscapesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42582CB076C60042CE98 /* SoundscapesApp.swift */; };
 		82FB425B2CB076C60042CE98 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB425A2CB076C60042CE98 /* HomeView.swift */; };
 		82FB425D2CB076C80042CE98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82FB425C2CB076C80042CE98 /* Assets.xcassets */; };
@@ -72,7 +74,7 @@
 		829E569D2CB9790A0011E8AC /* IntroVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroVideo.mp4; sourceTree = "<group>"; };
 		82A2EA5E2CB8B7B100AE43C5 /* IcelandGlacier.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IcelandGlacier.jpg; sourceTree = "<group>"; };
 		82A2EA602CB8B89B00AE43C5 /* IcelandGlacier.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = IcelandGlacier.mp3; sourceTree = "<group>"; };
-		82AB4A8D2CB5216F00DC43BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		82AB4A8D2CB5216F00DC43BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82AB4A8E2CB5A0BD00DC43BE /* Electronic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Electronic.mp3; sourceTree = "<group>"; };
 		82AB4A902CB5A11500DC43BE /* Electronic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Electronic.jpg; sourceTree = "<group>"; };
 		82AB4A962CB5D19200DC43BE /* exhaleSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = exhaleSound.mp3; sourceTree = "<group>"; };
@@ -88,6 +90,8 @@
 		82F441802CBA305800E066C3 /* 432Acoustic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 432Acoustic.jpg; sourceTree = "<group>"; };
 		82F441822CBA307E00E066C3 /* 432Acoustic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 432Acoustic.mp3; sourceTree = "<group>"; };
 		82F441842CBA3AA000E066C3 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		82F441AE2CBAF9AD00E066C3 /* AutumnWind.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AutumnWind.mp3; sourceTree = "<group>"; };
+		82F441B02CBAF9C000E066C3 /* AutumnWind.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AutumnWind.jpg; sourceTree = "<group>"; };
 		82FB42552CB076C60042CE98 /* Sound Journeys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sound Journeys.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FB42582CB076C60042CE98 /* SoundscapesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapesApp.swift; sourceTree = "<group>"; };
 		82FB425A2CB076C60042CE98 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -142,9 +146,9 @@
 				82F441792CB9C06C00E066C3 /* CategorySelectionView.swift */,
 				8290F2142CB475D700EAA520 /* SoundscapeSelectionView.swift */,
 				8290F2182CB47F1400EAA520 /* BreathingPatternSelectionView.swift */,
-				82AB4A9C2CB6350200DC43BE /* PostSoundscapeView.swift */,
 				8290F2162CB47EBA00EAA520 /* TimerSelectionView.swift */,
 				82FB42852CB079970042CE98 /* SoundscapeDetailView.swift */,
+				82AB4A9C2CB6350200DC43BE /* PostSoundscapeView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -161,6 +165,7 @@
 				82AC168E2CB99D96001CF4F0 /* TibetanBowls.mp3 */,
 				82AC16902CB9A243001CF4F0 /* RainStorm.mp3 */,
 				82F441822CBA307E00E066C3 /* 432Acoustic.mp3 */,
+				82F441AE2CBAF9AD00E066C3 /* AutumnWind.mp3 */,
 			);
 			path = "Soundscape Audio";
 			sourceTree = "<group>";
@@ -177,6 +182,7 @@
 				8290F2102CB46E5900EAA520 /* Xochimilco.jpg */,
 				82AC16922CB9A250001CF4F0 /* RainStorm.jpg */,
 				82AC16962CB9A6BC001CF4F0 /* Antarctica.jpg */,
+				82F441B02CBAF9C000E066C3 /* AutumnWind.jpg */,
 			);
 			path = "BG Images";
 			sourceTree = "<group>";
@@ -223,16 +229,16 @@
 			isa = PBXGroup;
 			children = (
 				82FB42582CB076C60042CE98 /* SoundscapesApp.swift */,
+				82FB425C2CB076C80042CE98 /* Assets.xcassets */,
+				82AB4A8D2CB5216F00DC43BE /* Info.plist */,
 				82FB425E2CB076C80042CE98 /* Soundscapes.entitlements */,
+				829E56992CB8E7D50011E8AC /* Preview Content */,
 				8283F77B2CB6F61E00607322 /* UI */,
 				82F4417C2CBA1EFE00E066C3 /* Data */,
 				82F441962CBA5C7300E066C3 /* Models */,
-				82FB425C2CB076C80042CE98 /* Assets.xcassets */,
 				8283F77D2CB6F64C00607322 /* BG Images */,
 				8283F77C2CB6F63800607322 /* Soundscape Audio */,
 				8283F77E2CB6F67700607322 /* Breathing Audio */,
-				82AB4A8D2CB5216F00DC43BE /* Info.plist */,
-				829E56992CB8E7D50011E8AC /* Preview Content */,
 				8283F7862CB6FD6B00607322 /* Video */,
 			);
 			path = Soundscapes;
@@ -367,12 +373,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82F441AF2CBAF9AD00E066C3 /* AutumnWind.mp3 in Resources */,
 				82AC16932CB9A250001CF4F0 /* RainStorm.jpg in Resources */,
 				82FB42902CB080B40042CE98 /* Nature.wav in Resources */,
 				8290F20F2CB46DB400EAA520 /* Xochimilco.mp3 in Resources */,
 				82F441832CBA307E00E066C3 /* 432Acoustic.mp3 in Resources */,
 				82AB4A992CB5D1A300DC43BE /* inhaleSound.mp3 in Resources */,
 				82A2EA612CB8B89B00AE43C5 /* IcelandGlacier.mp3 in Resources */,
+				82F441B12CBAF9C000E066C3 /* AutumnWind.jpg in Resources */,
 				82AB4A8F2CB5A0BD00DC43BE /* Electronic.mp3 in Resources */,
 				82AB4A972CB5D19300DC43BE /* exhaleSound.mp3 in Resources */,
 				8290F21F2CB4B15C00EAA520 /* OceanWaves.mp3 in Resources */,

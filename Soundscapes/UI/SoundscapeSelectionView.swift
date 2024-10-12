@@ -5,11 +5,12 @@ struct SoundscapeSelectionView: View {
     let isSleepMode: Bool
     let isJourneyMode: Bool
 
-    let filteredSoundscapes: [Soundscape] // Take filtered soundscapes as input
+    var filteredSoundscapes: [Soundscape] // Take filtered soundscapes as input
 
     @State private var selectedSoundscape: Soundscape?
     @State private var isTextVisible = false
     @State private var currentBackgroundImage: String = "IcelandGlacier" // Default starting image
+    @State private var randomizedSoundscapes: [Soundscape] = []
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
@@ -26,7 +27,7 @@ struct SoundscapeSelectionView: View {
 
             VStack {
                 TabView(selection: $selectedSoundscape) {
-                    ForEach(filteredSoundscapes, id: \.id) { soundscape in
+                    ForEach(randomizedSoundscapes, id: \.id) { soundscape in
                         VStack(spacing: 20) {
                             Spacer()
                                 .frame(height: 50) // Create some space at the top to center content more
@@ -82,8 +83,9 @@ struct SoundscapeSelectionView: View {
             withAnimation {
                 isTextVisible = true
             }
-            selectedSoundscape = filteredSoundscapes.first
-            currentBackgroundImage = filteredSoundscapes.first?.imageName ?? "IcelandGlacier"
+            randomizedSoundscapes = filteredSoundscapes.shuffled() // Randomize the soundscapes
+            selectedSoundscape = randomizedSoundscapes.first
+            currentBackgroundImage = randomizedSoundscapes.first?.imageName ?? "IcelandGlacier"
         }
         .onChange(of: selectedSoundscape) { newSoundscape in
             if let newSoundscape = newSoundscape {

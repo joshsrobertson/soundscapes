@@ -1,7 +1,6 @@
 import Foundation
-
 class TimerModel: ObservableObject {
-    @Published var remainingTime: Int = 60 // Default to 60 seconds
+    @Published var remainingTime: Int = 300 // Default to 60 seconds
     private var timer: Timer?
     
     func startTimer(duration: Int, onFinish: @escaping () -> Void) {
@@ -16,11 +15,8 @@ class TimerModel: ObservableObject {
             }
         }
     }
-
     func stopTimer() {
         timer?.invalidate()
         timer = nil
     }
-    
-    
 }

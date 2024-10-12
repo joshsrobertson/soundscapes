@@ -37,8 +37,8 @@ struct CategorySelectionView: View {
                     .foregroundColor(.white)
                 
                 // Category Buttons (each button navigates to the next step)
-                categoryButton(category: "Nature Sounds", label: "Nature Sounds", icon: "leaf.fill")
-                categoryButton(category: "Nature and Music", label: "Nature and Music", icon: "music.note")
+                categoryButton(category: "Nature Sounds", label: "Pure Nature Sounds", icon: "leaf.fill")
+                categoryButton(category: "Nature Music", label: "Nature and Music", icon: "music.note")
                 categoryButton(category: "Sound Healing", label: "Sound Healing", icon: "circle.grid.hex.fill") // Bowl-like icon
                 categoryButton(category: "Ambient Electronic", label: "Ambient Electronic", icon: "antenna.radiowaves.left.and.right")
                 
