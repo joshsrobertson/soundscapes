@@ -52,17 +52,6 @@ struct TimerSelectionView: View {
                     }
                 }
                 .padding(.top, 30)
-
-                if isSleepMode {
-                    Text("The audio will fade gently towards the end as you fall asleep.")
-                        .font(.custom("Avenir", size: 16))
-                        .foregroundColor(.white)
-                        .frame(width: 300)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 20)
-                        .padding(.top, 20)
-                }
-
                 // Navigation Link to start the session, now without presentationMode
                 NavigationLink(destination: SoundscapeDetailView(
                     soundscapeAudioManager: SoundscapeAudioManager(),
