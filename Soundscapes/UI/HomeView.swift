@@ -14,28 +14,8 @@ struct HomeView: View {
                     .opacity(1) // Full opacity for the video background
 
                 VStack(spacing: 20) {
-                    Spacer() // Push content down for better centering
-
-                    // App Title
-                    Text("Sound Journeys")
-                        .font(.custom("Baskerville", size: 34)) // Avenir font for a sleek look
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal)
-                        .opacity(isTextVisible ? 1 : 0) // Control opacity with isTextVisible
-                        .animation(.easeInOut(duration: 1), value: isTextVisible) // Animate text appearance
-
-                    // App Description
-                    Text("Inspired by Nature.")
-                        .font(.custom("Avenir", size: 20)) // Avenir for the description as well
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 40)
-                        .padding(.vertical, 30)
-                        .opacity(isTextVisible ? 1 : 0) // Control opacity with isTextVisible
-                        .animation(.easeInOut(duration: 3), value: isTextVisible) // Slightly different timing
-
+                    Spacer()
+                        .frame(height: 210)
                     Text("Choose your path.")
                         .font(.custom("Avenir", size: 16)) // Avenir for the description as well
                         .foregroundColor(.white)
@@ -44,45 +24,66 @@ struct HomeView: View {
                         .opacity(isTextVisible ? 1 : 0) // Control opacity with isTextVisible
                         .animation(.easeInOut(duration: 5), value: isTextVisible) // Another staggered delay
 
-                    // Explore Button
-                    NavigationLink(destination: SoundscapeSelectionView(isBreathingMode: false, isSleepMode: false)) {
-                        Text("Explore")
-                            .font(.custom("Avenir", size: 16))
-                            .fontWeight(.semibold)
-                            .padding()
-                            .frame(width: 200)
-                            .background(Color.white.opacity(0.8)) // Change to white background with opacity
-                            .foregroundColor(.black) // Black text
-                            .cornerRadius(10)
-                            .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
+                    // Journey Button with icon
+                    NavigationLink(destination: CategorySelectionView(isBreathingMode: false, isSleepMode: false)) {
+                        HStack {
+                            Image(systemName: "map") // Icon for journey
+                                .font(.title2)
+                                .foregroundColor(.black)
+                                
+                            Text("Journey")
+                                .font(.custom("Avenir", size: 16))
+                                .fontWeight(.semibold)
+                        }
+                        .padding(.trailing, 15) // Adjust padding to nudge text left
+                        .padding()
+                        .frame(width: 200)
+                        .background(Color.white.opacity(0.8)) // Change to white background with opacity
+                        .foregroundColor(.black) // Black text
+                        .cornerRadius(10)
+                        .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
                     }
                     .padding(.horizontal, 40)
 
-                    // Breathe and Sleep Buttons
+                    // Breathe and Sleep Buttons with icons
                     VStack(spacing: 20) {
-                        NavigationLink(destination: SoundscapeSelectionView(isBreathingMode: true, isSleepMode: false)) {
-                            Text("Breathe")
-                                .font(.custom("Avenir", size: 16))
-                                .fontWeight(.semibold)
-                                .padding()
-                                .frame(width: 200)
-                                .background(Color.white.opacity(0.8))
-                                .foregroundColor(.black)
-                                .cornerRadius(10)
-                                .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
+                        NavigationLink(destination: CategorySelectionView(isBreathingMode: true, isSleepMode: false)) {
+                            HStack {
+                                Image(systemName: "wind") // Icon for breathe
+                                    .font(.title2)
+                                    .foregroundColor(.black)
+                                   
+                                Text("Breathe")
+                                    .font(.custom("Avenir", size: 16))
+                                    .fontWeight(.semibold)
+                            }
+                            .padding(.trailing, 15) // Adjust padding to nudge text left
+                            .padding()
+                            .frame(width: 200)
+                            .background(Color.white.opacity(0.8))
+                            .foregroundColor(.black)
+                            .cornerRadius(10)
+                            .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
                         }
                         .padding(.horizontal, 40)
 
-                        NavigationLink(destination: SoundscapeSelectionView(isBreathingMode: false, isSleepMode: true)) {
-                            Text("Sleep")
-                                .font(.custom("Avenir", size: 16))
-                                .fontWeight(.semibold)
-                                .padding()
-                                .frame(width: 200)
-                                .background(Color.white.opacity(0.8))
-                                .foregroundColor(.black)
-                                .cornerRadius(10)
-                                .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
+                        NavigationLink(destination: CategorySelectionView(isBreathingMode: false, isSleepMode: true)) {
+                            HStack {
+                                Image(systemName: "moon.stars.fill") // Icon for sleep
+                                    .font(.title2)
+                                    .foregroundColor(.black)
+                                   
+                                Text("Sleep")
+                                    .font(.custom("Avenir", size: 16))
+                                    .fontWeight(.semibold)
+                            }
+                            .padding(.trailing, 15) // Adjust padding to nudge text left
+                            .padding()
+                            .frame(width: 200)
+                            .background(Color.white.opacity(0.8))
+                            .foregroundColor(.black)
+                            .cornerRadius(10)
+                            .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
                         }
                         .padding(.horizontal, 40)
                     }
@@ -117,4 +118,7 @@ struct HomeView: View {
             .navigationBarHidden(true) // Hide the navigation bar on the intro screen
         }
     }
+}
+#Preview {
+    HomeView()
 }

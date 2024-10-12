@@ -19,5 +19,6 @@ let soundscapes: [Soundscape] = [
     Soundscape(id: "TibetanBowls", name: "Tibetan Singing Bowls", description: "Sounds of ancient Tibetan singing bowls.", imageName: "TibetanBowls", category: ["Sound Healing"]),
     Soundscape(id: "OceanWaves", name: "Big Sur Ocean Waves", description: "The relaxing sounds of waves crashing in Big Sur, California.", imageName: "OceanWaves", category: ["Nature Sounds"]),
     Soundscape(id: "Antarctica", name: "Antarctica Waters with Ambient Music", description: "Featuring the underwater sound of glacial melt with a musical pad.", imageName: "Antarctica", category: ["Nature and Music"]),
-    Soundscape(id: "Electronic", name: "Outer Space Frequencies", description: "An intriguing soundscape created from NASA's outer space frequencies.", imageName: "Electronic", category: ["Ambient Electronic"])
+    Soundscape(id: "Electronic", name: "Outer Space Frequencies", description: "An intriguing soundscape created from NASA's outer space frequencies.", imageName: "Electronic", category: ["Ambient Electronic"]),
+    Soundscape(id: "432Acoustic", name: "432hz Acoustic Instruments", description: "A sound meditation feautring an ocean wave drum, crystal bowls, and shruti box all tuned to 432hz - a more natural tuning for aligning body and mind.", imageName: "432Acoustic", category: ["Sound Healing"])
 ]

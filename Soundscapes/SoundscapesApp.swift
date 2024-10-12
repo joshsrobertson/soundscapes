@@ -10,9 +10,9 @@ import SwiftUI
 @main
 struct SoundscapesApp: App {
     var body: some Scene {
-        WindowGroup {
-            HomeView()  // Main content view of the app
-        }
-    }
+           WindowGroup {
+               LoadingView() // Show the loading screen initially
+       }
+   }
 }
 

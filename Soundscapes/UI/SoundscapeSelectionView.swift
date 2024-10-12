@@ -1,22 +1,12 @@
 import SwiftUI
 
 struct SoundscapeSelectionView: View {
-    let isBreathingMode: Bool // Passed from HomeView to determine the flow
-    let isSleepMode: Bool // New parameter to determine if Sleep mode is active
-
-    let soundscapes = [
-        Soundscape(id: "IcelandGlacier", name: "Iceland Glacier", description: "The sounds of an ice cave deep within the Vatnajökull Glacier, with cave vocals.", imageName: "IcelandGlacier"),
-        Soundscape(id: "Xochimilco", name: "Xochimilco Piano Sunrise", description: "The sunrise nature sounds of a protected wetland area in Mexico City with gentle piano.", imageName: "Xochimilco"),
-        Soundscape(id: "RainStorm", name: "South Dakota Rain", description: "Journey to South Dakota, USA during a gentle rain storm with distant thunder.", imageName: "RainStorm"),
-        Soundscape(id: "TibetanBowls", name: "Tibetan Singing Bowls", description: "Featuring sounds of ancient Tibetan singing bowls hand-crated from natural metals, designed to invoke deep states of meditation and energy balancing.", imageName: "TibetanBowls"),
-        Soundscape(id: "OceanWaves", name: "Big Sur Ocean Waves", description: "Enjoy the soothing sounds of waves crashing in Big Sur, California", imageName: "OceanWaves"),
-        Soundscape(id: "Antarctica", name: "Antarctica Waters with Ambient Music", description: "Crafted by Madame Gandhi, featuring the underwater sound of glacial melt layered with a musical pad.", imageName: "Antarctica"),
-        
-        Soundscape(id: "Electronic", name: "Outer Space Frequencies", description: "An intriguing soundscape created from source sounds provided by NASA from the processed frequencies of outer space", imageName: "Electronic")
-    ]
+    let isBreathingMode: Bool
+    let isSleepMode: Bool
+    let filteredSoundscapes: [Soundscape] // Take filtered soundscapes as input
 
     @State private var selectedSoundscape: Soundscape?
-    @State private var isTextVisible = false // Animation for text
+    @State private var isTextVisible = false
     @State private var currentBackgroundImage: String = "IcelandGlacier" // Default starting image
     @Environment(\.presentationMode) var presentationMode
 
@@ -33,31 +23,11 @@ struct SoundscapeSelectionView: View {
                 .edgesIgnoringSafeArea(.all)
 
             VStack {
-                HStack {
-                    // Custom Back button
-                    Button(action: {
-                        presentationMode.wrappedValue.dismiss() // Navigate back to HomeView
-                    }) {
-                        HStack {
-                            Image(systemName: "arrow.left")
-                                .font(.title2)
-                                .foregroundColor(.white)
-                            Text("Home")
-                                .font(.custom("Avenir", size: 18))
-                                .foregroundColor(.white)
-                        }
-                        .padding()
-                    }
-                    Spacer()
-                }
-                .padding(.top, 40) // Add padding to push down the back button
-
-              
-
                 TabView(selection: $selectedSoundscape) {
-                    ForEach(soundscapes, id: \.id) { soundscape in
+                    ForEach(filteredSoundscapes, id: \.id) { soundscape in
                         VStack(spacing: 20) {
                             Spacer()
+                                .frame(height: 50) // Create some space at the top to center content more
 
                             // Soundscape Name with animation
                             Text(soundscape.name)
@@ -85,7 +55,7 @@ struct SoundscapeSelectionView: View {
                                 NavigationLink(destination: BreathingPatternSelectionView(
                                     selectedSoundscape: soundscape.id,
                                     backgroundImage: soundscape.imageName,
-                                    isSleepMode: isSleepMode // Pass the isSleepMode flag
+                                    isSleepMode: isSleepMode
                                 )) {
                                     Text("Select Soundscape")
                                         .font(.custom("Avenir", size: 16))
@@ -102,7 +72,7 @@ struct SoundscapeSelectionView: View {
                                     selectedSoundscape: soundscape.id,
                                     selectedBreathingPattern: BreathingPattern(id: "None", name: "No Breathing Pattern", description: "", cadence: ""),
                                     backgroundImage: soundscape.imageName,
-                                    isSleepMode: isSleepMode // Pass the isSleepMode flag
+                                    isSleepMode: isSleepMode
                                 )) {
                                     Text("Select Soundscape")
                                         .font(.custom("Avenir", size: 16))
@@ -115,41 +85,31 @@ struct SoundscapeSelectionView: View {
                                         .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
                                 }
                             }
-
+                            
                             Spacer()
+                                .frame(height: 60) // Add space before the index dots to match the other view
                         }
-                        .padding()
                         .tag(soundscape)
                     }
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
                 .frame(height: 500) // Adjust height of TabView to center better
-
+                
                 Spacer()
+                    .frame(height: 50) // Add space below the TabView for the dots
             }
         }
-        .navigationBarHidden(true)
         .onAppear {
-            // Trigger the text animation
             withAnimation {
                 isTextVisible = true
             }
-            // Set the default soundscape and background image on load
-            selectedSoundscape = soundscapes.first
-            currentBackgroundImage = soundscapes.first?.imageName ?? "IcelandGlacier"
+            selectedSoundscape = filteredSoundscapes.first
+            currentBackgroundImage = filteredSoundscapes.first?.imageName ?? "IcelandGlacier"
         }
         .onChange(of: selectedSoundscape) { newSoundscape in
-            // Update the background image when the selected soundscape changes
             if let newSoundscape = newSoundscape {
                 currentBackgroundImage = newSoundscape.imageName
             }
         }
     }
-}
-
-struct Soundscape: Identifiable, Hashable {
-    var id: String
-    var name: String
-    var description: String
-    var imageName: String
 }

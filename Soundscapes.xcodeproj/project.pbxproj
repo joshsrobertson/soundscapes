@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8283F7732CB6DFF400607322 /* SoundscapeAudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8283F7722CB6DFF400607322 /* SoundscapeAudioManager.swift */; };
-		8283F7772CB6E05800607322 /* Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8283F7762CB6E05500607322 /* Quotes.swift */; };
 		8283F7792CB6E07800607322 /* BreathingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8283F7782CB6E07800607322 /* BreathingManager.swift */; };
 		8290F1DE2CB44C6700EAA520 /* Calm Chime.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8290F1DD2CB44C6700EAA520 /* Calm Chime.mp3 */; };
 		8290F20F2CB46DB400EAA520 /* Xochimilco.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8290F20E2CB46DB400EAA520 /* Xochimilco.mp3 */; };
@@ -33,6 +32,10 @@
 		82AC16932CB9A250001CF4F0 /* RainStorm.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82AC16922CB9A250001CF4F0 /* RainStorm.jpg */; };
 		82AC16952CB9A6B1001CF4F0 /* Antarctica.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AC16942CB9A6B1001CF4F0 /* Antarctica.mp3 */; };
 		82AC16972CB9A6BC001CF4F0 /* Antarctica.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82AC16962CB9A6BC001CF4F0 /* Antarctica.jpg */; };
+		82F4417A2CB9C06C00E066C3 /* CategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F441792CB9C06C00E066C3 /* CategorySelectionView.swift */; };
+		82F441812CBA305800E066C3 /* 432Acoustic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82F441802CBA305800E066C3 /* 432Acoustic.jpg */; };
+		82F441832CBA307E00E066C3 /* 432Acoustic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82F441822CBA307E00E066C3 /* 432Acoustic.mp3 */; };
+		82F441852CBA3AA000E066C3 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F441842CBA3AA000E066C3 /* LoadingView.swift */; };
 		82FB42592CB076C60042CE98 /* SoundscapesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42582CB076C60042CE98 /* SoundscapesApp.swift */; };
 		82FB425B2CB076C60042CE98 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB425A2CB076C60042CE98 /* HomeView.swift */; };
 		82FB425D2CB076C80042CE98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82FB425C2CB076C80042CE98 /* Assets.xcassets */; };
@@ -64,7 +67,6 @@
 
 /* Begin PBXFileReference section */
 		8283F7722CB6DFF400607322 /* SoundscapeAudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapeAudioManager.swift; sourceTree = "<group>"; };
-		8283F7762CB6E05500607322 /* Quotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quotes.swift; sourceTree = "<group>"; };
 		8283F7782CB6E07800607322 /* BreathingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingManager.swift; sourceTree = "<group>"; };
 		8290F1DD2CB44C6700EAA520 /* Calm Chime.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Calm Chime.mp3"; sourceTree = "<group>"; };
 		8290F20E2CB46DB400EAA520 /* Xochimilco.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Xochimilco.mp3; sourceTree = "<group>"; };
@@ -90,6 +92,10 @@
 		82AC16922CB9A250001CF4F0 /* RainStorm.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = RainStorm.jpg; sourceTree = "<group>"; };
 		82AC16942CB9A6B1001CF4F0 /* Antarctica.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Antarctica.mp3; sourceTree = "<group>"; };
 		82AC16962CB9A6BC001CF4F0 /* Antarctica.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Antarctica.jpg; sourceTree = "<group>"; };
+		82F441792CB9C06C00E066C3 /* CategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionView.swift; sourceTree = "<group>"; };
+		82F441802CBA305800E066C3 /* 432Acoustic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 432Acoustic.jpg; sourceTree = "<group>"; };
+		82F441822CBA307E00E066C3 /* 432Acoustic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 432Acoustic.mp3; sourceTree = "<group>"; };
+		82F441842CBA3AA000E066C3 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		82FB42552CB076C60042CE98 /* Sound Journeys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sound Journeys.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FB42582CB076C60042CE98 /* SoundscapesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapesApp.swift; sourceTree = "<group>"; };
 		82FB425A2CB076C60042CE98 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -109,6 +115,7 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		8283F77F2CB6F6CA00607322 /* Video */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Video; sourceTree = "<group>"; };
 		829E56992CB8E7D50011E8AC /* Preview Content */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Preview Content"; sourceTree = "<group>"; };
+		82F4417C2CBA1EFE00E066C3 /* Data */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Data; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,13 +158,14 @@
 		8283F77B2CB6F61E00607322 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				82F441842CBA3AA000E066C3 /* LoadingView.swift */,
 				82FB425A2CB076C60042CE98 /* HomeView.swift */,
+				82F441792CB9C06C00E066C3 /* CategorySelectionView.swift */,
 				8290F2142CB475D700EAA520 /* SoundscapeSelectionView.swift */,
 				8290F2182CB47F1400EAA520 /* BreathingPatterSelectionView.swift */,
 				82AB4A9C2CB6350200DC43BE /* PostSoundscapeView.swift */,
 				8290F2162CB47EBA00EAA520 /* TimerSelectionView.swift */,
 				82FB42852CB079970042CE98 /* SoundscapeDetailView.swift */,
-				8283F7762CB6E05500607322 /* Quotes.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -173,6 +181,7 @@
 				82FB428C2CB080B40042CE98 /* Nature.wav */,
 				82AC168E2CB99D96001CF4F0 /* TibetanBowls.mp3 */,
 				82AC16902CB9A243001CF4F0 /* RainStorm.mp3 */,
+				82F441822CBA307E00E066C3 /* 432Acoustic.mp3 */,
 			);
 			path = "Soundscape Audio";
 			sourceTree = "<group>";
@@ -182,6 +191,7 @@
 			children = (
 				8283F77F2CB6F6CA00607322 /* Video */,
 				8290F2222CB4B31B00EAA520 /* OceanWaves.jpg */,
+				82F441802CBA305800E066C3 /* 432Acoustic.jpg */,
 				82AC168C2CB99D70001CF4F0 /* TibetanBowls.jpg */,
 				82A2EA5E2CB8B7B100AE43C5 /* IcelandGlacier.jpg */,
 				82AB4A902CB5A11500DC43BE /* Electronic.jpg */,
@@ -235,8 +245,9 @@
 			children = (
 				82FB42582CB076C60042CE98 /* SoundscapesApp.swift */,
 				82FB425E2CB076C80042CE98 /* Soundscapes.entitlements */,
-				82AB4A8D2CB5216F00DC43BE /* Info.plist */,
 				8283F77B2CB6F61E00607322 /* UI */,
+				82F4417C2CBA1EFE00E066C3 /* Data */,
+				82AB4A8D2CB5216F00DC43BE /* Info.plist */,
 				8283F77A2CB6F60900607322 /* Models */,
 				82FB425C2CB076C80042CE98 /* Assets.xcassets */,
 				829E56992CB8E7D50011E8AC /* Preview Content */,
@@ -282,6 +293,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				829E56992CB8E7D50011E8AC /* Preview Content */,
+				82F4417C2CBA1EFE00E066C3 /* Data */,
 			);
 			name = Soundscapes;
 			productName = Soundscapes;
@@ -378,6 +390,7 @@
 				82AC16932CB9A250001CF4F0 /* RainStorm.jpg in Resources */,
 				82FB42902CB080B40042CE98 /* Nature.wav in Resources */,
 				8290F20F2CB46DB400EAA520 /* Xochimilco.mp3 in Resources */,
+				82F441832CBA307E00E066C3 /* 432Acoustic.mp3 in Resources */,
 				82AB4A992CB5D1A300DC43BE /* inhaleSound.mp3 in Resources */,
 				82A2EA612CB8B89B00AE43C5 /* IcelandGlacier.mp3 in Resources */,
 				82AB4A8F2CB5A0BD00DC43BE /* Electronic.mp3 in Resources */,
@@ -392,6 +405,7 @@
 				82A2EA5F2CB8B7B100AE43C5 /* IcelandGlacier.jpg in Resources */,
 				82AB4A912CB5A11500DC43BE /* Electronic.jpg in Resources */,
 				82FB425D2CB076C80042CE98 /* Assets.xcassets in Resources */,
+				82F441812CBA305800E066C3 /* 432Acoustic.jpg in Resources */,
 				82AC168D2CB99D70001CF4F0 /* TibetanBowls.jpg in Resources */,
 				8290F2232CB4B31B00EAA520 /* OceanWaves.jpg in Resources */,
 				8290F2112CB46E5900EAA520 /* Xochimilco.jpg in Resources */,
@@ -424,12 +438,13 @@
 				82FB425B2CB076C60042CE98 /* HomeView.swift in Sources */,
 				82FB42592CB076C60042CE98 /* SoundscapesApp.swift in Sources */,
 				8290F2152CB475D700EAA520 /* SoundscapeSelectionView.swift in Sources */,
-				8283F7772CB6E05800607322 /* Quotes.swift in Sources */,
+				82F441852CBA3AA000E066C3 /* LoadingView.swift in Sources */,
 				8283F7732CB6DFF400607322 /* SoundscapeAudioManager.swift in Sources */,
 				829E569C2CB8F14F0011E8AC /* CircularTimerSelector.swift in Sources */,
 				82AB4A9D2CB6350600DC43BE /* PostSoundscapeView.swift in Sources */,
 				82FB428A2CB07A040042CE98 /* TimerViewModel.swift in Sources */,
 				8290F2172CB47EBA00EAA520 /* TimerSelectionView.swift in Sources */,
+				82F4417A2CB9C06C00E066C3 /* CategorySelectionView.swift in Sources */,
 				8283F7792CB6E07800607322 /* BreathingManager.swift in Sources */,
 				82FB429C2CB093D10042CE98 /* LoopingVideoPlayer.swift in Sources */,
 			);
