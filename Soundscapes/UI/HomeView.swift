@@ -85,6 +85,26 @@ struct HomeView: View {
                             .cornerRadius(10)
                             .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
                         }
+
+                        // Radio Mode Button with icon
+                        NavigationLink(destination: RadioModeView()) {
+                            HStack {
+                                Image(systemName: "dot.radiowaves.left.and.right") // Icon for radio
+                                    .font(.title2)
+                                    .foregroundColor(.black)
+                                
+                                Text("Radio")
+                                    .font(.custom("Avenir", size: 16))
+                                    .fontWeight(.semibold)
+                            }
+                            .padding(.trailing, 15) // Adjust padding to nudge text left
+                            .padding()
+                            .frame(width: 200)
+                            .background(Color.white.opacity(0.8))
+                            .foregroundColor(.black)
+                            .cornerRadius(10)
+                            .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
+                        }
                         .padding(.horizontal, 40)
                     }
 
@@ -119,8 +139,3 @@ struct HomeView: View {
         }
     }
 }
-
-/*#Preview {
-    HomeView()
-}
-*/

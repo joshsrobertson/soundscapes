@@ -35,6 +35,7 @@
 		82F441852CBA3AA000E066C3 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F441842CBA3AA000E066C3 /* LoadingView.swift */; };
 		82F441AF2CBAF9AD00E066C3 /* AutumnWind.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82F441AE2CBAF9AD00E066C3 /* AutumnWind.mp3 */; };
 		82F441B12CBAF9C000E066C3 /* AutumnWind.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82F441B02CBAF9C000E066C3 /* AutumnWind.jpg */; };
+		82F4420C2CBCF17D00E066C3 /* RadioModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F4420B2CBCF17D00E066C3 /* RadioModeView.swift */; };
 		82FB42592CB076C60042CE98 /* SoundscapesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42582CB076C60042CE98 /* SoundscapesApp.swift */; };
 		82FB425B2CB076C60042CE98 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB425A2CB076C60042CE98 /* HomeView.swift */; };
 		82FB425D2CB076C80042CE98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82FB425C2CB076C80042CE98 /* Assets.xcassets */; };
@@ -92,6 +93,7 @@
 		82F441842CBA3AA000E066C3 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		82F441AE2CBAF9AD00E066C3 /* AutumnWind.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AutumnWind.mp3; sourceTree = "<group>"; };
 		82F441B02CBAF9C000E066C3 /* AutumnWind.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AutumnWind.jpg; sourceTree = "<group>"; };
+		82F4420B2CBCF17D00E066C3 /* RadioModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioModeView.swift; sourceTree = "<group>"; };
 		82FB42552CB076C60042CE98 /* Sound Journeys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sound Journeys.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FB42582CB076C60042CE98 /* SoundscapesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapesApp.swift; sourceTree = "<group>"; };
 		82FB425A2CB076C60042CE98 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 		8283F77B2CB6F61E00607322 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				82F4420B2CBCF17D00E066C3 /* RadioModeView.swift */,
 				82F441842CBA3AA000E066C3 /* LoadingView.swift */,
 				82FB425A2CB076C60042CE98 /* HomeView.swift */,
 				82F441792CB9C06C00E066C3 /* CategorySelectionView.swift */,
@@ -430,6 +433,7 @@
 				82AB4A9D2CB6350600DC43BE /* PostSoundscapeView.swift in Sources */,
 				8290F2172CB47EBA00EAA520 /* TimerSelectionView.swift in Sources */,
 				82F4417A2CB9C06C00E066C3 /* CategorySelectionView.swift in Sources */,
+				82F4420C2CBCF17D00E066C3 /* RadioModeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
