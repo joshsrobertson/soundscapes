@@ -1,4 +1,5 @@
 import SwiftUI
+import Kingfisher // Import Kingfisher for image loading
 
 struct BreathingPatternSelectionView: View {
     var selectedSoundscape: Soundscape
@@ -14,11 +15,12 @@ struct BreathingPatternSelectionView: View {
 
     @State private var isTextVisible = false // Animation for text
     @State private var selectedPageIndex = 0 // Keep track of the page index
+    @State private var backgroundImageURL: String = ""
 
     var body: some View {
         ZStack {
-            // Full-bleed background image
-            Image(backgroundImage)
+            // Full-bleed background image using Kingfisher to load from S3
+            KFImage(URL(string: selectedSoundscape.imageURL))
                 .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
@@ -61,7 +63,7 @@ struct BreathingPatternSelectionView: View {
                             NavigationLink(destination: TimerSelectionView(
                                 selectedSoundscape: selectedSoundscape,
                                 selectedBreathingPattern: pattern,
-                                backgroundImage: backgroundImage,
+                                backgroundImage: backgroundImageURL,
                                 isSleepMode: isSleepMode,
                                 isJourneyMode: false, // You can update this logic based on navigation flow
                                 isBreathingMode: true // Assuming this is breathing mode
@@ -97,6 +99,8 @@ struct BreathingPatternSelectionView: View {
             withAnimation {
                 isTextVisible = true
             }
+            // Set the S3 image URL for the background image
+            backgroundImageURL = "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/BG+Images/\(backgroundImage).jpg"
         }
     }
 }

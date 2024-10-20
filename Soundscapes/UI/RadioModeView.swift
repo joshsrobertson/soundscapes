@@ -1,15 +1,16 @@
 import SwiftUI
+import Kingfisher
 
 struct RadioModeView: View {
     @StateObject var radioAudioManager = RadioAudioManager()
     @State private var selectedSoundscape: Soundscape? // Store the current soundscape being played
     @State private var remainingTimeString = ""
-    
+
     var body: some View {
         ZStack {
-            // Background image
+            // Background image using Kingfisher
             if let selectedSoundscape = selectedSoundscape {
-                Image(selectedSoundscape.imageName)
+                KFImage(URL(string: selectedSoundscape.imageURL)) // Use Kingfisher to load the image from S3
                     .resizable()
                     .scaledToFill()
                     .edgesIgnoringSafeArea(.all)
@@ -31,14 +32,14 @@ struct RadioModeView: View {
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 20)
-                    
+
                     Text(selectedSoundscape.description)
                         .font(.custom("Avenir", size: 18))
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 20)
                 }
-                
+
                 // Display remaining time for the audio
                 if radioAudioManager.remainingTime > 0 {
                     Text("Time Remaining: \(formatTime(radioAudioManager.remainingTime))")

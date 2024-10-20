@@ -1,5 +1,6 @@
 import SwiftUI
 import CoreHaptics
+import Kingfisher
 
 struct TimerSelectionView: View {
     var selectedSoundscape: Soundscape
@@ -11,11 +12,12 @@ struct TimerSelectionView: View {
     
     @State private var selectedDuration: Int = 5
     @State private var hapticEngine: CHHapticEngine? // For haptic feedback
+    @State private var backgroundImageURL: String = "" // URL for the background image from S3
 
     var body: some View {
         ZStack {
-            // Full-bleed background image
-            Image(backgroundImage)
+            // Full-bleed background image using Kingfisher for S3
+            KFImage(URL(string: selectedSoundscape.imageURL))
                 .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
@@ -52,7 +54,8 @@ struct TimerSelectionView: View {
                     }
                 }
                 .padding(.top, 30)
-                // Navigation Link to start the session, now without presentationMode
+                
+                // Navigation Link to start the session
                 NavigationLink(destination: SoundscapeDetailView(
                     soundscapeAudioManager: SoundscapeAudioManager(),
                     timerModel: TimerModel(),
@@ -82,6 +85,8 @@ struct TimerSelectionView: View {
             .padding(.bottom, 50)
             .onAppear {
                 prepareHaptics()
+                // Set the background image URL from S3
+                backgroundImageURL = "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/BG+Images/\(backgroundImage).jpg"
             }
         }
     }

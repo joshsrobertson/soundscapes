@@ -15,6 +15,7 @@
 		8290F2192CB47F1400EAA520 /* BreathingPatternSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290F2182CB47F1400EAA520 /* BreathingPatternSelectionView.swift */; };
 		8290F21F2CB4B15C00EAA520 /* OceanWaves.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8290F21E2CB4B15B00EAA520 /* OceanWaves.mp3 */; };
 		8290F2232CB4B31B00EAA520 /* OceanWaves.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8290F2222CB4B31B00EAA520 /* OceanWaves.jpg */; };
+		8292084F2CC58AA600823DD9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8292084E2CC58AA600823DD9 /* Kingfisher */; };
 		829E569E2CB9790A0011E8AC /* IntroVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 829E569D2CB9790A0011E8AC /* IntroVideo.mp4 */; };
 		82A2EA5F2CB8B7B100AE43C5 /* IcelandGlacier.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82A2EA5E2CB8B7B100AE43C5 /* IcelandGlacier.jpg */; };
 		82A2EA612CB8B89B00AE43C5 /* IcelandGlacier.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82A2EA602CB8B89B00AE43C5 /* IcelandGlacier.mp3 */; };
@@ -120,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8292084F2CC58AA600823DD9 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +337,9 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
@@ -360,6 +365,9 @@
 				Base,
 			);
 			mainGroup = 82FB424C2CB076C60042CE98;
+			packageReferences = (
+				8292084D2CC58AA600823DD9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 82FB42562CB076C60042CE98 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -620,10 +628,11 @@
 				PRODUCT_NAME = "Sound Journeys";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -664,10 +673,11 @@
 				PRODUCT_NAME = "Sound Journeys";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -801,6 +811,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8292084D2CC58AA600823DD9 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8292084E2CC58AA600823DD9 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8292084D2CC58AA600823DD9 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 82FB424D2CB076C60042CE98 /* Project object */;
 }

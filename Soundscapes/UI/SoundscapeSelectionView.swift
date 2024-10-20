@@ -1,4 +1,5 @@
 import SwiftUI
+import Kingfisher // Import Kingfisher for image loading
 
 struct SoundscapeSelectionView: View {
     let isBreathingMode: Bool
@@ -9,16 +10,23 @@ struct SoundscapeSelectionView: View {
 
     @State private var selectedSoundscape: Soundscape?
     @State private var isTextVisible = false
-    @State private var currentBackgroundImage: String = "IcelandGlacier" // Default starting image
+    @State private var currentBackgroundImageURL: String = "" // Store the full S3 URL for the background image
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         ZStack {
-            // Background image updated dynamically based on selected soundscape
-            Image(currentBackgroundImage)
-                .resizable()
-                .scaledToFill()
-                .edgesIgnoringSafeArea(.all)
+            // Background image updated dynamically based on selected soundscape using Kingfisher
+            if !currentBackgroundImageURL.isEmpty {
+                KFImage(URL(string: currentBackgroundImageURL)) // Load image from S3 URL
+                    .resizable()
+                    .scaledToFill()
+                    .edgesIgnoringSafeArea(.all)
+            } else {
+                Image("NatureSoundsBackground") // Fallback default background
+                    .resizable()
+                    .scaledToFill()
+                    .edgesIgnoringSafeArea(.all)
+            }
 
             // Gray overlay for text readability
             Color.black.opacity(0.3)
@@ -83,11 +91,11 @@ struct SoundscapeSelectionView: View {
                 isTextVisible = true
             }
             selectedSoundscape = filteredSoundscapes.first
-            currentBackgroundImage = filteredSoundscapes.first?.imageName ?? "IcelandGlacier"
+            currentBackgroundImageURL = selectedSoundscape?.imageURL ?? "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/BG+Images/IcelandGlacier.jpg"
         }
         .onChange(of: selectedSoundscape) { newSoundscape in
             if let newSoundscape = newSoundscape {
-                currentBackgroundImage = newSoundscape.imageName
+                currentBackgroundImageURL = newSoundscape.imageURL // Update the image URL
             }
         }
     }
@@ -98,14 +106,14 @@ struct SoundscapeSelectionView: View {
         if isBreathingMode {
             BreathingPatternSelectionView(
                 selectedSoundscape: soundscape, // Pass the full Soundscape object
-                backgroundImage: soundscape.imageName,
+                backgroundImage: soundscape.imageURL,
                 isSleepMode: isSleepMode
             )
         } else if isJourneyMode || isSleepMode {
             TimerSelectionView(
                 selectedSoundscape: soundscape, // Pass the full Soundscape object
                 selectedBreathingPattern: BreathingPattern(id: "None", name: "No Breathing Pattern", description: "", cadence: ""),
-                backgroundImage: soundscape.imageName,
+                backgroundImage: soundscape.imageURL,
                 isSleepMode: isSleepMode,
                 isJourneyMode: isJourneyMode,
                 isBreathingMode: isBreathingMode

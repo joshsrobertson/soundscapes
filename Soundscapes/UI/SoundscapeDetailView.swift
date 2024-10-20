@@ -1,4 +1,5 @@
 import SwiftUI
+import Kingfisher
 import AVFoundation
 
 struct SoundscapeDetailView: View {
@@ -6,7 +7,7 @@ struct SoundscapeDetailView: View {
     @StateObject var timerModel = TimerModel()
     @StateObject var breathingManager = BreathingManager()
 
-    var selectedSoundscape: Soundscape // Use the Soundscape model instead of just String
+    var selectedSoundscape: Soundscape // Use the Soundscape model
     var selectedBreathingPattern: BreathingPattern
     var selectedTime: Int
     var isJourneyMode: Bool
@@ -25,11 +26,11 @@ struct SoundscapeDetailView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                // Background image
-                               Image(selectedSoundscape.imageName)
-                                   .resizable()
-                                   .scaledToFill()
-                                   .edgesIgnoringSafeArea(.all)
+                // Background image loaded using Kingfisher
+                KFImage(URL(string: selectedSoundscape.imageURL))
+                    .resizable()
+                    .scaledToFill()
+                    .edgesIgnoringSafeArea(.all)
 
                 // Overlay for Sleep Mode or regular mode
                 if isSleepMode {
@@ -153,64 +154,58 @@ struct SoundscapeDetailView: View {
                 }
             }
             .onAppear {
-                soundscapeAudioManager.playSoundscape(from: selectedSoundscape.audioURL)
-                soundscapeAudioManager.enableSleepMode(isSleepMode)
-                timerModel.startTimer(duration: selectedTime) {
-                    showPostSoundscapeView = true
-                }
-                currentQuote = getRandomQuote(for: selectedSoundscape)
-                isQuoteVisible = true
-
-                // Delay showing the breathing circle for 5 seconds
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                    showBreathingCircle = true
-                }
-            }
-            .onChange(of: timerModel.remainingTime) { _ in
-                if cycleStartTime == nil {
-                    cycleStartTime = timerModel.remainingTime
-                }
-                breathingManager.updateBreathingPhase(
-                    selectedBreathingPattern: selectedBreathingPattern,
-                    remainingTime: timerModel.remainingTime,
-                    cycleStartTime: cycleStartTime
-                )
-                soundscapeAudioManager.checkForFadeOut(remainingTime: timerModel.remainingTime)
-
-                // Update the quote every 20 seconds in Journey Mode
-                if isJourneyMode {
-                    if lastQuoteChangeTime == nil {
-                        lastQuoteChangeTime = timerModel.remainingTime
-                    } else if let lastChange = lastQuoteChangeTime,
-                              (lastChange - timerModel.remainingTime) >= 20 {
-                        isQuoteVisible = false
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
-                            currentQuote = getRandomQuote(for: selectedSoundscape)
-                            lastQuoteChangeTime = timerModel.remainingTime
+                            soundscapeAudioManager.playSoundscape(from: selectedSoundscape.audioURL)
+                            soundscapeAudioManager.enableSleepMode(isSleepMode)
+                            timerModel.startTimer(duration: selectedTime) {
+                                showPostSoundscapeView = true
+                            }
+                            currentQuote = getRandomQuote(for: selectedSoundscape.id) // Use the getRandomQuote function with soundscape ID
                             isQuoteVisible = true
+
+                            // Delay showing the breathing circle for 5 seconds
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                showBreathingCircle = true
+                            }
+                        }
+                        .onChange(of: timerModel.remainingTime) { _ in
+                            if cycleStartTime == nil {
+                                cycleStartTime = timerModel.remainingTime
+                            }
+                            breathingManager.updateBreathingPhase(
+                                selectedBreathingPattern: selectedBreathingPattern,
+                                remainingTime: timerModel.remainingTime,
+                                cycleStartTime: cycleStartTime
+                            )
+                            soundscapeAudioManager.checkForFadeOut(remainingTime: timerModel.remainingTime)
+
+                            // Update the quote every 20 seconds in Journey Mode
+                            if isJourneyMode {
+                                if lastQuoteChangeTime == nil {
+                                    lastQuoteChangeTime = timerModel.remainingTime
+                                } else if let lastChange = lastQuoteChangeTime,
+                                          (lastChange - timerModel.remainingTime) >= 20 {
+                                    isQuoteVisible = false
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
+                                        currentQuote = getRandomQuote(for: selectedSoundscape.id) // Fetch new quote based on soundscape ID
+                                        lastQuoteChangeTime = timerModel.remainingTime
+                                        isQuoteVisible = true
+                                    }
+                                }
+                            }
+                        }
+                        .onDisappear {
+                            soundscapeAudioManager.stopAudio()
+                        }
+                        .navigationDestination(isPresented: $showPostSoundscapeView) {
+                            PostSoundscapeView()
                         }
                     }
                 }
-            }
-            .onDisappear {
-                soundscapeAudioManager.stopAudio()
-            }
-            .navigationDestination(isPresented: $showPostSoundscapeView) {
-                PostSoundscapeView()
-            }
-        }
-        
-    }
 
-    // Helper function to format time
-    func formatTime(seconds: Int) -> String {
-        let minutes = seconds / 60
-        let seconds = seconds % 60
-        return String(format: "%02d:%02d", minutes, seconds)
-    }
-
-    // Random quote function (placeholder)
-    func getRandomQuote(for soundscape: Soundscape) -> String {
-        return "Enjoy the sounds of \(soundscape.name)."
-    }
-}
+                // Helper function to format time
+                func formatTime(seconds: Int) -> String {
+                    let minutes = seconds / 60
+                    let seconds = seconds % 60
+                    return String(format: "%02d:%02d", minutes, seconds)
+                }
+            }

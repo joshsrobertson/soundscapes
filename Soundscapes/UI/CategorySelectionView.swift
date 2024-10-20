@@ -1,18 +1,19 @@
 import SwiftUI
+import Kingfisher // Import Kingfisher
 
 struct CategorySelectionView: View {
     let isBreathingMode: Bool
     let isSleepMode: Bool
     let isJourneyMode: Bool
 
-    // State to track the random background image from all soundscapes
-    @State private var selectedSoundscapeImage: String = ""
+    // State to track the random background image URL from all soundscapes
+    @State private var selectedSoundscapeImageURL: String = ""
 
     var body: some View {
         ZStack {
-            // Background image randomly selected from soundscapes
-            if !selectedSoundscapeImage.isEmpty {
-                Image(selectedSoundscapeImage)
+            // Background image randomly selected from soundscapes using Kingfisher
+            if !selectedSoundscapeImageURL.isEmpty {
+                KFImage(URL(string: selectedSoundscapeImageURL)) // Load image from S3 URL
                     .resizable()
                     .scaledToFill()
                     .edgesIgnoringSafeArea(.all)
@@ -45,8 +46,8 @@ struct CategorySelectionView: View {
                 Spacer() // This spacer will help center the content vertically
             }
             .onAppear {
-                // Set a random background image from the soundscapes
-                selectedSoundscapeImage = getRandomImage()
+                // Set a random background image URL from the soundscapes
+                selectedSoundscapeImageURL = getRandomImageURL()
             }
         }
     }
@@ -94,8 +95,8 @@ struct CategorySelectionView: View {
         }
     }
 
-    // Function to get a random image from any soundscape
-    func getRandomImage() -> String {
-        return soundscapes.randomElement()?.imageName ?? "Xochimilco" // Default background if none found
+    // Function to get a random image URL from any soundscape
+    func getRandomImageURL() -> String {
+        return soundscapes.randomElement()?.imageURL ?? "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/BG+Images/Xochimilco.jpg" // Default image URL
     }
 }
