@@ -5,12 +5,11 @@ struct SoundscapeSelectionView: View {
     let isSleepMode: Bool
     let isJourneyMode: Bool
 
-    var filteredSoundscapes: [Soundscape] // Take filtered soundscapes as input
+    let filteredSoundscapes: [Soundscape] // Pass actual soundscapes, not the type
 
     @State private var selectedSoundscape: Soundscape?
     @State private var isTextVisible = false
     @State private var currentBackgroundImage: String = "IcelandGlacier" // Default starting image
-    @State private var randomizedSoundscapes: [Soundscape] = []
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
@@ -27,7 +26,7 @@ struct SoundscapeSelectionView: View {
 
             VStack {
                 TabView(selection: $selectedSoundscape) {
-                    ForEach(randomizedSoundscapes, id: \.id) { soundscape in
+                    ForEach(filteredSoundscapes, id: \.id) { soundscape in
                         VStack(spacing: 20) {
                             Spacer()
                                 .frame(height: 50) // Create some space at the top to center content more
@@ -69,7 +68,7 @@ struct SoundscapeSelectionView: View {
                             Spacer()
                                 .frame(height: 60) // Add space before the index dots to match the other view
                         }
-                        .tag(soundscape)
+                        .tag(soundscape) // Ensure the correct soundscape instance is used here
                     }
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
@@ -83,9 +82,8 @@ struct SoundscapeSelectionView: View {
             withAnimation {
                 isTextVisible = true
             }
-            randomizedSoundscapes = filteredSoundscapes.shuffled() // Randomize the soundscapes
-            selectedSoundscape = randomizedSoundscapes.first
-            currentBackgroundImage = randomizedSoundscapes.first?.imageName ?? "IcelandGlacier"
+            selectedSoundscape = filteredSoundscapes.first
+            currentBackgroundImage = filteredSoundscapes.first?.imageName ?? "IcelandGlacier"
         }
         .onChange(of: selectedSoundscape) { newSoundscape in
             if let newSoundscape = newSoundscape {
@@ -99,14 +97,14 @@ struct SoundscapeSelectionView: View {
     func destinationView(for soundscape: Soundscape) -> some View {
         if isBreathingMode {
             BreathingPatternSelectionView(
-                selectedSoundscape: soundscape.id,
+                selectedSoundscape: soundscape, // Pass the full Soundscape object
                 backgroundImage: soundscape.imageName,
                 isSleepMode: isSleepMode
             )
         } else if isJourneyMode || isSleepMode {
             TimerSelectionView(
-                selectedSoundscape: soundscape.id,
-                selectedBreathingPattern: BreathingPattern(id: "None", name: "No Breathing Pattern", description: "", cadence: ""), // Adjust as needed
+                selectedSoundscape: soundscape, // Pass the full Soundscape object
+                selectedBreathingPattern: BreathingPattern(id: "None", name: "No Breathing Pattern", description: "", cadence: ""),
                 backgroundImage: soundscape.imageName,
                 isSleepMode: isSleepMode,
                 isJourneyMode: isJourneyMode,

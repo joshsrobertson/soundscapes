@@ -40,12 +40,12 @@ struct RadioModeView: View {
                 }
                 
                 // Display remaining time for the audio
-              /*  if radioAudioManager.remainingTime > 0 {
+                if radioAudioManager.remainingTime > 0 {
                     Text("Time Remaining: \(formatTime(radioAudioManager.remainingTime))")
                         .font(.custom("Avenir", size: 18))
                         .foregroundColor(.white)
                         .padding(.top, 20)
-                }*/
+                }
 
                 // Move the buttons closer to the center
                 VStack(spacing: 20) {

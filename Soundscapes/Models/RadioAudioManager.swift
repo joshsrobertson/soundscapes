@@ -4,7 +4,7 @@ import Combine
 class RadioAudioManager: NSObject, ObservableObject {
     @Published var remainingTime: TimeInterval = 0
     @Published var currentTime: TimeInterval = 0
-    private var player: AVAudioPlayer?
+    private var player: AVPlayer?
     private var timer: Timer?
     private var soundscapesQueue: [Soundscape] = []
     
@@ -19,19 +19,13 @@ class RadioAudioManager: NSObject, ObservableObject {
     }
     
     func playSoundscape(soundscape: Soundscape) {
-        if let url = Bundle.main.url(forResource: soundscape.id, withExtension: "mp3") {
-            do {
-                player = try AVAudioPlayer(contentsOf: url)
-                player?.delegate = self
-                player?.play()
-                
-                remainingTime = player?.duration ?? 0
-                currentTime = 0
-                
-                startTimer()
-            } catch {
-                print("Error playing soundscape: \(error.localizedDescription)")
-            }
+        // Play sound from the audioURL (S3 URL)
+        if let url = URL(string: soundscape.audioURL) {
+            let playerItem = AVPlayerItem(url: url)
+            player = AVPlayer(playerItem: playerItem)
+            player?.play()
+            
+            startTimer()
         }
     }
     
@@ -39,22 +33,20 @@ class RadioAudioManager: NSObject, ObservableObject {
         timer?.invalidate() // Invalidate previous timer
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
             guard let self = self, let player = self.player else { return }
-            self.currentTime = player.currentTime
-            self.remainingTime = player.duration - player.currentTime
+            self.currentTime = CMTimeGetSeconds(player.currentTime())
+            if let currentItem = player.currentItem {
+                self.remainingTime = CMTimeGetSeconds(currentItem.duration) - self.currentTime
+            }
         }
     }
 
     func stopPlayback() {
-        player?.stop()
+        player?.pause()
+        player = nil
         timer?.invalidate()
     }
 }
 
-extension RadioAudioManager: AVAudioPlayerDelegate {
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        // Automatically play the next soundscape when one finishes
-        if let nextSoundscape = getNextRandomSoundscape(from: soundscapes) {
-            playSoundscape(soundscape: nextSoundscape)
-        }
-    }
+extension RadioAudioManager: AVPlayerItemOutputPullDelegate {
+    // Optionally handle AVPlayer events
 }

@@ -1,11 +1,12 @@
 import SwiftUI
+import AVFoundation
 
 struct SoundscapeDetailView: View {
     @StateObject var soundscapeAudioManager = SoundscapeAudioManager()
     @StateObject var timerModel = TimerModel()
     @StateObject var breathingManager = BreathingManager()
 
-    var selectedSoundscape: String
+    var selectedSoundscape: Soundscape // Use the Soundscape model instead of just String
     var selectedBreathingPattern: BreathingPattern
     var selectedTime: Int
     var isJourneyMode: Bool
@@ -25,10 +26,10 @@ struct SoundscapeDetailView: View {
         NavigationStack {
             ZStack {
                 // Background image
-                Image(selectedSoundscape)
-                    .resizable()
-                    .scaledToFill()
-                    .edgesIgnoringSafeArea(.all)
+                               Image(selectedSoundscape.imageName)
+                                   .resizable()
+                                   .scaledToFill()
+                                   .edgesIgnoringSafeArea(.all)
 
                 // Overlay for Sleep Mode or regular mode
                 if isSleepMode {
@@ -134,9 +135,6 @@ struct SoundscapeDetailView: View {
                             .padding(.top, 100)
                     }
 
-                    // Move the stop button higher
-                 
-
                     // Stop button
                     Button(action: {
                         soundscapeAudioManager.stopAudio()
@@ -155,8 +153,7 @@ struct SoundscapeDetailView: View {
                 }
             }
             .onAppear {
-                soundscapeAudioManager.setupAudioEngine()
-                soundscapeAudioManager.playSoundscape(soundscape: selectedSoundscape)
+                soundscapeAudioManager.playSoundscape(from: selectedSoundscape.audioURL)
                 soundscapeAudioManager.enableSleepMode(isSleepMode)
                 timerModel.startTimer(duration: selectedTime) {
                     showPostSoundscapeView = true
@@ -211,6 +208,9 @@ struct SoundscapeDetailView: View {
         let seconds = seconds % 60
         return String(format: "%02d:%02d", minutes, seconds)
     }
-    
-}
 
+    // Random quote function (placeholder)
+    func getRandomQuote(for soundscape: Soundscape) -> String {
+        return "Enjoy the sounds of \(soundscape.name)."
+    }
+}

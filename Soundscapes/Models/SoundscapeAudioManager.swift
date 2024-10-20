@@ -1,75 +1,60 @@
 import AVFoundation
+import Combine
 
 class SoundscapeAudioManager: ObservableObject {
-    var audioEngine = AVAudioEngine()
-    var soundscapePlayer = AVAudioPlayerNode()
-    var audioFile: AVAudioFile?
-    var isPlaying = false
-    var isSleepMode = false // Flag to track Sleep Mode
-    
-    // Set up the audio engine
-    func setupAudioEngine() {
-        audioEngine.attach(soundscapePlayer)
-        audioEngine.connect(soundscapePlayer, to: audioEngine.mainMixerNode, format: nil)
-        
-        do {
-            let audioSession = AVAudioSession.sharedInstance()
-            try audioSession.setCategory(.playback, mode: .default, options: [])
-            try audioSession.setActive(true)
-            try audioEngine.start()
-        } catch {
-            print("Error setting up audio engine: \(error.localizedDescription)")
-        }
-    }
+    private var audioPlayer: AVPlayer?
+    @Published var isPlaying = false
+    @Published var isSleepMode = false // Flag to track Sleep Mode
 
-    // Play the selected soundscape with looping functionality
-    func playSoundscape(soundscape: String) {
-        let soundscapeFileName = soundscape
-        
-        guard let soundscapeURL = Bundle.main.url(forResource: soundscapeFileName, withExtension: "mp3") else {
-            print("Error: Soundscape file not found: \(soundscapeFileName).mp3")
+    // Play the selected soundscape from the provided S3 URL
+    func playSoundscape(from url: String) {
+        guard let soundscapeURL = URL(string: url) else {
+            print("Error: Invalid URL for soundscape: \(url)")
             return
         }
+        
+        // Create a new AVPlayer instance for streaming from the S3 URL
+        audioPlayer = AVPlayer(url: soundscapeURL)
+        
+        // Add an observer to detect when the audio finishes playing
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(audioDidFinishPlaying),
+                                               name: .AVPlayerItemDidPlayToEndTime,
+                                               object: audioPlayer?.currentItem)
 
-        do {
-            audioFile = try AVAudioFile(forReading: soundscapeURL)
-            if let audioFile = audioFile {
-                scheduleAudioFileLooping(audioFile: audioFile)
-                soundscapePlayer.play()
-                isPlaying = true
-            }
-        } catch {
-            print("Error scheduling soundscape: \(error.localizedDescription)")
-        }
+        // Play the audio
+        audioPlayer?.play()
+        isPlaying = true
     }
 
-    // Schedule the audio file to loop
-    func scheduleAudioFileLooping(audioFile: AVAudioFile) {
-        soundscapePlayer.scheduleFile(audioFile, at: nil, completionHandler: {
-            // When the sound finishes, schedule the file again to loop it
-            self.scheduleAudioFileLooping(audioFile: audioFile)
-        })
+    // Called when the audio finishes playing
+    @objc private func audioDidFinishPlaying() {
+        stopAudio()
+        print("Audio finished playing")
+        // Handle logic for when audio completes (e.g., start the next soundscape in Radio Mode)
     }
 
     // Stop the audio when needed
     func stopAudio() {
-        soundscapePlayer.stop()
-        audioEngine.stop()
+        audioPlayer?.pause()
+        audioPlayer = nil
         isPlaying = false
     }
 
-    // Add this function for fading out
+    // Add this function for fading out the audio
     func fadeOut(duration: TimeInterval = 7.0) {
+        guard let player = audioPlayer else { return }
+        
         let steps: Double = 20 // Number of steps in the fade out
         let interval = duration / steps
         let volumeStep = 1.0 / steps
-        
-        var currentVolume = audioEngine.mainMixerNode.outputVolume
-        
+
+        // Reduce the volume progressively
+        var currentVolume: Float = player.volume
         Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { timer in
             if currentVolume > 0.05 {
                 currentVolume -= Float(volumeStep)
-                self.audioEngine.mainMixerNode.outputVolume = currentVolume
+                player.volume = currentVolume
             } else {
                 timer.invalidate()
                 self.stopAudio()
@@ -77,34 +62,29 @@ class SoundscapeAudioManager: ObservableObject {
         }
     }
 
-    // Method to handle triggering the fade-out
+    // Method to handle triggering the fade-out based on remaining time
     func checkForFadeOut(remainingTime: Int) {
-        // If Sleep Mode is enabled and 5 minutes (300 seconds) remain, lower the volume to 10%
-        if isSleepMode && remainingTime == 300 {
-            reduceVolume(to: 0.5)
-        }
-        if isSleepMode && remainingTime == 250 {
-            reduceVolume(to: 0.4)
-        }
-        if isSleepMode && remainingTime == 200 {
-            reduceVolume(to: 0.3)
-        }
-        if isSleepMode && remainingTime == 150 {
-            reduceVolume(to: 0.2)
-        }
-        // Trigger the fade out when 7 seconds remain
+        guard isSleepMode, let player = audioPlayer else { return }
+        
+        // Gradually reduce volume as the timer reaches specific milestones
+        if remainingTime == 300 { player.volume = 0.5 }
+        if remainingTime == 250 { player.volume = 0.4 }
+        if remainingTime == 200 { player.volume = 0.3 }
+        if remainingTime == 150 { player.volume = 0.2 }
+        
+        // Trigger the fade-out when 7 seconds remain
         if remainingTime == 7 {
             fadeOut()
         }
     }
 
-    // Reduce volume to a specified level
-    func reduceVolume(to volumeLevel: Float) {
-        audioEngine.mainMixerNode.outputVolume = volumeLevel
-    }
-
     // Method to enable or disable Sleep Mode
     func enableSleepMode(_ enabled: Bool) {
         isSleepMode = enabled
+    }
+
+    // Clean up observer when deallocating the object
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }

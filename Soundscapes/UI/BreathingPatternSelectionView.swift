@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct BreathingPatternSelectionView: View {
-    var selectedSoundscape: String
+    var selectedSoundscape: Soundscape
     var backgroundImage: String
     var isSleepMode: Bool // Add the isSleepMode parameter
 

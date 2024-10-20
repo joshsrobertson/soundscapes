@@ -2,7 +2,7 @@ import SwiftUI
 import CoreHaptics
 
 struct TimerSelectionView: View {
-    var selectedSoundscape: String
+    var selectedSoundscape: Soundscape
     var selectedBreathingPattern: BreathingPattern
     var backgroundImage: String
     var isSleepMode: Bool
