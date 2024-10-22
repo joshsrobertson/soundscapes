@@ -8,34 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		8290F1DE2CB44C6700EAA520 /* Calm Chime.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8290F1DD2CB44C6700EAA520 /* Calm Chime.mp3 */; };
-		8290F20F2CB46DB400EAA520 /* Xochimilco.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8290F20E2CB46DB400EAA520 /* Xochimilco.mp3 */; };
-		8290F2112CB46E5900EAA520 /* Xochimilco.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8290F2102CB46E5900EAA520 /* Xochimilco.jpg */; };
 		8290F2152CB475D700EAA520 /* SoundscapeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290F2142CB475D700EAA520 /* SoundscapeSelectionView.swift */; };
 		8290F2172CB47EBA00EAA520 /* TimerSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290F2162CB47EBA00EAA520 /* TimerSelectionView.swift */; };
 		8290F2192CB47F1400EAA520 /* BreathingPatternSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290F2182CB47F1400EAA520 /* BreathingPatternSelectionView.swift */; };
-		8290F21F2CB4B15C00EAA520 /* OceanWaves.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8290F21E2CB4B15B00EAA520 /* OceanWaves.mp3 */; };
-		8290F2232CB4B31B00EAA520 /* OceanWaves.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8290F2222CB4B31B00EAA520 /* OceanWaves.jpg */; };
 		8292084F2CC58AA600823DD9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8292084E2CC58AA600823DD9 /* Kingfisher */; };
 		829E569E2CB9790A0011E8AC /* IntroVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 829E569D2CB9790A0011E8AC /* IntroVideo.mp4 */; };
-		82A2EA5F2CB8B7B100AE43C5 /* IcelandGlacier.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82A2EA5E2CB8B7B100AE43C5 /* IcelandGlacier.jpg */; };
-		82A2EA612CB8B89B00AE43C5 /* IcelandGlacier.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82A2EA602CB8B89B00AE43C5 /* IcelandGlacier.mp3 */; };
-		82AB4A8F2CB5A0BD00DC43BE /* Electronic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AB4A8E2CB5A0BD00DC43BE /* Electronic.mp3 */; };
-		82AB4A912CB5A11500DC43BE /* Electronic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82AB4A902CB5A11500DC43BE /* Electronic.jpg */; };
 		82AB4A972CB5D19300DC43BE /* exhaleSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AB4A962CB5D19200DC43BE /* exhaleSound.mp3 */; };
 		82AB4A992CB5D1A300DC43BE /* inhaleSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AB4A982CB5D1A300DC43BE /* inhaleSound.mp3 */; };
 		82AB4A9D2CB6350600DC43BE /* PostSoundscapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AB4A9C2CB6350200DC43BE /* PostSoundscapeView.swift */; };
-		82AC168D2CB99D70001CF4F0 /* TibetanBowls.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82AC168C2CB99D70001CF4F0 /* TibetanBowls.jpg */; };
-		82AC168F2CB99D96001CF4F0 /* TibetanBowls.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AC168E2CB99D96001CF4F0 /* TibetanBowls.mp3 */; };
-		82AC16912CB9A243001CF4F0 /* RainStorm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AC16902CB9A243001CF4F0 /* RainStorm.mp3 */; };
-		82AC16932CB9A250001CF4F0 /* RainStorm.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82AC16922CB9A250001CF4F0 /* RainStorm.jpg */; };
-		82AC16952CB9A6B1001CF4F0 /* Antarctica.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82AC16942CB9A6B1001CF4F0 /* Antarctica.mp3 */; };
-		82AC16972CB9A6BC001CF4F0 /* Antarctica.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82AC16962CB9A6BC001CF4F0 /* Antarctica.jpg */; };
 		82F4417A2CB9C06C00E066C3 /* CategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F441792CB9C06C00E066C3 /* CategorySelectionView.swift */; };
-		82F441812CBA305800E066C3 /* 432Acoustic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82F441802CBA305800E066C3 /* 432Acoustic.jpg */; };
-		82F441832CBA307E00E066C3 /* 432Acoustic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82F441822CBA307E00E066C3 /* 432Acoustic.mp3 */; };
 		82F441852CBA3AA000E066C3 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F441842CBA3AA000E066C3 /* LoadingView.swift */; };
-		82F441AF2CBAF9AD00E066C3 /* AutumnWind.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82F441AE2CBAF9AD00E066C3 /* AutumnWind.mp3 */; };
-		82F441B12CBAF9C000E066C3 /* AutumnWind.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82F441B02CBAF9C000E066C3 /* AutumnWind.jpg */; };
 		82F4420C2CBCF17D00E066C3 /* RadioModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F4420B2CBCF17D00E066C3 /* RadioModeView.swift */; };
 		82FB42592CB076C60042CE98 /* SoundscapesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42582CB076C60042CE98 /* SoundscapesApp.swift */; };
 		82FB425B2CB076C60042CE98 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB425A2CB076C60042CE98 /* HomeView.swift */; };
@@ -44,7 +26,6 @@
 		82FB42752CB076C80042CE98 /* SoundscapesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42742CB076C80042CE98 /* SoundscapesUITests.swift */; };
 		82FB42772CB076C80042CE98 /* SoundscapesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42762CB076C80042CE98 /* SoundscapesUITestsLaunchTests.swift */; };
 		82FB42862CB079970042CE98 /* SoundscapeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FB42852CB079970042CE98 /* SoundscapeDetailView.swift */; };
-		82FB42902CB080B40042CE98 /* Nature.wav in Resources */ = {isa = PBXBuildFile; fileRef = 82FB428C2CB080B40042CE98 /* Nature.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,34 +47,16 @@
 
 /* Begin PBXFileReference section */
 		8290F1DD2CB44C6700EAA520 /* Calm Chime.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Calm Chime.mp3"; sourceTree = "<group>"; };
-		8290F20E2CB46DB400EAA520 /* Xochimilco.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Xochimilco.mp3; sourceTree = "<group>"; };
-		8290F2102CB46E5900EAA520 /* Xochimilco.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Xochimilco.jpg; sourceTree = "<group>"; };
 		8290F2142CB475D700EAA520 /* SoundscapeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapeSelectionView.swift; sourceTree = "<group>"; };
 		8290F2162CB47EBA00EAA520 /* TimerSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSelectionView.swift; sourceTree = "<group>"; };
 		8290F2182CB47F1400EAA520 /* BreathingPatternSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingPatternSelectionView.swift; sourceTree = "<group>"; };
-		8290F21E2CB4B15B00EAA520 /* OceanWaves.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = OceanWaves.mp3; sourceTree = "<group>"; };
-		8290F2222CB4B31B00EAA520 /* OceanWaves.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = OceanWaves.jpg; sourceTree = "<group>"; };
 		829E569D2CB9790A0011E8AC /* IntroVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroVideo.mp4; sourceTree = "<group>"; };
-		82A2EA5E2CB8B7B100AE43C5 /* IcelandGlacier.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IcelandGlacier.jpg; sourceTree = "<group>"; };
-		82A2EA602CB8B89B00AE43C5 /* IcelandGlacier.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = IcelandGlacier.mp3; sourceTree = "<group>"; };
 		82AB4A8D2CB5216F00DC43BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		82AB4A8E2CB5A0BD00DC43BE /* Electronic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Electronic.mp3; sourceTree = "<group>"; };
-		82AB4A902CB5A11500DC43BE /* Electronic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Electronic.jpg; sourceTree = "<group>"; };
 		82AB4A962CB5D19200DC43BE /* exhaleSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = exhaleSound.mp3; sourceTree = "<group>"; };
 		82AB4A982CB5D1A300DC43BE /* inhaleSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = inhaleSound.mp3; sourceTree = "<group>"; };
 		82AB4A9C2CB6350200DC43BE /* PostSoundscapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSoundscapeView.swift; sourceTree = "<group>"; };
-		82AC168C2CB99D70001CF4F0 /* TibetanBowls.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TibetanBowls.jpg; sourceTree = "<group>"; };
-		82AC168E2CB99D96001CF4F0 /* TibetanBowls.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TibetanBowls.mp3; sourceTree = "<group>"; };
-		82AC16902CB9A243001CF4F0 /* RainStorm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = RainStorm.mp3; sourceTree = "<group>"; };
-		82AC16922CB9A250001CF4F0 /* RainStorm.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = RainStorm.jpg; sourceTree = "<group>"; };
-		82AC16942CB9A6B1001CF4F0 /* Antarctica.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Antarctica.mp3; sourceTree = "<group>"; };
-		82AC16962CB9A6BC001CF4F0 /* Antarctica.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Antarctica.jpg; sourceTree = "<group>"; };
 		82F441792CB9C06C00E066C3 /* CategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionView.swift; sourceTree = "<group>"; };
-		82F441802CBA305800E066C3 /* 432Acoustic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 432Acoustic.jpg; sourceTree = "<group>"; };
-		82F441822CBA307E00E066C3 /* 432Acoustic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 432Acoustic.mp3; sourceTree = "<group>"; };
 		82F441842CBA3AA000E066C3 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
-		82F441AE2CBAF9AD00E066C3 /* AutumnWind.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AutumnWind.mp3; sourceTree = "<group>"; };
-		82F441B02CBAF9C000E066C3 /* AutumnWind.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AutumnWind.jpg; sourceTree = "<group>"; };
 		82F4420B2CBCF17D00E066C3 /* RadioModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioModeView.swift; sourceTree = "<group>"; };
 		82FB42552CB076C60042CE98 /* Sound Journeys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sound Journeys.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FB42582CB076C60042CE98 /* SoundscapesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapesApp.swift; sourceTree = "<group>"; };
@@ -106,11 +69,9 @@
 		82FB42742CB076C80042CE98 /* SoundscapesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapesUITests.swift; sourceTree = "<group>"; };
 		82FB42762CB076C80042CE98 /* SoundscapesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		82FB42852CB079970042CE98 /* SoundscapeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapeDetailView.swift; sourceTree = "<group>"; };
-		82FB428C2CB080B40042CE98 /* Nature.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Nature.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		8283F77F2CB6F6CA00607322 /* Video */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Video; sourceTree = "<group>"; };
 		829E56992CB8E7D50011E8AC /* Preview Content */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Preview Content"; sourceTree = "<group>"; };
 		82F4417C2CBA1EFE00E066C3 /* Data */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Data; sourceTree = "<group>"; };
 		82F441962CBA5C7300E066C3 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
@@ -156,40 +117,6 @@
 				82AB4A9C2CB6350200DC43BE /* PostSoundscapeView.swift */,
 			);
 			path = UI;
-			sourceTree = "<group>";
-		};
-		8283F77C2CB6F63800607322 /* Soundscape Audio */ = {
-			isa = PBXGroup;
-			children = (
-				82A2EA602CB8B89B00AE43C5 /* IcelandGlacier.mp3 */,
-				82AC16942CB9A6B1001CF4F0 /* Antarctica.mp3 */,
-				8290F20E2CB46DB400EAA520 /* Xochimilco.mp3 */,
-				8290F21E2CB4B15B00EAA520 /* OceanWaves.mp3 */,
-				82AB4A8E2CB5A0BD00DC43BE /* Electronic.mp3 */,
-				82FB428C2CB080B40042CE98 /* Nature.wav */,
-				82AC168E2CB99D96001CF4F0 /* TibetanBowls.mp3 */,
-				82AC16902CB9A243001CF4F0 /* RainStorm.mp3 */,
-				82F441822CBA307E00E066C3 /* 432Acoustic.mp3 */,
-				82F441AE2CBAF9AD00E066C3 /* AutumnWind.mp3 */,
-			);
-			path = "Soundscape Audio";
-			sourceTree = "<group>";
-		};
-		8283F77D2CB6F64C00607322 /* BG Images */ = {
-			isa = PBXGroup;
-			children = (
-				8283F77F2CB6F6CA00607322 /* Video */,
-				8290F2222CB4B31B00EAA520 /* OceanWaves.jpg */,
-				82F441802CBA305800E066C3 /* 432Acoustic.jpg */,
-				82AC168C2CB99D70001CF4F0 /* TibetanBowls.jpg */,
-				82A2EA5E2CB8B7B100AE43C5 /* IcelandGlacier.jpg */,
-				82AB4A902CB5A11500DC43BE /* Electronic.jpg */,
-				8290F2102CB46E5900EAA520 /* Xochimilco.jpg */,
-				82AC16922CB9A250001CF4F0 /* RainStorm.jpg */,
-				82AC16962CB9A6BC001CF4F0 /* Antarctica.jpg */,
-				82F441B02CBAF9C000E066C3 /* AutumnWind.jpg */,
-			);
-			path = "BG Images";
 			sourceTree = "<group>";
 		};
 		8283F77E2CB6F67700607322 /* Breathing Audio */ = {
@@ -241,8 +168,6 @@
 				8283F77B2CB6F61E00607322 /* UI */,
 				82F4417C2CBA1EFE00E066C3 /* Data */,
 				82F441962CBA5C7300E066C3 /* Models */,
-				8283F77D2CB6F64C00607322 /* BG Images */,
-				8283F77C2CB6F63800607322 /* Soundscape Audio */,
 				8283F77E2CB6F67700607322 /* Breathing Audio */,
 				8283F7862CB6FD6B00607322 /* Video */,
 			);
@@ -322,9 +247,6 @@
 			dependencies = (
 				82FB42722CB076C80042CE98 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				8283F77F2CB6F6CA00607322 /* Video */,
-			);
 			name = SoundscapesUITests;
 			productName = SoundscapesUITests;
 			productReference = 82FB42702CB076C80042CE98 /* SoundscapesUITests.xctest */;
@@ -384,30 +306,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82F441AF2CBAF9AD00E066C3 /* AutumnWind.mp3 in Resources */,
-				82AC16932CB9A250001CF4F0 /* RainStorm.jpg in Resources */,
-				82FB42902CB080B40042CE98 /* Nature.wav in Resources */,
-				8290F20F2CB46DB400EAA520 /* Xochimilco.mp3 in Resources */,
-				82F441832CBA307E00E066C3 /* 432Acoustic.mp3 in Resources */,
 				82AB4A992CB5D1A300DC43BE /* inhaleSound.mp3 in Resources */,
-				82A2EA612CB8B89B00AE43C5 /* IcelandGlacier.mp3 in Resources */,
-				82F441B12CBAF9C000E066C3 /* AutumnWind.jpg in Resources */,
-				82AB4A8F2CB5A0BD00DC43BE /* Electronic.mp3 in Resources */,
 				82AB4A972CB5D19300DC43BE /* exhaleSound.mp3 in Resources */,
-				8290F21F2CB4B15C00EAA520 /* OceanWaves.mp3 in Resources */,
-				82AC168F2CB99D96001CF4F0 /* TibetanBowls.mp3 in Resources */,
-				82AC16952CB9A6B1001CF4F0 /* Antarctica.mp3 in Resources */,
 				8290F1DE2CB44C6700EAA520 /* Calm Chime.mp3 in Resources */,
-				82AC16912CB9A243001CF4F0 /* RainStorm.mp3 in Resources */,
-				82AC16972CB9A6BC001CF4F0 /* Antarctica.jpg in Resources */,
 				829E569E2CB9790A0011E8AC /* IntroVideo.mp4 in Resources */,
-				82A2EA5F2CB8B7B100AE43C5 /* IcelandGlacier.jpg in Resources */,
-				82AB4A912CB5A11500DC43BE /* Electronic.jpg in Resources */,
 				82FB425D2CB076C80042CE98 /* Assets.xcassets in Resources */,
-				82F441812CBA305800E066C3 /* 432Acoustic.jpg in Resources */,
-				82AC168D2CB99D70001CF4F0 /* TibetanBowls.jpg in Resources */,
-				8290F2232CB4B31B00EAA520 /* OceanWaves.jpg in Resources */,
-				8290F2112CB46E5900EAA520 /* Xochimilco.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

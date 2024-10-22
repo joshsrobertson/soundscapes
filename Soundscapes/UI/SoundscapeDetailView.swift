@@ -29,6 +29,14 @@ struct SoundscapeDetailView: View {
                 // Background image loaded using Kingfisher
                 KFImage(URL(string: selectedSoundscape.imageURL))
                     .resizable()
+                    .placeholder { // Display a ProgressView while loading
+                                           ZStack {
+                                               Color.black.edgesIgnoringSafeArea(.all) // Background color while loading
+                                               ProgressView()
+                                                   .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                                                   .scaleEffect(2) // Make the loading circle larger
+                                           }
+                                       }
                     .scaledToFill()
                     .edgesIgnoringSafeArea(.all)
 
