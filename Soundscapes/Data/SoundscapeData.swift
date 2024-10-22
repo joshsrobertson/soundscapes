@@ -48,6 +48,12 @@ let soundscapes: [Soundscape] = [
                imageURL: "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/BG+Images/Antarctica.jpg",
                audioURL: "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/Soundscape+Audio/Antarctica.mp3",
                category: ["Nature Music"]),
+    Soundscape(id: "Mushroom",
+               name: "Mushroom Synthesis",
+               description: "Field recordings from mushrooms synthesized into electronic ambient music.",
+               imageURL: "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/BG+Images/Mushroom.jpg",
+               audioURL: "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/Soundscape+Audio/Mushroom.mp3",
+               category: ["Ambient Electronic"]),
     Soundscape(id: "Electronic",
                name: "Outer Space Frequencies with Tristan Arp",
                description: "An intriguing soundscape created from NASA's outer space frequencies by Tristan Arp.",
@@ -65,5 +71,18 @@ let soundscapes: [Soundscape] = [
                description: "The sounds of wind layered with evocative violin by Andreas Bernitt and piano by Josh Robertson.",
                imageURL: "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/BG+Images/AutumnWind.jpg",
                audioURL: "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/Soundscape+Audio/AutumnWind.mp3",
-               category: ["Nature Music"])
+               category: ["Nature Music"]),
+
+    Soundscape(id: "NYCSubway",
+               name: "NYC Subway Ambience",
+               description: "Take a trip on on the 7 Train of the famed NY Subway, and enjoy the ambient sounds of the city.",
+               imageURL: "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/BG+Images/NYCSubway.jpg",
+               audioURL: "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/Soundscape+Audio/NYCSubway.mp3",
+               category: ["City Sounds"]),
+    Soundscape(id: "BarcelonaStreet",
+               name: "Barcelona Street Ambience",
+               description: "The ambient city sounds of an afternoon in Barcelona, Spain.",
+               imageURL: "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/BG+Images/BarcelonaStreet.jpg",
+               audioURL: "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/Soundscape+Audio/BarcelonaStreet.mp3",
+               category: ["City Sounds"])
 ]

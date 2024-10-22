@@ -185,6 +185,66 @@ let quotes = [
     Quote(text: "The sound produced by a shruti box is often used in yoga classes and spiritual practices to deepen the meditative experience and promote relaxation.", soundscapeID: "432Acoustic"),
 
     Quote(text: "432 Hz sound therapy, combined with instruments like the shruti box, can help create a tranquil atmosphere conducive to healing and self-discovery.", soundscapeID: "432Acoustic"),
+    
+    Quote(text: "The NYC Subway is one of the largest and busiest public transportation systems in the world, with over 472 stations and more than 660 miles of track.", soundscapeID: "NYCSubway"),
+
+    Quote(text: "Opened in 1904, the NYC Subway has been continuously expanding and now serves over 5 million passengers daily.", soundscapeID: "NYCSubway"),
+
+    Quote(text: "The subway operates 24 hours a day, 7 days a week, making it one of the few transit systems in the world to provide continuous service.", soundscapeID: "NYCSubway"),
+
+    Quote(text: "The iconic subway map was designed by Massimo Vignelli in 1972 and has since become a symbol of New York City’s public transit.", soundscapeID: "NYCSubway"),
+
+    Quote(text: "The NYC Subway is divided into 26 lines, each identified by a letter or number, and covers four of the five boroughs: Manhattan, Brooklyn, Queens, and the Bronx.", soundscapeID: "NYCSubway"),
+
+    Quote(text: "In 2020, the subway system underwent significant changes due to the COVID-19 pandemic, including reduced service and cleaning protocols to ensure passenger safety.", soundscapeID: "NYCSubway"),
+
+    Quote(text: "The NYC Subway is known for its art installations, with numerous stations featuring murals, mosaics, and sculptures from various artists.", soundscapeID: "NYCSubway"),
+
+    Quote(text: "With over 100 years of history, the NYC Subway has become an integral part of the city's identity and culture, influencing everything from music to film.", soundscapeID: "NYCSubway"),
+
+    Quote(text: "The subway’s complex tunnel system includes unique features such as abandoned stations, secret passageways, and even ghost trains.", soundscapeID: "NYCSubway"),
+
+    Quote(text: "In addition to providing transportation, the NYC Subway also serves as a venue for street performers and musicians, contributing to the city’s vibrant cultural scene.", soundscapeID: "NYCSubway"),
+    
+    Quote(text: "Barcelona is renowned for its unique architecture, with famous works by Antoni Gaudí, including the Sagrada Família and Park Güell, attracting millions of visitors each year.", soundscapeID: "BarcelonaStreet"),
+
+    Quote(text: "The city’s Gothic Quarter, known as Barri Gòtic, features narrow medieval streets, hidden squares, and historic buildings dating back to the Roman period.", soundscapeID: "BarcelonaStreet"),
+
+    Quote(text: "Barcelona’s vibrant street life includes bustling markets like La Boqueria, where locals and tourists alike can enjoy fresh produce and traditional Catalan cuisine.", soundscapeID: "BarcelonaStreet"),
+
+    Quote(text: "The city is famous for its beaches, with over 4.5 kilometers of coastline that offer a mix of relaxation, water sports, and lively beach bars.", soundscapeID: "BarcelonaStreet"),
+
+    Quote(text: "Barcelona is also known for its rich cultural scene, with numerous festivals, concerts, and art exhibitions held throughout the year.", soundscapeID: "BarcelonaStreet"),
+
+    Quote(text: "The public transportation system in Barcelona includes an extensive network of buses, trams, and a metro system that makes exploring the city convenient.", soundscapeID: "BarcelonaStreet"),
+
+    Quote(text: "Barcelona's streets are adorned with modernist architecture, and the city's urban planning emphasizes pedestrian-friendly spaces and green areas.", soundscapeID: "BarcelonaStreet"),
+
+    Quote(text: "The city hosts numerous parks, such as Montjuïc and Ciutadella Park, providing green spaces for relaxation and recreation amidst urban life.", soundscapeID: "BarcelonaStreet"),
+
+    Quote(text: "Barcelona is a UNESCO World Heritage Site, recognized for its architectural and artistic heritage, with several Gaudí buildings listed as cultural landmarks.", soundscapeID: "BarcelonaStreet"),
+
+    Quote(text: "The lively street culture of Barcelona includes street performers, artists, and open-air markets that reflect the city's dynamic and diverse community.", soundscapeID: "BarcelonaStreet"),
+    
+    Quote(text: "Mushrooms are a type of fungi that play a crucial role in ecosystems as decomposers, breaking down organic matter and recycling nutrients back into the soil.", soundscapeID: "Mushroom"),
+
+    Quote(text: "Many mushrooms possess unique medicinal properties, with species like reishi and lion's mane being used in traditional medicine to boost immune function and enhance cognitive health.", soundscapeID: "Mushroom"),
+
+    Quote(text: "Mushrooms can produce a wide range of bioactive compounds, including polysaccharides, terpenes, and phenolic compounds, which have potential health benefits.", soundscapeID: "Mushroom"),
+
+    Quote(text: "Some mushrooms, such as the famous psilocybin mushrooms, are known for their psychoactive properties and are being studied for their potential in mental health treatments.", soundscapeID: "Mushroom"),
+
+    Quote(text: "Edible mushrooms like shiitake, portobello, and oyster mushrooms are not only delicious but also rich in essential nutrients, including vitamins, minerals, and antioxidants.", soundscapeID: "Mushroom"),
+
+    Quote(text: "Mushrooms have a unique ability to absorb heavy metals and toxins from the soil, making them potential candidates for bioremediation efforts in polluted environments.", soundscapeID: "Mushroom"),
+
+    Quote(text: "Certain fungi can form symbiotic relationships with plants through mycorrhizal networks, enhancing nutrient uptake and improving plant health and resilience.", soundscapeID: "Mushroom"),
+
+    Quote(text: "Mushrooms can be found in a variety of habitats, from forests to grasslands, and their diverse forms range from tiny fairy ring mushrooms to large polypores.", soundscapeID: "Mushroom"),
+
+    Quote(text: "Some mushrooms exhibit bioluminescence, producing light in the dark, which may attract insects that help disperse their spores.", soundscapeID: "Mushroom"),
+
+    Quote(text: "The study of mushrooms, known as mycology, is a growing field that explores their ecological roles, potential health benefits, and applications in sustainable practices.", soundscapeID: "Mushroom"),
 
     // Add more quotes tagged with relevant soundscapeIDs
 ]

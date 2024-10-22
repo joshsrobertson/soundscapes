@@ -22,7 +22,7 @@ struct TimerSelectionView: View {
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
                 .overlay(
-                    Color.black.opacity(0.3)
+                    Color.black.opacity(0.5)
                         .edgesIgnoringSafeArea(.all)
                 )
 

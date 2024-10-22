@@ -19,6 +19,14 @@ struct SoundscapeSelectionView: View {
             if !currentBackgroundImageURL.isEmpty {
                 KFImage(URL(string: currentBackgroundImageURL)) // Load image from S3 URL
                     .resizable()
+                    .placeholder { // Display a ProgressView while loading
+                                           ZStack {
+                                               Color.black.edgesIgnoringSafeArea(.all) // Background color while loading
+                                               ProgressView()
+                                                   .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                                                   .scaleEffect(2) // Make the loading circle larger
+                                           }
+                                       }
                     .scaledToFill()
                     .edgesIgnoringSafeArea(.all)
             } else {
@@ -29,7 +37,7 @@ struct SoundscapeSelectionView: View {
             }
 
             // Gray overlay for text readability
-            Color.black.opacity(0.3)
+            Color.black.opacity(0.5)
                 .edgesIgnoringSafeArea(.all)
 
             VStack {

@@ -25,8 +25,8 @@ struct BreathingPatternSelectionView: View {
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
 
-            // Gray overlay for readability
-            Color.black.opacity(0.3)
+            // Black overlay for readability
+            Color.black.opacity(0.5)
                 .edgesIgnoringSafeArea(.all)
 
             VStack(spacing: 20) {

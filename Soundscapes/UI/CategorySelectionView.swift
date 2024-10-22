@@ -33,7 +33,7 @@ struct CategorySelectionView: View {
             }
             
             // Gray overlay for better readability of text
-            Color.black.opacity(0.4)
+            Color.black.opacity(0.6)
                 .edgesIgnoringSafeArea(.all)
             
             VStack(spacing: 30) {
@@ -47,9 +47,10 @@ struct CategorySelectionView: View {
                 
                 // Category Buttons (each button navigates to the next step)
                 categoryButton(category: "Nature Sounds", label: "Pure Nature Sounds", icon: "leaf.fill")
-                categoryButton(category: "Nature Music", label: "Nature and Music", icon: "music.note")
+                categoryButton(category: "Nature Music", label: "Nature with Music", icon: "music.note")
                 categoryButton(category: "Sound Healing", label: "Sound Healing", icon: "circle.grid.hex.fill") // Bowl-like icon
                 categoryButton(category: "Ambient Electronic", label: "Ambient Electronic", icon: "antenna.radiowaves.left.and.right")
+                categoryButton(category: "City Sounds", label: "City Sounds", icon: "building.2.crop.circle.fill")
                 
                 Spacer() // This spacer will help center the content vertically
             }
@@ -83,7 +84,7 @@ struct CategorySelectionView: View {
                     .fontWeight(.semibold)
                     .foregroundColor(.black)
 
-                Spacer()
+            
 
                 // Indicator showing the number of soundscapes in the category with wave icon
                 HStack(spacing: 5) {
