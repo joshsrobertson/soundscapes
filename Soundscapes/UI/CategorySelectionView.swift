@@ -16,13 +16,13 @@ struct CategorySelectionView: View {
                 KFImage(URL(string: selectedSoundscapeImageURL)) // Load image from S3 URL
                     .resizable()
                     .placeholder { // Display a ProgressView while loading
-                                           ZStack {
-                                               Color.black.edgesIgnoringSafeArea(.all) // Background color while loading
-                                               ProgressView()
-                                                   .progressViewStyle(CircularProgressViewStyle(tint: .white))
-                                                   .scaleEffect(2) // Make the loading circle larger
-                                           }
-                                       }
+                        ZStack {
+                            Color.black.edgesIgnoringSafeArea(.all) // Background color while loading
+                            ProgressView()
+                                .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                                .scaleEffect(2) // Make the loading circle larger
+                        }
+                    }
                     .scaledToFill()
                     .edgesIgnoringSafeArea(.all)
             } else {
@@ -39,13 +39,14 @@ struct CategorySelectionView: View {
             VStack(spacing: 30) {
                 // Moving the content up slightly by adding padding at the bottom
                 Spacer()
-                    .frame(height: 170) // Adjust the height to control how far up the content is moved
+                    .frame(height: 100) // Adjust the height to control how far up the content is moved
 
                 Text("Choose a Soundscape Category")
                     .font(.custom("Avenir", size: 18))
                     .foregroundColor(.white)
                 
                 // Category Buttons (each button navigates to the next step)
+                categoryButton(category: "Featured", label: "Featured", icon: "star.fill")
                 categoryButton(category: "Nature Sounds", label: "Pure Nature Sounds", icon: "leaf.fill")
                 categoryButton(category: "Nature Music", label: "Nature with Music", icon: "music.note")
                 categoryButton(category: "Sound Healing", label: "Sound Healing", icon: "circle.grid.hex.fill") // Bowl-like icon
@@ -78,13 +79,14 @@ struct CategorySelectionView: View {
 
                 Spacer()
 
-                // Category text
+                // Category text, centered
                 Text(label)
                     .font(.custom("Avenir", size: 16))
                     .fontWeight(.semibold)
                     .foregroundColor(.black)
+                    .frame(maxWidth: .infinity, alignment: .center) // Center the text
 
-            
+                Spacer() // Add space to ensure text is centered
 
                 // Indicator showing the number of soundscapes in the category with wave icon
                 HStack(spacing: 5) {
@@ -95,6 +97,7 @@ struct CategorySelectionView: View {
                         .font(.custom("Avenir", size: 14))
                         .foregroundColor(.black)
                 }
+                .padding(.trailing) // Optional padding on the right for spacing
             }
             .padding()
             .frame(width: 300) // Adjust the frame width to 300

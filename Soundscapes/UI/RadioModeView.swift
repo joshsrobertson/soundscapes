@@ -1,11 +1,13 @@
 import SwiftUI
 import Kingfisher
+import AVFoundation
+import Combine
 
 struct RadioModeView: View {
     @StateObject var radioAudioManager = RadioAudioManager()
     @State private var selectedSoundscape: Soundscape? // Store the current soundscape being played
     @State private var sleepTimerSelection = 0 // For dropdown selection
-    let sleepTimerOptions = [0, 5, 10, 15, 20, 30, 45, 60] // Sleep timer options in minutes (added 1 minute)
+    let sleepTimerOptions = [0, 5, 10, 15, 20, 30, 45, 60] // Sleep timer options in minutes
     @State private var sleepTimerRemaining: Int? = nil // Track remaining sleep timer
     @State private var sleepTimer: Timer? // Keep track of the timer
     @Environment(\.presentationMode) var presentationMode // For navigating back to home
@@ -52,20 +54,19 @@ struct RadioModeView: View {
                         .padding(.horizontal, 20)
                 }
 
-                // Progress bar showing elapsed time
+                /* Progress bar showing elapsed time
                 if selectedSoundscape != nil {
-                    ProgressBar(value: radioAudioManager.currentTime / (radioAudioManager.currentTime + radioAudioManager.remainingTime))
+                    ProgressBar(value: radioAudioManager.progress) // Use progress calculated in RadioAudioManager
                         .frame(height: 8)
                         .padding(.horizontal, 20)
                         .padding(.vertical, 40)
-                }
+                }*/
 
                 // Sleep Timer section
                 VStack(spacing: 10) {
                     Text("Sleep Timer")
                         .font(.custom("Avenir", size: 16))
                         .foregroundColor(.white)
-                       
 
                     // Sleep Timer Dropdown
                     Picker("Set Sleep Timer", selection: $sleepTimerSelection) {
@@ -97,7 +98,6 @@ struct RadioModeView: View {
                             .padding(.top, 10)
                     }
                 }
-
 
                 // Buttons for next soundscape and stopping
                 VStack(spacing: 20) {
@@ -138,12 +138,6 @@ struct RadioModeView: View {
             .onDisappear {
                 stopSleepTimer() // Stop the timer when the view disappears
             }
-            .onChange(of: radioAudioManager.currentTime) { currentTime in
-                // If the soundscape ends, play the next one
-                if currentTime <= 0 {
-                    playNextSoundscape()
-                }
-            }
         }
     }
 
@@ -151,7 +145,9 @@ struct RadioModeView: View {
     private func playNextSoundscape() {
         if let nextSoundscape = radioAudioManager.getNextRandomSoundscape(from: soundscapes) {
             selectedSoundscape = nextSoundscape
-            radioAudioManager.playSoundscape(soundscape: nextSoundscape)
+            radioAudioManager.playSoundscape(soundscape: nextSoundscape) { [self] in
+                playNextSoundscape() // Play the next soundscape on completion
+            }
         }
     }
 
@@ -205,5 +201,106 @@ struct ProgressBar: View {
             }
         }
         .frame(height: 8)
+    }
+}
+
+class RadioAudioManager: NSObject, ObservableObject {
+    @Published var currentTime: TimeInterval = 0
+    @Published var remainingTime: TimeInterval = 0
+    @Published var progress: Double = 0.0 // Add progress to be used in ProgressBar
+    private var player: AVPlayer?
+    private var timer: Timer?
+    private var fadeOutTimer: Timer?
+    private var soundscapesQueue: [Soundscape] = []
+
+    // Get next random soundscape
+    func getNextRandomSoundscape(from soundscapes: [Soundscape]) -> Soundscape? {
+        if soundscapesQueue.isEmpty {
+            soundscapesQueue = soundscapes.shuffled()
+        }
+        return soundscapesQueue.removeFirst()
+    }
+
+    // Play soundscape from URL with completion handling
+    func playSoundscape(soundscape: Soundscape, completion: @escaping () -> Void) {
+        guard let url = URL(string: soundscape.audioURL) else {
+            print("Invalid URL for soundscape audio")
+            return
+        }
+
+        // Create an AVPlayer with the soundscape URL
+        player = AVPlayer(url: url)
+        player?.volume = 1.0 // Set volume
+
+        // Add an observer for when the audio finishes playing
+        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player?.currentItem, queue: .main) { [weak self] _ in
+            self?.stopPlayback()
+            completion() // Call completion to play next soundscape
+        }
+
+        // Add periodic time observer to update current and remaining time
+        player?.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1), queue: .main) { [weak self] time in
+            guard let self = self else { return }
+            self.currentTime = time.seconds
+            self.remainingTime = (self.player?.currentItem?.duration.seconds ?? 0) - time.seconds
+            self.progress = self.currentTime / (self.currentTime + self.remainingTime) // Update progress
+        }
+
+        // Start playing
+        player?.play()
+
+        // Reset current time and remaining time
+        currentTime = 0
+        remainingTime = player?.currentItem?.duration.seconds ?? 0
+
+        // Start the timer to update elapsed time
+        startTimer()
+    }
+
+    // Start timer to track elapsed and remaining time
+    private func startTimer() {
+        timer?.invalidate() // Invalidate any existing timer
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [unowned self] _ in
+            if let player = player {
+                currentTime = player.currentTime().seconds
+                remainingTime = player.currentItem?.duration.seconds ?? 0 - currentTime
+                progress = currentTime / (currentTime + remainingTime) // Update progress
+            }
+        }
+    }
+
+    // Stop playback and invalidate timers
+    func stopPlayback() {
+        player?.pause()
+        timer?.invalidate()
+        fadeOutTimer?.invalidate()
+        NotificationCenter.default.removeObserver(self) // Remove observer
+    }
+
+    // Fade out the sound over time
+    func fadeOut(duration: TimeInterval) {
+        guard let player = player else { return }
+
+        let fadeSteps: Double = 20
+        let fadeInterval = duration / fadeSteps
+        let volumeStep = player.volume / Float(fadeSteps)
+
+        fadeOutTimer?.invalidate()
+        fadeOutTimer = Timer.scheduledTimer(withTimeInterval: fadeInterval, repeats: true) { [unowned self] timer in
+            if player.volume > 0.05 {
+                player.volume -= volumeStep
+            } else {
+                stopPlayback()
+                timer.invalidate()
+            }
+        }
+    }
+
+    // Set sleep timer
+    func setSleepTimer(minutes: Int) {
+        let sleepTime = TimeInterval(minutes * 60)
+        Timer.scheduledTimer(withTimeInterval: sleepTime, repeats: false) { [unowned self] _ in
+            fadeOut(duration: 60)
+        }
     }
 }
