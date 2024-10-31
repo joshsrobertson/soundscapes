@@ -2,7 +2,8 @@ import AVFoundation
 import Combine
 
 class SoundscapeAudioManager: ObservableObject {
-    private var audioPlayer: AVPlayer?
+    private var player: AVQueuePlayer?
+    private var looper: AVPlayerLooper?
     @Published var isPlaying = false
     @Published var isSleepMode = false // Flag to track Sleep Mode
 
@@ -12,42 +13,46 @@ class SoundscapeAudioManager: ObservableObject {
             print("Error: Invalid URL for soundscape: \(url)")
             return
         }
-        
-        // Create a new AVPlayer instance for streaming from the S3 URL
-        audioPlayer = AVPlayer(url: soundscapeURL)
-        
-        // Add an observer to detect when the audio finishes playing
+
+        // Create a new AVPlayerItem for streaming from the S3 URL
+        let playerItem = AVPlayerItem(url: soundscapeURL)
+        player = AVQueuePlayer(playerItem: playerItem)
+
+        // Setup the looper to loop the soundscape
+        looper = AVPlayerLooper(player: player!, templateItem: playerItem)
+
+        // Observe the playback to detect when the audio is playing
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(audioDidFinishPlaying),
                                                name: .AVPlayerItemDidPlayToEndTime,
-                                               object: audioPlayer?.currentItem)
+                                               object: playerItem)
 
         // Play the audio
-        audioPlayer?.play()
+        player?.play()
         isPlaying = true
     }
 
     // Called when the audio finishes playing
     @objc private func audioDidFinishPlaying() {
-        stopAudio()
         print("Audio finished playing")
-        // Handle logic for when audio completes (e.g., start the next soundscape in Radio Mode)
+        // No need to stop; the looper handles looping automatically
     }
 
     // Stop the audio when needed
     func stopAudio() {
-        audioPlayer?.pause()
-        audioPlayer = nil
+        player?.pause()
+        player = nil
+        looper = nil
         isPlaying = false
     }
 
     // Add this function for fading out the audio
     func fadeOut(duration: TimeInterval = 7.0) {
-        guard let player = audioPlayer else { return }
-        
+        guard let player = player else { return }
+
         let steps: Double = 20 // Number of steps in the fade out
         let interval = duration / steps
-        let volumeStep = 1.0 / steps
+        let volumeStep = player.volume / Float(steps)
 
         // Reduce the volume progressively
         var currentVolume: Float = player.volume
@@ -64,7 +69,7 @@ class SoundscapeAudioManager: ObservableObject {
 
     // Method to handle triggering the fade-out based on remaining time
     func checkForFadeOut(remainingTime: Int) {
-        guard isSleepMode, let player = audioPlayer else { return }
+        guard isSleepMode, let player = player else { return }
         
         // Gradually reduce volume as the timer reaches specific milestones
         if remainingTime == 300 { player.volume = 0.5 }

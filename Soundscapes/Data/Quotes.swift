@@ -266,25 +266,25 @@ let quotes = [
 
     Quote(text: "Visiting the Bonneville Salt Flats is an experience that transcends mere sightseeing; it’s a journey into a world where nature and human ambition collide.", soundscapeID: "Bonneville"),
     
-    Quote(text: "The Rocky Mountains stretch over 3,000 miles from Canada to New Mexico, making them one of the longest mountain ranges in North America.", soundscapeID: "RockyMountainMusic"),
+    Quote(text: "The Rocky Mountains stretch over 3,000 miles from Canada to New Mexico, making them one of the longest mountain ranges in North America.", soundscapeID: "MountainStreamMusic"),
 
-    Quote(text: "Home to numerous national parks, including Rocky Mountain National Park and Glacier National Park, the Rockies offer stunning landscapes and diverse ecosystems.", soundscapeID: "RockyMountainMusic"),
+    Quote(text: "Home to numerous national parks, including Rocky Mountain National Park and Glacier National Park, the Rockies offer stunning landscapes and diverse ecosystems.", soundscapeID: "MountainStreamMusic"),
 
-    Quote(text: "The Rockies are known for their rugged terrain, including jagged peaks, deep valleys, and crystal-clear lakes, attracting outdoor enthusiasts year-round.", soundscapeID: "RockyMountainMusic"),
+    Quote(text: "The Rockies are known for their rugged terrain, including jagged peaks, deep valleys, and crystal-clear lakes, attracting outdoor enthusiasts year-round.", soundscapeID: "MountainStreamMusic"),
 
-    Quote(text: "Wildlife in the Rocky Mountains includes species such as elk, bighorn sheep, mountain goats, and black bears, making it a popular destination for wildlife watching.", soundscapeID: "RockyMountainMusic"),
+    Quote(text: "Wildlife in the Rocky Mountains includes species such as elk, bighorn sheep, mountain goats, and black bears, making it a popular destination for wildlife watching.", soundscapeID: "MountainStreamMusic"),
 
-    Quote(text: "The Rocky Mountains are rich in geological history, with formations dating back over 300 million years, showcasing a variety of rock types and minerals.", soundscapeID: "RockyMountainMusic"),
+    Quote(text: "The Rocky Mountains are rich in geological history, with formations dating back over 300 million years, showcasing a variety of rock types and minerals.", soundscapeID: "MountainStreamMusic"),
 
-    Quote(text: "The area is renowned for its outdoor recreational opportunities, including hiking, skiing, snowboarding, rock climbing, and mountain biking.", soundscapeID: "RockyMountainMusic"),
+    Quote(text: "The area is renowned for its outdoor recreational opportunities, including hiking, skiing, snowboarding, rock climbing, and mountain biking.", soundscapeID: "MountainStreamMusic"),
 
-    Quote(text: "The stunning vistas of the Rockies have inspired countless artists, musicians, and writers, contributing to the cultural heritage of the region.", soundscapeID: "RockyMountainMusic"),
+    Quote(text: "The stunning vistas of the Rockies have inspired countless artists, musicians, and writers, contributing to the cultural heritage of the region.", soundscapeID: "MountainStreamMusic"),
 
-    Quote(text: "Indigenous peoples, such as the Ute and Shoshone tribes, have historically inhabited the Rocky Mountains, relying on its resources for sustenance and cultural practices.", soundscapeID: "RockyMountainMusic"),
+    Quote(text: "Indigenous peoples, such as the Ute and Shoshone tribes, have historically inhabited the Rocky Mountains, relying on its resources for sustenance and cultural practices.", soundscapeID: "MountainStreamMusic"),
 
-    Quote(text: "The Rockies play a crucial role in the water supply for the western United States, with many rivers originating in the mountain range.", soundscapeID: "RockyMountainMusic"),
+    Quote(text: "The Rockies play a crucial role in the water supply for the western United States, with many rivers originating in the mountain range.", soundscapeID: "MountainStreamMusic"),
 
-    Quote(text: "The Rocky Mountains offer a unique soundscape, from the rustling of pine trees to the sounds of rushing rivers, creating a peaceful environment for reflection and meditation.", soundscapeID: "RockyMountainMusic"),
+    Quote(text: "The Rocky Mountains offer a unique soundscape, from the rustling of pine trees to the sounds of rushing rivers, creating a peaceful environment for reflection and meditation.", soundscapeID: "MountainStreamMusic"),
     
     Quote(text: "The 34-inch symphonic gong produces deep, resonant tones that are known for their calming and grounding effects during meditation and sound therapy.", soundscapeID: "SymphonicGong"),
 
