@@ -69,13 +69,15 @@ class SoundscapeAudioManager: ObservableObject {
 
     // Method to handle triggering the fade-out based on remaining time
     func checkForFadeOut(remainingTime: Int) {
-        guard isSleepMode, let player = player else { return }
-        
         // Gradually reduce volume as the timer reaches specific milestones
-        if remainingTime == 300 { player.volume = 0.5 }
-        if remainingTime == 250 { player.volume = 0.4 }
-        if remainingTime == 200 { player.volume = 0.3 }
-        if remainingTime == 150 { player.volume = 0.2 }
+        if isSleepMode && remainingTime == 290 { player?.volume = 0.9 }
+        if isSleepMode && remainingTime == 289 { player?.volume = 0.8 }
+        if isSleepMode && remainingTime == 288 { player?.volume = 0.7 }
+        if isSleepMode && remainingTime == 287 { player?.volume = 0.6 }
+        if isSleepMode && remainingTime == 200 { player?.volume = 0.5 }
+        if isSleepMode && remainingTime == 199 { player?.volume = 0.4 }
+        if isSleepMode && remainingTime == 198 { player?.volume = 0.3 }
+        if isSleepMode && remainingTime == 197 { player?.volume = 0.2 }
         
         // Trigger the fade-out when 7 seconds remain
         if remainingTime == 7 {

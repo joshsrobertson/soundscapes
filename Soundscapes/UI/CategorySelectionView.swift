@@ -31,11 +31,11 @@ struct CategorySelectionView: View {
                     .scaledToFill()
                     .edgesIgnoringSafeArea(.all)
             }
-            
+
             // Gray overlay for better readability of text
             Color.black.opacity(0.6)
                 .edgesIgnoringSafeArea(.all)
-            
+
             VStack(spacing: 30) {
                 // Moving the content up slightly by adding padding at the bottom
                 Spacer()
@@ -44,15 +44,15 @@ struct CategorySelectionView: View {
                 Text("Choose a Soundscape Category")
                     .font(.custom("Avenir", size: 18))
                     .foregroundColor(.white)
-                
+
                 // Category Buttons (each button navigates to the next step)
-                categoryButton(category: "Featured", label: "Featured", icon: "star.fill")
+                categoryButton(category: "All Soundscapes", label: "All Soundscapes", icon: "list.bullet")
                 categoryButton(category: "Nature Sounds", label: "Pure Nature Sounds", icon: "leaf.fill")
-                categoryButton(category: "Nature Music", label: "Nature with Music", icon: "music.note")
+                categoryButton(category: "Nature Music", label: "Nature Music", icon: "music.note")
                 categoryButton(category: "Sound Healing", label: "Sound Healing", icon: "circle.grid.hex.fill") // Bowl-like icon
                 categoryButton(category: "Ambient Electronic", label: "Ambient Electronic", icon: "antenna.radiowaves.left.and.right")
                 categoryButton(category: "City Sounds", label: "City Sounds", icon: "building.2.crop.circle.fill")
-                
+
                 Spacer() // This spacer will help center the content vertically
             }
             .onAppear {
@@ -69,7 +69,7 @@ struct CategorySelectionView: View {
             isBreathingMode: isBreathingMode,
             isSleepMode: isSleepMode,
             isJourneyMode: isJourneyMode,
-            filteredSoundscapes: soundscapes.filter { $0.category.contains(category) }
+            filteredSoundscapes: getFilteredSoundscapes(for: category) // Get filtered soundscapes based on category
         )) {
             HStack {
                 // Category icon on the left side
@@ -79,25 +79,21 @@ struct CategorySelectionView: View {
 
                 Spacer()
 
-                // Category text, centered
+                // Category text
                 Text(label)
                     .font(.custom("Avenir", size: 16))
                     .fontWeight(.semibold)
                     .foregroundColor(.black)
-                    .frame(maxWidth: .infinity, alignment: .center) // Center the text
-
-                Spacer() // Add space to ensure text is centered
 
                 // Indicator showing the number of soundscapes in the category with wave icon
                 HStack(spacing: 5) {
-                    Text("\(soundscapes.filter { $0.category.contains(category) }.count)")
+                    Text("\(getFilteredSoundscapes(for: category).count)")
                         .font(.custom("Avenir", size: 14))
                         .foregroundColor(.black)
                     Image(systemName: "waveform.path")
                         .font(.custom("Avenir", size: 14))
                         .foregroundColor(.black)
                 }
-                .padding(.trailing) // Optional padding on the right for spacing
             }
             .padding()
             .frame(width: 300) // Adjust the frame width to 300
@@ -110,5 +106,14 @@ struct CategorySelectionView: View {
     // Function to get a random image URL from any soundscape
     func getRandomImageURL() -> String {
         return soundscapes.randomElement()?.imageURL ?? "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/BG+Images/Xochimilco.jpg" // Default image URL
+    }
+
+    // Function to get filtered soundscapes based on the category
+    func getFilteredSoundscapes(for category: String) -> [Soundscape] {
+        if category == "All Soundscapes" {
+            return soundscapes.shuffled() // Return all soundscapes in a random order
+        } else {
+            return soundscapes.filter { $0.category.contains(category) }.shuffled() // Shuffle the filtered soundscapes
+        }
     }
 }

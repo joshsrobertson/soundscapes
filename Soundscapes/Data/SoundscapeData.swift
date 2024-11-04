@@ -12,6 +12,12 @@ struct Soundscape: Identifiable, Hashable {
 
 // Define the soundscapes with their categories
 let soundscapes: [Soundscape] = [
+    Soundscape(id: "CopenhagenWind",
+               name: "Copenhagen",
+               description: "An ethereal piano and violin soundscape inspired by the nature sounds around Copenhagen, Denmark created by Josh Robertson and Andreas Bernitt.",
+               imageURL: "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/BG+Images/CopenhagenWind.jpg",
+               audioURL: "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/Soundscape+Audio/CopenhagenWind.mp3",
+               category: ["Nature Music"]),
     Soundscape(id: "IcelandGlacier",
                name: "Iceland Glacier",
                description: "The sounds of an ice cave deep within the Vatnajökull Glacier with cave vocals, recorded by Charles Van Kirk.",
@@ -85,6 +91,13 @@ let soundscapes: [Soundscape] = [
                imageURL: "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/BG+Images/Mushroom.jpg",
                audioURL: "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/Soundscape+Audio/Mushroom.mp3",
                category: ["Ambient Electronic"]),
+    Soundscape(id: "AmbientZither",
+               name: "Aurora",
+               description: "An intriguing soundscape crafted from source material by renowned ambient multi-instrumentalist, Laraaji.",
+               imageURL: "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/BG+Images/AmbientZither.jpg",
+               audioURL: "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/Soundscape+Audio/AmbientZither.mp3",
+               category: ["Ambient Electronic"]),
+    
     Soundscape(id: "Electronic",
                name: "Outer Space Frequencies with Tristan Arp",
                description: "An intriguing soundscape created from NASA's outer space frequencies by Tristan Arp.",
@@ -97,6 +110,13 @@ let soundscapes: [Soundscape] = [
                imageURL: "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/BG+Images/TibetanBowls.jpg",
                audioURL: "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/Soundscape+Audio/TibetanBowls.mp3",
                category: ["Sound Healing"]),
+    Soundscape(id: "SingingBowls",
+               name: "Crystal Singing Bowls",
+               description: "A beautiful extended sound meditation featuring the highest-quality crystal singing bowls.",
+               imageURL: "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/BG+Images/SingingBowls.jpg",
+               audioURL: "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/Soundscape+Audio/SingingBowls.mp3",
+               category: ["Sound Healing"]),
+ 
     Soundscape(id: "432Acoustic",
                name: "432hz Acoustic Instruments",
                description: "A sound meditation featuring an ocean wave drum, crystal bowls, and shruti box all tuned to 432hz - a more natural tuning for aligning body and mind.",
@@ -128,6 +148,12 @@ let soundscapes: [Soundscape] = [
                imageURL: "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/BG+Images/Bazaar.jpg",
                audioURL: "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/Soundscape+Audio/Bazaar.mp3",
                category: ["City Sounds"]),
+    Soundscape(id: "Synethesia",
+               name: "Synesthesia",
+               description: "A blend of atmospheric guitar, piano, and vocals.",
+               imageURL: "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/BG+Images/Synesthesia.jpg",
+               audioURL: "https://soundjourneys-hosted-content.s3.us-east-2.amazonaws.com/Soundscape+Audio/Synesthesia.mp3",
+               category: ["Ambient Electronic"]),
     
     
 ]

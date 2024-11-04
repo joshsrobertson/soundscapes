@@ -365,6 +365,61 @@ let quotes = [
     Quote(text: "The soundscape of Akagera is characterized by the calls of birds, the rustling of grass, and the distant sounds of wildlife, creating a tranquil atmosphere.", soundscapeID: "Rwanda"),
 
     Quote(text: "Akagera National Park plays a crucial role in protecting Rwanda's natural heritage and contributes to the country's overall conservation and ecotourism efforts.", soundscapeID: "Rwanda"),
+    
+    Quote(text: "'The wound is the place where the Light enters you.' - Rumi", soundscapeID: "AmbientZither"),
+
+    Quote(text: "'The quieter you become, the more you can hear.' - Ram Dass", soundscapeID: "AmbientZither"),
+
+    Quote(text: "'Let the beauty we love be what we do.' - Rumi", soundscapeID: "AmbientZither"),
+
+    Quote(text: "'When the soul lies down in that grass, the world is too full to talk about ideas, language, even the phrase each other doesn't make any sense.' - Rumi", soundscapeID: "AmbientZither"),
+
+    Quote(text: "'In the midst of movement and chaos, keep stillness inside of you.' - Deepak Chopra", soundscapeID: "AmbientZither"),
+
+    Quote(text: "'You are not a drop in the ocean. You are the entire ocean in a drop.' - Rumi", soundscapeID: "AmbientZither"),
+
+    Quote(text: "'The only lasting beauty is the beauty of the heart.' - Rumi", soundscapeID: "AmbientZither"),
+
+    Quote(text: "'Stillness is where creativity and solutions are found.' - Eckhart Tolle", soundscapeID: "AmbientZither"),
+
+    Quote(text: "'Everything that you think is true is true for you.' - Rumi", soundscapeID: "AmbientZither"),
+
+    Quote(text: "'Breathe in love and breathe out gratitude.' - Anonymous", soundscapeID: "AmbientZither"),
+    
+    Quote(text: "Crystal singing bowls are musical instruments made from quartz crystal, known for their pure, resonant tones that are used in sound healing and meditation.", soundscapeID: "SingingBowls"),
+
+    Quote(text: "These bowls are often crafted from 99.99% pure quartz crystal, which allows them to produce a clear and powerful sound when struck or played with a mallet.", soundscapeID: "SingingBowls"),
+
+    Quote(text: "Each crystal singing bowl is typically tuned to a specific frequency, corresponding to different chakras in the body, promoting balance and healing.", soundscapeID: "SingingBowls"),
+
+    Quote(text: "The sound produced by crystal singing bowls can create a calming atmosphere, helping to reduce stress and anxiety during meditation sessions.", soundscapeID: "SingingBowls"),
+
+    Quote(text: "Playing crystal singing bowls generates harmonic overtones that resonate with the body, allowing for deep relaxation and emotional release.", soundscapeID: "SingingBowls"),
+
+    Quote(text: "Crystal singing bowls can be used in group sound healing sessions, creating a collective experience that enhances the meditative process for participants.", soundscapeID: "SingingBowls"),
+
+    Quote(text: "Many practitioners believe that the vibrations from crystal singing bowls can help clear energetic blockages and promote a sense of well-being.", soundscapeID: "SingingBowls"),
+
+    Quote(text: "The bowls are available in various sizes and colors, with each bowl producing a unique sound that can be tailored to the needs of the user.", soundscapeID: "SingingBowls"),
+
+    Quote(text: "Crystal singing bowls have gained popularity in recent years as more people discover their benefits for meditation, mindfulness, and self-care.", soundscapeID: "SingingBowls"),
+    
+    Quote(text: "Copenhagen is known for its commitment to sustainability and green spaces, featuring over 90 parks and gardens that enhance the city's natural beauty.", soundscapeID: "CopenhagenWind"),
+
+    Quote(text: "The city's famous Tivoli Gardens, established in 1843, is one of the oldest amusement parks in the world, showcasing beautiful landscaping and a variety of plant species.", soundscapeID: "CopenhagenWind"),
+
+    Quote(text: "Copenhagen's waterfront areas, such as Nyhavn and the harbor, provide a unique blend of urban life and nature, with opportunities for outdoor activities like kayaking and sailing.", soundscapeID: "CopenhagenWind"),
+
+    Quote(text: "The city's commitment to green living includes extensive bike paths and pedestrian-friendly areas, promoting a healthy lifestyle while reducing traffic emissions.", soundscapeID: "CopenhagenWind"),
+
+    Quote(text: "The city's efforts to integrate nature into urban planning have led to the creation of green roofs, which help to improve air quality and support biodiversity.", soundscapeID: "CopenhagenWind"),
+
+    Quote(text: "Copenhagen is surrounded by natural landscapes, including beaches and forests, providing residents with easy access to outdoor recreation and natural beauty.", soundscapeID: "CopenhagenWind"),
+
+    Quote(text: "The Amager Nature Park in Copenhagen offers a blend of wetlands, forests, and sandy beaches, creating habitats for various wildlife species and providing a peaceful escape from the urban environment.", soundscapeID: "CopenhagenWind"),
+
+    Quote(text: "Copenhagen's focus on nature and sustainability makes it a model for urban living, where the natural environment is celebrated and integrated into daily life.", soundscapeID: "CopenhagenWind"),
+    
 
 
 

@@ -54,14 +54,6 @@ struct RadioModeView: View {
                         .padding(.horizontal, 20)
                 }
 
-                /* Progress bar showing elapsed time
-                if selectedSoundscape != nil {
-                    ProgressBar(value: radioAudioManager.progress) // Use progress calculated in RadioAudioManager
-                        .frame(height: 8)
-                        .padding(.horizontal, 20)
-                        .padding(.vertical, 40)
-                }*/
-
                 // Sleep Timer section
                 VStack(spacing: 10) {
                     Text("Sleep Timer")
@@ -137,6 +129,7 @@ struct RadioModeView: View {
             }
             .onDisappear {
                 stopSleepTimer() // Stop the timer when the view disappears
+                radioAudioManager.stopPlayback() // Stop playback when the view disappears
             }
         }
     }

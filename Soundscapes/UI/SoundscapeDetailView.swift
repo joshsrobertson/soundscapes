@@ -184,7 +184,10 @@ struct SoundscapeDetailView: View {
                                 remainingTime: timerModel.remainingTime,
                                 cycleStartTime: cycleStartTime
                             )
+                            
+                            // Check for fade out based on remaining time
                             soundscapeAudioManager.checkForFadeOut(remainingTime: timerModel.remainingTime)
+                        
 
                             // Update the quote every 20 seconds in Journey Mode
                             if isJourneyMode {
