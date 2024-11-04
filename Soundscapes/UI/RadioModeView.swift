@@ -206,6 +206,23 @@ class RadioAudioManager: NSObject, ObservableObject {
     private var fadeOutTimer: Timer?
     private var soundscapesQueue: [Soundscape] = []
 
+    // Initialize the audio session for playback
+    override init() {
+        super.init()
+        setupAudioSession() // Set up the audio session on initialization
+    }
+
+    // Set up audio session to allow playback even when the device is on silent mode
+    private func setupAudioSession() {
+        do {
+            let audioSession = AVAudioSession.sharedInstance()
+            try audioSession.setCategory(.playback, mode: .default, options: [.mixWithOthers])
+            try audioSession.setActive(true)
+        } catch {
+            print("Error setting up audio session: \(error.localizedDescription)")
+        }
+    }
+
     // Get next random soundscape
     func getNextRandomSoundscape(from soundscapes: [Soundscape]) -> Soundscape? {
         if soundscapesQueue.isEmpty {
